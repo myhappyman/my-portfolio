@@ -85,7 +85,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     color: ${(props) => props.theme.color};
     line-height: 1.2;
-    background-color: ${(props) => props.theme.bgColor};
+    /* background-color: ${(props) => props.theme.bgColor}; */
+    background: linear-gradient(#2b1055, #7597de);
   }
   a {
     text-decoration: none;

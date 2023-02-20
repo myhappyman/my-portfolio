@@ -14,9 +14,12 @@ function Header() {
 
 export default Header;
 
-const Wrapper = styled.div`
-  padding: 2.4rem;
-  margin-bottom: 2.4rem;
+const Wrapper = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3rem 10rem;
+  z-index: 99999;
 `;
 
 const Box = styled.div`

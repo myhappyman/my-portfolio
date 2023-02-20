@@ -49,7 +49,9 @@ function FirstSection() {
 export default FirstSection;
 
 const Wrapper = styled.div`
+  position: relative;
   height: 80vh;
+  background-color: #1c0522;
 `;
 
 const Area = styled.div`
