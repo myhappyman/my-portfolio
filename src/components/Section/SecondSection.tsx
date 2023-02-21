@@ -5,12 +5,12 @@ function SecondSection() {
   return (
     <Wrapper>
       <MoveTextArea>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
-        <Paragraph>PSW HOMEPAGE! </Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
       </MoveTextArea>
     </Wrapper>
   );

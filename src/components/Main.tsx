@@ -8,16 +8,46 @@ import moutains_behind from "../assets/imgs/main/mountains_behind.png";
 
 function Main() {
   const ref_stars = useRef<HTMLImageElement | null>(null);
+  const ref_moon = useRef<HTMLImageElement | null>(null);
+  const ref_moutains_behind = useRef<HTMLImageElement | null>(null);
+  const ref_moutains_front = useRef<HTMLImageElement | null>(null);
+  const ref_mainText = useRef<HTMLParagraphElement | null>(null);
+  const ref_explore = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
+    // 스크롤 이벤트에 따른 조절 처리
     window.addEventListener("scroll", () => {
       const { scrollY } = window;
+      // 별 이미지
       if (ref_stars.current) {
-        ref_stars.current.style.left = scrollY + "px";
+        ref_stars.current.style.left = `${scrollY * 0.025}rem`;
       }
 
-      //15.33초부터 다시 url:https://www.youtube.com/watch?v=1wfeqDyMUx4
-      // ref_stars.style.left = scrollY + "px";
+      // 달 이미지
+      if (ref_moon.current) {
+        ref_moon.current.style.top = `${scrollY * 0.15}rem`;
+      }
+
+      // 뒷부분 이미지
+      if (ref_moutains_behind.current) {
+        ref_moutains_behind.current.style.top = `${scrollY * 0.06}rem`;
+      }
+
+      // 앞부분 이미지
+      if (ref_moutains_front.current) {
+        ref_moutains_front.current.style.top = `${scrollY * 0.15}rem`;
+      }
+
+      // 포트폴리오 텍스트
+      if (ref_mainText.current) {
+        ref_mainText.current.style.marginRight = `${scrollY * 0.4}rem`;
+        ref_mainText.current.style.marginTop = `${scrollY * 0.15}rem`;
+      }
+
+      // 더보기 버튼
+      if (ref_explore.current) {
+        ref_explore.current.style.marginTop = `${scrollY * 0.25}rem`;
+      }
     });
   }, []);
   return (
@@ -25,18 +55,20 @@ function Main() {
       <Header />
       <Section>
         <ImgTag src={stars} alt="stars" className="stars" ref={ref_stars} />
-        <ImgTag src={moon} alt="moon" className="moon" />
+        <ImgTag src={moon} alt="moon" className="moon" ref={ref_moon} />
         <ImgTag
           src={moutains_behind}
           alt="moutains_behind"
           className="moutains_behind"
+          ref={ref_moutains_behind}
         />
-        <MainText>PSW PORTFOLIO</MainText>
-        <Explore>Explore</Explore>
+        <MainText ref={ref_mainText}>PORTFOLIO</MainText>
+        <Explore ref={ref_explore}>Explore</Explore>
         <ImgTag
           src={moutains_front}
           alt="moutains_front"
           className="moutains_front"
+          ref={ref_moutains_front}
         />
       </Section>
     </Wrapper>
@@ -57,6 +89,7 @@ const Section = styled.section`
   width: 100%;
   height: 100vh;
   padding: 10rem;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -96,12 +129,13 @@ const ImgTag = styled.img`
   }
 `;
 
-const MainText = styled.h2`
+const MainText = styled.p`
   position: absolute;
+  top: 40%;
   color: #fff;
   font-weight: 700;
   white-space: nowrap;
-  font-size: 7.5vw;
+  font-size: 9.5rem;
   z-index: 9;
 `;
 
@@ -109,9 +143,10 @@ const Explore = styled.button`
   display: inline-block;
   padding: 0.8rem 3rem;
   border-radius: 4rem;
-  background: #fff;
-  color: #2b1055;
+  background: ${(props) => props.theme.btnColor};
+  color: ${(props) => props.theme.btnTxtColor};
   font-size: 1.5em;
   z-index: 9;
   transform: translateY(100px);
+  cursor: pointer;
 `;
