@@ -3,17 +3,17 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 
-function IntroduceSection() {
+function Contacts() {
   return (
     <Wrapper>
       <AnimationOnScroll animateIn="animate__bounceInUp">
-        <Title>Introduce</Title>
+        <Title>Contacts</Title>
       </AnimationOnScroll>
     </Wrapper>
   );
 }
 
-export default IntroduceSection;
+export default Contacts;
 
 const Wrapper = styled.section`
   padding: 2rem 10rem;

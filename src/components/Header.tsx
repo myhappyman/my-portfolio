@@ -51,6 +51,7 @@ const Wrapper = styled(motion.header)`
   left: 0;
   width: 100%;
   padding: 2rem 10rem;
+  mix-blend-mode: difference;
   z-index: 99999;
 `;
 

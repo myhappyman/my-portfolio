@@ -3,17 +3,17 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 
-function IntroduceSection() {
+function Skills() {
   return (
     <Wrapper>
       <AnimationOnScroll animateIn="animate__bounceInUp">
-        <Title>Introduce</Title>
+        <Title>Skills</Title>
       </AnimationOnScroll>
     </Wrapper>
   );
 }
 
-export default IntroduceSection;
+export default Skills;
 
 const Wrapper = styled.section`
   padding: 2rem 10rem;

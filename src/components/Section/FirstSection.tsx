@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import ImgP from "../../assets/imgs/main/P.svg";
 import ImgS from "../../assets/imgs/main/S.svg";
 
