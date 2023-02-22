@@ -1,12 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import stars from "../assets/imgs/main/stars.png";
 import moon from "../assets/imgs/main/moon.png";
 import moutains_front from "../assets/imgs/main/mountains_front.png";
 import moutains_behind from "../assets/imgs/main/mountains_behind.png";
+import { useSetRecoilState } from "recoil";
+import { IsUp } from "../atom";
 
 function Main() {
+  const setIsUp = useSetRecoilState(IsUp);
+  const [prevScroll, setPrevScroll] = useState(0);
+
   const ref_stars = useRef<HTMLImageElement | null>(null);
   const ref_moon = useRef<HTMLImageElement | null>(null);
   const ref_moutains_behind = useRef<HTMLImageElement | null>(null);
@@ -14,42 +19,58 @@ function Main() {
   const ref_mainText = useRef<HTMLParagraphElement | null>(null);
   const ref_explore = useRef<HTMLButtonElement | null>(null);
 
+  // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
+  const scrollToMoveMain = () => {
+    const { scrollY } = window;
+    // 별 이미지
+    if (ref_stars.current) {
+      ref_stars.current.style.left = `${scrollY * 0.025}rem`;
+    }
+
+    // 달 이미지
+    if (ref_moon.current) {
+      ref_moon.current.style.top = `${scrollY * 0.15}rem`;
+    }
+
+    // 뒷부분 이미지
+    if (ref_moutains_behind.current) {
+      ref_moutains_behind.current.style.top = `${scrollY * 0.06}rem`;
+    }
+
+    // 앞부분 이미지
+    if (ref_moutains_front.current) {
+      ref_moutains_front.current.style.top = `${scrollY * 0.15}rem`;
+    }
+
+    // 포트폴리오 텍스트
+    if (ref_mainText.current) {
+      ref_mainText.current.style.marginRight = `${scrollY * 0.4}rem`;
+      ref_mainText.current.style.marginTop = `${scrollY * 0.15}rem`;
+    }
+
+    // 더보기 버튼
+    if (ref_explore.current) {
+      ref_explore.current.style.marginTop = `${scrollY * 0.25}rem`;
+    }
+  };
+
+  // 스크롤 이벤트에 따른 상단 헤더 보여주거나 숨기기 애니메이트
+  const handleScroll = useCallback(() => {
+    const { scrollY } = window;
+    setIsUp(() => (scrollY - prevScroll > 0 ? true : false));
+    setPrevScroll(scrollY);
+  }, [prevScroll, setIsUp]);
+
   useEffect(() => {
-    // 스크롤 이벤트에 따른 조절 처리
-    window.addEventListener("scroll", () => {
-      const { scrollY } = window;
-      // 별 이미지
-      if (ref_stars.current) {
-        ref_stars.current.style.left = `${scrollY * 0.025}rem`;
-      }
-
-      // 달 이미지
-      if (ref_moon.current) {
-        ref_moon.current.style.top = `${scrollY * 0.15}rem`;
-      }
-
-      // 뒷부분 이미지
-      if (ref_moutains_behind.current) {
-        ref_moutains_behind.current.style.top = `${scrollY * 0.06}rem`;
-      }
-
-      // 앞부분 이미지
-      if (ref_moutains_front.current) {
-        ref_moutains_front.current.style.top = `${scrollY * 0.15}rem`;
-      }
-
-      // 포트폴리오 텍스트
-      if (ref_mainText.current) {
-        ref_mainText.current.style.marginRight = `${scrollY * 0.4}rem`;
-        ref_mainText.current.style.marginTop = `${scrollY * 0.15}rem`;
-      }
-
-      // 더보기 버튼
-      if (ref_explore.current) {
-        ref_explore.current.style.marginTop = `${scrollY * 0.25}rem`;
-      }
-    });
+    window.addEventListener("scroll", scrollToMoveMain);
+    return () => window.removeEventListener("scroll", scrollToMoveMain);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); //clean up
+  }, [handleScroll]);
+
   return (
     <Wrapper>
       <Header />
@@ -79,6 +100,10 @@ export default Main;
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  background: linear-gradient(
+    ${(props) => props.theme.bgGradientStartColor},
+    ${(props) => props.theme.bgGradientEndColor}
+  );
 `;
 
 const Section = styled.section`
@@ -133,7 +158,7 @@ const MainText = styled.p`
   position: absolute;
   top: 40%;
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   white-space: nowrap;
   font-size: 9.5rem;
   z-index: 9;

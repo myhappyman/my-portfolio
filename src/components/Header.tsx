@@ -1,20 +1,51 @@
 import React from "react";
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
+import { IsUp } from "../atom";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Header() {
+  const isUp = useRecoilValue(IsUp);
   return (
-    <Wrapper>
-      <Box>
-        <Logo>P.S.W.</Logo>
-        <Job>Front Web Programmer</Job>
-      </Box>
-    </Wrapper>
+    <AnimatePresence>
+      {!isUp && (
+        <Wrapper
+          variants={headerVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <Box>
+            <Logo>P.S.W.</Logo>
+            <Job>Front Web Programmer</Job>
+          </Box>
+        </Wrapper>
+      )}
+    </AnimatePresence>
   );
 }
 
 export default Header;
 
-const Wrapper = styled.header`
+const headerVariants = {
+  initial: { y: -300 },
+  animate: {
+    y: 0,
+    transition: {
+      type: "tween",
+      duration: 0.5,
+    },
+  },
+  exit: {
+    y: -300,
+    transition: {
+      type: "tween",
+      duration: 0.5,
+    },
+  },
+};
+
+const Wrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   left: 0;

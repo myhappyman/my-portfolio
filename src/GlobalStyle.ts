@@ -78,9 +78,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', 'Pretendard', sans-serif;
     font-weight: 300;
     color: ${(props) => props.theme.textColor};    
-    background: linear-gradient(${(props) =>
-      props.theme.bgGradientStartColor}, ${(props) =>
-  props.theme.bgGradientEndColor});
+    background-color: ${(props) => props.theme.bgColor};
   }
   a {
     text-decoration: none;

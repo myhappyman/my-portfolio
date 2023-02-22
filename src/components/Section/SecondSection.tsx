@@ -5,12 +5,12 @@ function SecondSection() {
   return (
     <Wrapper>
       <MoveTextArea>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
-        <Paragraph>박신우 페이지 테스트 중!!!</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
+        <Paragraph>세상에 이런 폰트가 나오다니 천재인듯</Paragraph>
       </MoveTextArea>
     </Wrapper>
   );
@@ -36,7 +36,7 @@ const MoveTextArea = styled.div`
 `;
 
 const Paragraph = styled.span`
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   animation: ${TextKeyframse} 5s linear infinite;
 `;

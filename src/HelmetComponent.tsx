@@ -14,8 +14,33 @@ function HelmetComponent() {
         {`
         @font-face {
             font-family: 'Pretendard';
-            src: url(./assets/font/Pretendard/Pretendard-Regular.woff);
-            src: url(./assets/font/Pretendard/Pretendard-Regular.woff) format('woff');    
+            font-weight: 200;
+            src: url(./assets/font/Pretendard/Pretendard-ExtraLight.woff2);
+            src: url(./assets/font/Pretendard/Pretendard-ExtraLight.woff2) format('font-woff2');    
+            unicode-range: U+AC00-D7A3;
+        }
+        
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 400;
+            src: url(./assets/font/Pretendard/Pretendard-Regular.woff2);
+            src: url(./assets/font/Pretendard/Pretendard-Regular.woff2) format('font-woff2');    
+            unicode-range: U+AC00-D7A3;
+        }
+
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 700;
+            src: url(./assets/font/Pretendard/Pretendard-Bold.woff2);
+            src: url(./assets/font/Pretendard/Pretendard-Bold.woff2) format('font-woff2');    
+            unicode-range: U+AC00-D7A3;
+        }
+
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 800;
+            src: url(./assets/font/Pretendard/Pretendard-ExtraBold.woff2);
+            src: url(./assets/font/Pretendard/Pretendard-ExtraBold.woff2) format('font-woff2');    
             unicode-range: U+AC00-D7A3;
         }
         `}
