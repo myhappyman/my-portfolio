@@ -7,6 +7,7 @@ import moutains_front from "../assets/imgs/main/mountains_front.png";
 import moutains_behind from "../assets/imgs/main/mountains_behind.png";
 import { useSetRecoilState } from "recoil";
 import { IsUp } from "../atom";
+import { motion } from "framer-motion";
 
 function Main() {
   const setIsUp = useSetRecoilState(IsUp);
@@ -83,7 +84,14 @@ function Main() {
           className="moutains_behind"
           ref={ref_moutains_behind}
         />
-        <MainText ref={ref_mainText}>PORTFOLIO</MainText>
+        <MainText
+          variants={mainTextVariants}
+          initial="initial"
+          animate="animate"
+          ref={ref_mainText}
+        >
+          PORTFOLIO
+        </MainText>
         <Explore ref={ref_explore}>Explore</Explore>
         <ImgTag
           src={moutains_front}
@@ -98,6 +106,18 @@ function Main() {
 
 export default Main;
 
+const mainTextVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+    },
+  },
+};
+
 const Wrapper = styled.div`
   min-height: 100vh;
   background: linear-gradient(
@@ -107,10 +127,12 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.section`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   padding: 10rem;
@@ -124,6 +146,12 @@ const Section = styled.section`
     height: 100px;
     background: linear-gradient(to top, #1c0522, transparent);
     z-index: 1000;
+  }
+
+  .mainTextArea {
+    /* position: absolute;
+    top: 40%;
+    opacity: 1; */
   }
 `;
 
@@ -154,7 +182,7 @@ const ImgTag = styled.img`
   }
 `;
 
-const MainText = styled.p`
+const MainText = styled(motion.p)`
   position: absolute;
   top: 40%;
   color: #fff;

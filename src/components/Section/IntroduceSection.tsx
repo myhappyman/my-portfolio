@@ -9,6 +9,16 @@ function IntroduceSection() {
       <AnimationOnScroll animateIn="animate__bounceInUp">
         <Title>Introduce</Title>
       </AnimationOnScroll>
+      <AnimationOnScroll animateIn="animate__bounceInUp" delay={300}>
+        <Contents>
+          안녕하세요? 박신우입니다. <br />
+          안녕하세요? 박신우입니다. <br />
+          안녕하세요? 박신우입니다. <br />
+          안녕하세요? 박신우입니다. <br />
+          안녕하세요? 박신우입니다. <br />
+          안녕하세요? 박신우입니다. <br />
+        </Contents>
+      </AnimationOnScroll>
     </Wrapper>
   );
 }
@@ -23,4 +33,9 @@ const Wrapper = styled.section`
 const Title = styled.div`
   font-size: 7.2rem;
   font-weight: 700;
+`;
+
+const Contents = styled.div`
+  font-size: 3.6rem;
+  font-weight: 600;
 `;
