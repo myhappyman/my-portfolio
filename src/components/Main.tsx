@@ -6,11 +6,12 @@ import moon from "../assets/imgs/main/moon.png";
 import moutains_front from "../assets/imgs/main/mountains_front.png";
 import moutains_behind from "../assets/imgs/main/mountains_behind.png";
 import { useSetRecoilState } from "recoil";
-import { IsUp } from "../atom";
+import { IsTop, IsUp } from "../atom";
 import { motion } from "framer-motion";
 
 function Main() {
   const setIsUp = useSetRecoilState(IsUp);
+  const setIsTop = useSetRecoilState(IsTop);
   const [prevScroll, setPrevScroll] = useState(0);
 
   const ref_stars = useRef<HTMLImageElement | null>(null);
@@ -23,6 +24,8 @@ function Main() {
   // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
   const scrollToMoveMain = () => {
     const { scrollY } = window;
+    scrollY === 0 ? setIsTop(true) : setIsTop(false); //최상단인지 아닌지 체크
+
     // 별 이미지
     if (ref_stars.current) {
       ref_stars.current.style.left = `${scrollY * 0.025}rem`;

@@ -5,7 +5,12 @@ export const themeMode = atom({
   default: "moon",
 });
 
-export const IsUp = atom({
+export const IsTop = atom<boolean>({
+  key: "IsTop",
+  default: true,
+});
+
+export const IsUp = atom<boolean>({
   key: "IsUp",
   default: false,
 });
