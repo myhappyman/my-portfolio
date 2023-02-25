@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const themeMode = atom({
   key: "themeMode",
-  default: "moon",
+  default: "mars",
 });
 
 export const IsTop = atom<boolean>({
