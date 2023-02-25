@@ -1,19 +1,24 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.739d8fec.css",
-    "main.js": "/my-portfolio/static/js/main.c87b6034.js",
-    "static/media/mountains_front.png": "/my-portfolio/static/media/mountains_front.25a10186b8e276488f43.png",
+    "main.js": "/my-portfolio/static/js/main.1a5565d3.js",
+    "static/media/mountains_front.png": "/my-portfolio/static/media/mountains_front.89674e2b5c2bb1aa1005.png",
     "static/media/mountains_behind.png": "/my-portfolio/static/media/mountains_behind.38e14b5c40238f9f4c60.png",
-    "static/media/stars.png": "/my-portfolio/static/media/stars.fb95e3d1302794752cfa.png",
+    "static/media/stars.png": "/my-portfolio/static/media/stars.409a030fe4ab9632c577.png",
     "static/media/moon.png": "/my-portfolio/static/media/moon.ab81903c55e2dd21511b.png",
+    "static/media/mountains_behind01.png": "/my-portfolio/static/media/mountains_behind01.cedd9ccd4ba9eabd49be.png",
+    "static/media/planet.png": "/my-portfolio/static/media/planet.d3e65a850130a46ae206.png",
+    "static/media/mountains_behind02.png": "/my-portfolio/static/media/mountains_behind02.eda729921a0154abf1df.png",
+    "static/media/cloud.png": "/my-portfolio/static/media/cloud.827f64b951ec77ecd83f.png",
+    "static/media/marsBg.png": "/my-portfolio/static/media/marsBg.ee226c4968854c27b48f.png",
     "index.html": "/my-portfolio/index.html",
     "static/media/S.svg": "/my-portfolio/static/media/S.bd1c2143a84c8e86f86980b534ecb313.svg",
     "static/media/P.svg": "/my-portfolio/static/media/P.c339dd6f91b02d4f45e6886896d1a98e.svg",
     "main.739d8fec.css.map": "/my-portfolio/static/css/main.739d8fec.css.map",
-    "main.c87b6034.js.map": "/my-portfolio/static/js/main.c87b6034.js.map"
+    "main.1a5565d3.js.map": "/my-portfolio/static/js/main.1a5565d3.js.map"
   },
   "entrypoints": [
     "static/css/main.739d8fec.css",
-    "static/js/main.c87b6034.js"
+    "static/js/main.1a5565d3.js"
   ]
 }
