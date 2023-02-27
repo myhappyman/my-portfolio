@@ -73,7 +73,7 @@ function Moon() {
       >
         PORTFOLIO
       </MainText>
-      <Explore ref={ref_explore}>Explore</Explore>
+      {/* <Explore ref={ref_explore}>Explore</Explore> */}
       <ImgTag
         src={moutains_front}
         alt="moutains_front"

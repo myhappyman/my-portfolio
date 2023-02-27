@@ -31,7 +31,11 @@ function Mars() {
 
     // 행성 이미지
     if (ref_planet.current) {
-      ref_planet.current.style.top = `-${scrollY * 0.15}rem`;
+      ref_planet.current.style.top = `${scrollY * 0.25}rem`;
+      ref_planet.current.style.left = `-${scrollY * 0.05}rem`;
+
+      const scaleValue = scrollY === 0 ? 1 : 1 + scrollY * -0.0015;
+      ref_planet.current.style.scale = `${scaleValue}`;
     }
 
     // 구름 이미지
@@ -98,7 +102,7 @@ function Mars() {
       >
         PORTFOLIO
       </MainText>
-      <Explore ref={ref_explore}>Explore</Explore>
+
       <ImgTag
         src={moutains_front}
         alt="moutains_front"
@@ -136,21 +140,13 @@ const ImgTag = styled.img`
     animation: bounceAnimation 3s infinite;
     z-index: 6;
   }
-
   &.cloud {
     z-index: 7;
+    animation: cloudAnimation 4s ease infinite;
   }
-
   &.planet {
+    margin-top: -10rem;
     animation: transScale 5s infinite;
-    /* transform: scale(0.8);
-     */
-    /**
-     * 결과 색상을 항상 더 밝은 색상이 나오도록 한다.
-     * 결과적으로 흰색 달과 주변의 빛만 먼저 나오고 주변의 어두운 색상보다는 배경의 gradient색상이 더 밝기때문에,
-     * 검정효과는 사라지게 된다.
-     * 포토샵 효과!
-     */
   }
   &.moutains_behind01 {
     z-index: 9;
@@ -167,10 +163,22 @@ const ImgTag = styled.img`
       transform: scale(1);
     }
     50% {
-      transform: scale(1.05);
+      transform: scale(0.9);
     }
     100% {
       transform: scale(1);
+    }
+  }
+
+  @keyframes cloudAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(15px);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 
@@ -191,20 +199,8 @@ const MainText = styled(motion.p)`
   position: absolute;
   top: 40%;
   color: #fff;
+  font-size: 11.5rem;
   font-weight: 800;
   white-space: nowrap;
-  font-size: 9.5rem;
-  z-index: 9;
-`;
-
-const Explore = styled.button`
-  display: inline-block;
-  padding: 0.8rem 3rem;
-  border-radius: 4rem;
-  background: ${(props) => props.theme.btnColor};
-  color: ${(props) => props.theme.btnTxtColor};
-  font-size: 1.5em;
-  z-index: 9;
-  transform: translateY(100px);
-  cursor: pointer;
+  z-index: 8;
 `;

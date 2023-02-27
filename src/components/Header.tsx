@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { IsTop, IsUp, themeMode } from "../atom";
 import { motion, AnimatePresence } from "framer-motion";
+import { AiFillCaretDown } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { IoMdPlanet } from "react-icons/io";
 
@@ -33,14 +34,16 @@ function Header() {
           <Box>
             <ThemeArea onClick={switchClickFn}>
               {theme === "moon" ? (
-                <SelectTheme>
-                  <BsFillMoonStarsFill className="icon" />
-                  <SText>Moon</SText>
+                <SelectTheme isOpen={isOpen}>
+                  <BsFillMoonStarsFill className="icon moon" />
+                  <SText>THEME</SText>
+                  <AiFillCaretDown className="arrow" />
                 </SelectTheme>
               ) : (
-                <SelectTheme>
+                <SelectTheme isOpen={isOpen}>
                   <IoMdPlanet className="icon" />
-                  <SText>Mars</SText>
+                  <SText>THEME</SText>
+                  <AiFillCaretDown className="arrow" />
                 </SelectTheme>
               )}
               {isOpen && (
@@ -50,8 +53,8 @@ function Header() {
                   animate="open"
                   exit="exit"
                 >
-                  <Theme onClick={() => setTheme("moon")}>Moon</Theme>
-                  <Theme onClick={() => setTheme("mars")}>Mars</Theme>
+                  <Theme onClick={() => setTheme("moon")}>MOON</Theme>
+                  <Theme onClick={() => setTheme("mars")}>MARS</Theme>
                 </ThemeList>
               )}
             </ThemeArea>
@@ -87,7 +90,7 @@ const headerVariants = {
 
 const themeSliderVariants = {
   close: {
-    y: -35,
+    y: -46,
     opacity: 0,
   },
   open: {
@@ -99,7 +102,7 @@ const themeSliderVariants = {
     },
   },
   exit: {
-    y: -35,
+    y: -46,
     opacity: 0,
     trasition: {
       type: "spring",
@@ -148,16 +151,22 @@ const Job = styled.span`
 `;
 
 const ThemeArea = styled.ul`
-  width: 14rem;
-  height: 3.5rem;
+  width: 15rem;
+  height: 4.6rem;
+  line-height: 4.6rem;
   border-radius: 5rem;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 300;
-  outline: 1px solid ${(props) => props.theme.logoColor};
+  border: 1px solid ${(props) => props.theme.logoColor};
+  transition: all 0.3s;
   cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 `;
 
-const SelectTheme = styled.li`
+const SelectTheme = styled.li<{ isOpen: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,15 +176,27 @@ const SelectTheme = styled.li`
   width: 100%;
 
   .icon {
-    font-size: 1.6rem;
-    margin-right: 0.4rem;
+    font-size: 2.6rem;
+    margin-right: 1rem;
+  }
+  .icon.moon {
+    font-size: 2rem;
+  }
+  .arrow {
+    margin-left: 1.6rem;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+    ${(props) => (props.isOpen ? "transform: rotate(180deg);" : "")}
   }
 `;
 
 const ThemeList = styled(motion.ul)`
-  margin-top: 3.5rem;
+  margin-top: 5.2rem;
+  padding: 0.6rem;
   width: 100%;
-  background-color: ${(props) => props.theme.bgColor};
+  border-radius: 1.6rem;
+  /* background-color: ${(props) => props.theme.bgColor}; */
+  background-color: rgba(255, 255, 255, 0.2);
   overflow: hidden;
 `;
 
@@ -183,7 +204,7 @@ const Theme = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 1.6rem;
+  /* padding-left: 1.6rem; */
   width: 100%;
 `;
 
