@@ -108,9 +108,11 @@ const ImgTag = styled.img`
   pointer-events: none;
 
   &.stars {
+    animation: bounceAnimation 3s infinite;
   }
   &.moon {
     mix-blend-mode: screen;
+    animation: transScale 5s infinite;
     /**
      * 결과 색상을 항상 더 밝은 색상이 나오도록 한다.
      * 결과적으로 흰색 달과 주변의 빛만 먼저 나오고 주변의 어두운 색상보다는 배경의 gradient색상이 더 밝기때문에,
@@ -122,6 +124,30 @@ const ImgTag = styled.img`
   }
   &.moutains_front {
     z-index: 10;
+  }
+
+  @keyframes transScale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bounceAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 `;
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled, { ThemeProvider } from "styled-components";
-import { themeMode } from "./atom";
+import { themeMode, themeSelectIsOpen } from "./atom";
 import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts";
 import FirstSection from "./components/Section/FirstSection";
-import IntroduceSection from "./components/Section/IntroduceSection";
+import Introduce from "./components/Section/Introduce";
 import SecondSection from "./components/Section/SecondSection";
 import Skills from "./components/Section/Skills";
 import Works from "./components/Section/Works";
@@ -14,12 +14,15 @@ import { marsTheme, moonTheme } from "./theme";
 
 function App() {
   const selectTheme = useRecoilValue(themeMode);
+  const [isOpen, setIsOpen] = useRecoilState(themeSelectIsOpen); // 바디 클릭하면 테마모드 셀렉터 닫히도록
+  const toggleThemeSelectIsOpen = () => (isOpen ? setIsOpen(false) : null);
+
   return (
     <ThemeProvider theme={selectTheme === "mars" ? marsTheme : moonTheme}>
       <GlobalStyle />
-      <Wrapper>
+      <Wrapper onClick={toggleThemeSelectIsOpen}>
         <Main />
-        <IntroduceSection />
+        <Introduce />
         <Works />
         <Skills />
         <Contacts />

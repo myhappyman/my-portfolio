@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
+import { AnimatePresence } from "framer-motion";
 import Header from "./Header";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IsTop, IsUp, themeMode } from "../atom";
@@ -7,6 +8,7 @@ import Moon from "./MainTheme/Moon";
 import Mars from "./MainTheme/Mars";
 
 function Main() {
+  const isUp = useRecoilValue(IsUp);
   const selectTheme = useRecoilValue(themeMode);
   const setIsUp = useSetRecoilState(IsUp);
   const setIsTop = useSetRecoilState(IsTop);
@@ -27,7 +29,7 @@ function Main() {
 
   return (
     <Wrapper>
-      <Header />
+      <AnimatePresence>{!isUp && <Header />}</AnimatePresence>
       <Section>{selectTheme === "mars" ? <Mars /> : <Moon />}</Section>
     </Wrapper>
   );

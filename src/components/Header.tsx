@@ -1,67 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { IsTop, IsUp, themeMode } from "../atom";
+import { IsTop, themeMode, themeSelectIsOpen } from "../atom";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCaretDown } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { IoMdPlanet } from "react-icons/io";
 
 function Header() {
-  const isUp = useRecoilValue(IsUp);
   const isTop = useRecoilValue(IsTop);
   const [theme, setTheme] = useRecoilState(themeMode);
-  const [isOpen, setIsOpen] = useState(false);
-  const switchClickFn = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const [isOpen, setIsOpen] = useRecoilState(themeSelectIsOpen);
+  const switchClickFn = () => setIsOpen((prev) => !prev); // 테마 셀렉터 보여주기 toggle fn
 
   return (
-    <AnimatePresence>
-      {!isUp && (
-        <Wrapper
-          variants={headerVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          mixmode={isTop ? "normal" : "difference"}
-        >
-          <LogoBox>
-            <Logo>P.S.W.</Logo>
-            <Job>Front Web Programmer</Job>
-          </LogoBox>
+    <Wrapper
+      variants={headerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      mixmode={isTop ? "normal" : "difference"}
+    >
+      <LogoBox>
+        <Logo>P.S.W.</Logo>
+        <Job>Front Web Programmer</Job>
+      </LogoBox>
 
-          <Box>
-            <ThemeArea onClick={switchClickFn}>
-              {theme === "moon" ? (
-                <SelectTheme isOpen={isOpen}>
-                  <BsFillMoonStarsFill className="icon moon" />
-                  <SText>THEME</SText>
-                  <AiFillCaretDown className="arrow" />
-                </SelectTheme>
-              ) : (
-                <SelectTheme isOpen={isOpen}>
-                  <IoMdPlanet className="icon" />
-                  <SText>THEME</SText>
-                  <AiFillCaretDown className="arrow" />
-                </SelectTheme>
-              )}
-              {isOpen && (
-                <ThemeList
-                  variants={themeSliderVariants}
-                  initial="close"
-                  animate="open"
-                  exit="exit"
-                >
-                  <Theme onClick={() => setTheme("moon")}>MOON</Theme>
-                  <Theme onClick={() => setTheme("mars")}>MARS</Theme>
-                </ThemeList>
-              )}
-            </ThemeArea>
-          </Box>
-        </Wrapper>
-      )}
-    </AnimatePresence>
+      <Box>
+        <ThemeArea onClick={switchClickFn}>
+          {theme === "moon" ? (
+            <SelectTheme isOpen={isOpen}>
+              <BsFillMoonStarsFill className="icon moon" />
+              <SText>THEME</SText>
+              <AiFillCaretDown className="arrow" />
+            </SelectTheme>
+          ) : (
+            <SelectTheme isOpen={isOpen}>
+              <IoMdPlanet className="icon" />
+              <SText>THEME</SText>
+              <AiFillCaretDown className="arrow" />
+            </SelectTheme>
+          )}
+          <AnimatePresence>
+            {isOpen ? (
+              <ThemeList
+                variants={themeSliderVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <Theme onClick={() => setTheme("moon")}>MOON</Theme>
+                <Theme onClick={() => setTheme("mars")}>MARS</Theme>
+              </ThemeList>
+            ) : null}
+          </AnimatePresence>
+        </ThemeArea>
+      </Box>
+    </Wrapper>
   );
 }
 
@@ -89,24 +84,27 @@ const headerVariants = {
 };
 
 const themeSliderVariants = {
-  close: {
-    y: -46,
+  initial: {
+    y: -49,
     opacity: 0,
+    trasition: {
+      type: "tween",
+      duration: 0.5,
+    },
   },
-  open: {
+  animate: {
     y: 0,
     opacity: 1,
     trasition: {
-      type: "spring",
-      duration: 3,
+      type: "tween",
+      duration: 0.5,
     },
   },
   exit: {
-    y: -46,
-    opacity: 0,
+    y: -49,
     trasition: {
-      type: "spring",
-      duration: 3,
+      type: "tween",
+      duration: 0.5,
     },
   },
 };
@@ -195,9 +193,7 @@ const ThemeList = styled(motion.ul)`
   padding: 0.6rem;
   width: 100%;
   border-radius: 1.6rem;
-  /* background-color: ${(props) => props.theme.bgColor}; */
   background-color: rgba(255, 255, 255, 0.2);
-  overflow: hidden;
 `;
 
 const Theme = styled.li`

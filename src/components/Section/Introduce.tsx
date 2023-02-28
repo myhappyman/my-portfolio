@@ -4,13 +4,21 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import me from "../../assets/imgs/introduce/me.png";
 
-function IntroduceSection() {
+function Introduce() {
   return (
     <Wrapper>
-      <AnimationOnScroll animateIn="animate__bounceInUp">
-        <SectionName>Introduce</SectionName>
+      <AnimationOnScroll
+        initiallyVisible={true}
+        animateIn="animate__bounce"
+        delay={10}
+      >
+        <SectionName>🤟 Introduce</SectionName>
       </AnimationOnScroll>
-      <AnimationOnScroll animateIn="animate__bounceInUp" delay={300}>
+      <AnimationOnScroll
+        initiallyVisible={true}
+        animateIn="animate__fadeInUp"
+        delay={300}
+      >
         <Contents>
           <ImgArea>
             <img src={me} alt="psw" />
@@ -45,7 +53,7 @@ function IntroduceSection() {
   );
 }
 
-export default IntroduceSection;
+export default Introduce;
 
 const Wrapper = styled.section`
   position: relative;
@@ -77,13 +85,11 @@ const Contents = styled.div`
   justify-content: center;
   width: 100%;
   padding: 10rem;
-  /* outline: 1px solid red; */
 `;
 
 const Area = styled.div`
   width: 50%;
   padding: 1rem;
-  /* outline: 1px solid red; */
 `;
 
 const ImgArea = styled(Area)`

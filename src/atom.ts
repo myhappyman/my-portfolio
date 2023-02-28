@@ -1,5 +1,10 @@
 import { atom } from "recoil";
 
+export const themeSelectIsOpen = atom({
+  key: "themeSelectIsOpen",
+  default: false,
+});
+
 export const themeMode = atom({
   key: "themeMode",
   default: "mars",
