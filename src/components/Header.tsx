@@ -85,7 +85,7 @@ const headerVariants = {
 
 const themeSliderVariants = {
   initial: {
-    y: -49,
+    height: 0,
     opacity: 0,
     trasition: {
       type: "tween",
@@ -93,7 +93,7 @@ const themeSliderVariants = {
     },
   },
   animate: {
-    y: 0,
+    height: 100,
     opacity: 1,
     trasition: {
       type: "tween",
@@ -101,7 +101,7 @@ const themeSliderVariants = {
     },
   },
   exit: {
-    y: -49,
+    height: 0,
     trasition: {
       type: "tween",
       duration: 0.5,
@@ -190,18 +190,24 @@ const SelectTheme = styled.li<{ isOpen: boolean }>`
 
 const ThemeList = styled(motion.ul)`
   margin-top: 5.2rem;
-  padding: 0.6rem;
   width: 100%;
   border-radius: 1.6rem;
   background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
 `;
 
 const Theme = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-left: 1.6rem; */
   width: 100%;
+
+  &:first-child {
+    margin-top: 0.3rem;
+  }
+  &:last-child {
+    margin-bottom: 0.3rem;
+  }
 `;
 
 const SText = styled.span``;
