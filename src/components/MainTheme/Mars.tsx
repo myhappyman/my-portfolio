@@ -131,8 +131,8 @@ const ImgTag = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover; //png의 배경영역 위치에 딱 맞게 떨어지도록 설정
   pointer-events: none;
 

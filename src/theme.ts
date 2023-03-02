@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 export const moonTheme: DefaultTheme = {
   bgColor: "#1c0522",
+  bgRGBAColor: "#1c052287",
   bgGradientStartColor: "#2b1055",
   bgGradientEndColor: "#7597de",
   logoColor: "#fff",
@@ -12,7 +13,8 @@ export const moonTheme: DefaultTheme = {
 };
 
 export const marsTheme: DefaultTheme = {
-  bgColor: "#f8f8f387",
+  bgColor: "#f8f8f3",
+  bgRGBAColor: "#f8f8f387",
   bgGradientStartColor: "#e14b57",
   bgGradientEndColor: "#fffee6",
   logoColor: "#fff",

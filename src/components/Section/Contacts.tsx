@@ -7,7 +7,7 @@ function Contacts() {
   return (
     <Wrapper>
       <AnimationOnScroll animateIn="animate__bounceInUp">
-        <Title>Contacts</Title>
+        <Title>👓 Contacts</Title>
       </AnimationOnScroll>
     </Wrapper>
   );

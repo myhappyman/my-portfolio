@@ -71,7 +71,7 @@ const Wrapper = styled.section`
     height: 180px;
     background: linear-gradient(
       to top,
-      ${(props) => props.theme.bgColor},
+      ${(props) => props.theme.bgRGBAColor},
       ${(props) => props.theme.bgGradientEndColor}
     );
   }
