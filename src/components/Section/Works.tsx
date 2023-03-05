@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import c_tas from "../../assets/imgs/works/c_tas.png";
+import yangsansi from "../../assets/imgs/works/yangsansi.png";
+import kisa_portal from "../../assets/imgs/works/kisa_portal.png";
 
 const WORKS_ARR = [
   {
     fullTitle: "사이버 위협정보 분석공유(C-TAS) 시스템",
+    background: c_tas,
     title: "C-TAS",
     company: "상록아이엔씨 & KISA",
     period: "22년 3월 - 22년 8월",
@@ -18,6 +21,7 @@ const WORKS_ARR = [
   },
   {
     fullTitle: "양산시 빅데이터 광장 고도화 및 유지보수",
+    background: yangsansi,
     title: "빅데이터 광장",
     company: "상록아이엔씨 & 양산시",
     period: "21년 6월 - 21년 12월",
@@ -29,6 +33,7 @@ const WORKS_ARR = [
   },
   {
     fullTitle: "보안 취약점 포털 사이트 구축",
+    background: kisa_portal,
     title: "보안 취약점 포털",
     company: "상록아이엔씨 & KISA",
     period: "21년 6월 - 21년 12월",
@@ -40,6 +45,7 @@ const WORKS_ARR = [
   },
   {
     fullTitle: "전화번호 발신지 확인 시스템",
+    background: c_tas,
     title: "전화번호 발신지 확인 시스템",
     company: "상록아이엔씨 & KISA",
     period: "19년 6월 - 21년 1월",
@@ -51,6 +57,7 @@ const WORKS_ARR = [
   },
   {
     fullTitle: "IPCR",
+    background: c_tas,
     title: "IPCR",
     company: "퓨렌스 & Ericsson-LG",
     period: "18년 1월 - 18년 12월",
@@ -62,6 +69,7 @@ const WORKS_ARR = [
   },
   {
     fullTitle: "RECSEE",
+    background: c_tas,
     title: "RECSEE",
     company: "퓨렌스",
     period: "18년 1월 ~ 18년 12월",
@@ -119,7 +127,7 @@ function Works() {
                   onMouseLeave={() => toggleHover("leave", idx)}
                 >
                   <Content>
-                    <img src={c_tas} alt={work.fullTitle} />
+                    <img src={work.background} alt={work.fullTitle} />
                     <FadeIn className={isHover[idx] ? "fadeIn" : "hover"}>
                       <TypeInfo>
                         <Sep>WEB /</Sep>
