@@ -3,3 +3,9 @@
 ### 사용한 기술 및 라이브러리
 
 `React`, `typescript`, `framer-motion`, `recoil`,
+
+### 자료 도움 받은 사이트
+
+무료 일러스트 이미지 : https://www.freepik.com/
+아이콘 : https://simpleicons.org/?q=react
+메인테마 컨셉 : https://www.youtube.com/@OnlineTutorialsYT

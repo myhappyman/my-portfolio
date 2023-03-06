@@ -6,6 +6,7 @@ import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts";
 import FirstSection from "./components/Section/FirstSection";
 import Introduce from "./components/Section/Introduce";
+import Projects from "./components/Section/Projects";
 import SecondSection from "./components/Section/SecondSection";
 import Skills from "./components/Section/Skills";
 import Works from "./components/Section/Works";
@@ -24,6 +25,7 @@ function App() {
         <Main />
         <Introduce />
         <Works />
+        <Projects />
         <Skills />
         <Contacts />
         <FirstSection />

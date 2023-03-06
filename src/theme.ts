@@ -2,7 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 export const moonTheme: DefaultTheme = {
   bgColor: "#1c0522",
-  bgRGBAColor: "#1c052287",
+  bgRGBAColor: "#1c0522",
   bgGradientStartColor: "#2b1055",
   bgGradientEndColor: "#7597de",
   logoColor: "#fff",
