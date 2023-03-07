@@ -77,7 +77,7 @@ function Mars() {
   }, []);
 
   return (
-    <Wrapper>
+    <>
       <ImgTag src={marsBg} alt="marsBg" className="marsBg" />
       <ImgTag src={stars} alt="stars" className="stars" ref={ref_stars} />
       <ImgTag src={planet} alt="planet" className="planet" ref={ref_planet} />
@@ -109,7 +109,7 @@ function Mars() {
         className="moutains_front"
         ref={ref_moutains_front}
       />
-    </Wrapper>
+    </>
   );
 }
 

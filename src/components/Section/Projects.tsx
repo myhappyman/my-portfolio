@@ -1,6 +1,10 @@
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import styled from "styled-components";
 import { BiLinkExternal } from "react-icons/bi";
+import img_shinflix from "../../assets/imgs/projects/shinflix.png";
+import img_SINNISFREE from "../../assets/imgs/projects/SINNISFREE.png";
+import img_sevenTwo from "../../assets/imgs/projects/sevenTwo.png";
+import img_portfolio from "../../assets/imgs/projects/portfolio.png";
 
 const PROJECT_LIST = [
   {
@@ -19,6 +23,7 @@ const PROJECT_LIST = [
       "recoil",
     ],
     link: "https://myhappyman.github.io/shinflix/",
+    img: img_shinflix,
   },
   {
     name: "SINNISFREE",
@@ -35,6 +40,7 @@ const PROJECT_LIST = [
       "recoil",
     ],
     link: "https://myhappyman.github.io/SINNISFREE/",
+    img: img_SINNISFREE,
   },
   {
     name: "72닷컴",
@@ -48,7 +54,8 @@ const PROJECT_LIST = [
       "react-icons",
       "recoil",
     ],
-    link: "",
+    link: "https://myhappyman.github.io/seven_two/",
+    img: img_sevenTwo,
   },
   {
     name: "Portfolio",
@@ -64,6 +71,7 @@ const PROJECT_LIST = [
       "recoil",
     ],
     link: "https://myhappyman.github.io/my-portfolio/",
+    img: img_portfolio,
   },
 ];
 
@@ -77,34 +85,33 @@ function Projects() {
       >
         <SectionName>🚀 Projects</SectionName>
       </AnimationOnScroll>
-      <AnimationOnScroll
-        initiallyVisible={true}
-        animateIn="animate__fadeInUp"
-        delay={300}
-      >
-        <Area>
-          <Contents>
-            {PROJECT_LIST &&
-              PROJECT_LIST.map((project, idx) => (
-                <Card key={`${"project" + idx}`}>
-                  <Top>
+
+      <Area>
+        <Contents>
+          {PROJECT_LIST &&
+            PROJECT_LIST.map((project, idx) => (
+              <Card key={`${"project" + idx}`}>
+                <Top>
+                  <Head>
                     <Name>{project.name}</Name>
                     <Icon href={project.link} target="_blank">
                       <BiLinkExternal size="20" />
                     </Icon>
-                  </Top>
-                  <Middle>
+                  </Head>
+                  <TextBox>
                     <Comments>{project.comments}</Comments>
                     <HashTag>
                       {project.useSkill.map((skill) => "#" + skill)}
                     </HashTag>
-                  </Middle>
-                  <Bottom></Bottom>
-                </Card>
-              ))}
-          </Contents>
-        </Area>
-      </AnimationOnScroll>
+                  </TextBox>
+                </Top>
+                <Bottom>
+                  <img src={project.img} alt={project.name} />
+                </Bottom>
+              </Card>
+            ))}
+        </Contents>
+      </Area>
     </Wrapper>
   );
 }
@@ -113,6 +120,7 @@ export default Projects;
 
 const Wrapper = styled.section`
   padding: 1rem;
+  margin-bottom: 10rem;
 `;
 
 const SectionName = styled.div`
@@ -134,16 +142,20 @@ const Contents = styled.ul`
 
 const Card = styled.li`
   width: calc(100% / 4 - 4rem);
-  height: 40rem;
   margin-right: 4rem;
-  border: 1px solid red;
   border-radius: 2rem;
+  box-shadow: 0px 7px 15px 0 rgb(0 0 0 / 15%);
+
   &:last-child {
     margin: 0;
   }
 `;
 
 const Top = styled.div`
+  height: 45%;
+  padding: 1rem;
+`;
+const Head = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -162,7 +174,7 @@ const Icon = styled.a`
     color: ${(props) => props.theme.bgGradientStartColor};
   }
 `;
-const Middle = styled.div`
+const TextBox = styled.div`
   padding: 1rem;
 `;
 const Comments = styled.span`
@@ -176,5 +188,13 @@ const HashTag = styled.div`
   word-wrap: break-word;
 `;
 const Bottom = styled.div`
-  height: 70%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 2rem 2rem;
+    object-fit: cover;
+  }
 `;
