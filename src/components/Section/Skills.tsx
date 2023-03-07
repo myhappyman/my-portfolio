@@ -32,7 +32,7 @@ const skills = [
     icon: javascript,
     iconColor: "#F7DF1E",
     content:
-      "바닐라 스크립트를 통해 마크업에 이벤트를 부여하고 동적인 페이지나 기능을 처리 할 수 있습니다.",
+      "바닐라 스크립트를 통해 이벤트를 부여하거나 동적인 행동의 기능 등을 처리 할 수 있습니다.",
   },
   {
     name: "React",
