@@ -145,13 +145,19 @@ const Card = styled.li`
   margin-right: 4rem;
   border-radius: 2rem;
   box-shadow: 0px 7px 15px 0 rgb(0 0 0 / 15%);
+  transition: all 0.3s;
 
   &:last-child {
     margin: 0;
   }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
+  }
 `;
 
 const Top = styled.div`
+  position: relative;
   height: 45%;
   padding: 1rem;
 `;
@@ -187,14 +193,18 @@ const HashTag = styled.div`
   overflow-y: hidden;
   word-wrap: break-word;
 `;
+
 const Bottom = styled.div`
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   overflow: hidden;
+  border-radius: 0 0 2rem 2rem;
+  outline: 1px solid blue;
   img {
     width: 100%;
     height: auto;
     border-radius: 0 0 2rem 2rem;
     object-fit: cover;
+    outline: 1px solid black;
   }
 `;

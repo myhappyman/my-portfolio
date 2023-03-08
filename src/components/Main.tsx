@@ -4,8 +4,8 @@ import { AnimatePresence } from "framer-motion";
 import Header from "./Header";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IsTop, IsUp, themeMode } from "../atom";
-import Moon from "./MainTheme/Moon";
-import Mars from "./MainTheme/Mars";
+import Moon from "./Theme/Main/Moon";
+import Mars from "./Theme/Main/Mars";
 
 function Main() {
   const isUp = useRecoilValue(IsUp);

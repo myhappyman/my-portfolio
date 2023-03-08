@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import marsBg from "../../assets/imgs/main/theme/mars/marsBg.png";
-import stars from "../../assets/imgs/main/theme/mars/stars.png";
-import planet from "../../assets/imgs/main/theme/mars/planet.png";
-import cloud from "../../assets/imgs/main/theme/mars/cloud.png";
-import moutains_front from "../../assets/imgs/main/theme/mars/mountains_front.png";
-import moutains_behind01 from "../../assets/imgs/main/theme/mars/mountains_behind01.png";
-import moutains_behind02 from "../../assets/imgs/main/theme/mars/mountains_behind02.png";
+import marsBg from "../../../assets/imgs/main/theme/mars/marsBg.png";
+import stars from "../../../assets/imgs/main/theme/mars/stars.png";
+import planet from "../../../assets/imgs/main/theme/mars/planet.png";
+import cloud from "../../../assets/imgs/main/theme/mars/cloud.png";
+import moutains_front from "../../../assets/imgs/main/theme/mars/mountains_front.png";
+import moutains_behind01 from "../../../assets/imgs/main/theme/mars/mountains_behind01.png";
+import moutains_behind02 from "../../../assets/imgs/main/theme/mars/mountains_behind02.png";
 
 import { motion } from "framer-motion";
 
@@ -127,10 +127,6 @@ const mainTextVariants = {
   },
 };
 
-const Wrapper = styled.div`
-  width: 100%;
-`;
-
 const ImgTag = styled.img`
   position: absolute;
   top: 0;
@@ -141,8 +137,8 @@ const ImgTag = styled.img`
   pointer-events: none;
 
   &.stars {
-    animation: bounceAnimation 3s infinite;
-    z-index: 6;
+    animation: twinkleAnimation 4s infinite;
+    z-index: 5;
   }
   &.cloud {
     z-index: 7;
@@ -150,6 +146,7 @@ const ImgTag = styled.img`
   }
   &.planet {
     margin-top: -10rem;
+    z-index: 6;
     animation: transScale 5s infinite;
   }
   &.moutains_behind01 {
@@ -195,6 +192,18 @@ const ImgTag = styled.img`
     }
     100% {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes twinkleAnimation {
+    0% {
+      opacity: 2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 2;
     }
   }
 `;

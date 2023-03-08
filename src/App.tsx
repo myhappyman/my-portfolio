@@ -2,6 +2,7 @@ import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled, { ThemeProvider } from "styled-components";
 import { themeMode, themeSelectIsOpen } from "./atom";
+import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts";
 import FirstSection from "./components/Section/FirstSection";
@@ -30,6 +31,7 @@ function App() {
         <Contacts />
         <FirstSection />
         <SecondSection />
+        <Footer />
         {/* <OptionBtn /> */}
       </Wrapper>
     </ThemeProvider>

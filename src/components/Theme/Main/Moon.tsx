@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import stars from "../../assets/imgs/main/theme/moon/stars.png";
-import moon from "../../assets/imgs/main/theme/moon/moon.png";
-import moutains_front from "../../assets/imgs/main/theme/moon/mountains_front.png";
-import moutains_behind from "../../assets/imgs/main/theme/moon/mountains_behind.png";
+import stars from "../../../assets/imgs/main/theme/moon/stars.png";
+import moon from "../../../assets/imgs/main/theme/moon/moon.png";
+import moutains_front from "../../../assets/imgs/main/theme/moon/mountains_front.png";
+import moutains_behind from "../../../assets/imgs/main/theme/moon/mountains_behind.png";
 import { motion } from "framer-motion";
 
 function Moon() {
