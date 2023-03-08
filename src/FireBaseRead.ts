@@ -1,8 +1,4 @@
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  getFirestore,
-} from "firebase/firestore";
-import { app, db } from "./firebase-config";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { firestore } from "./firebase-config";
+
+export const contacts = firestore.collection("contacts");
