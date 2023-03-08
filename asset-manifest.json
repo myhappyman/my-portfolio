@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.739d8fec.css",
-    "main.js": "/my-portfolio/static/js/main.f3490bc7.js",
+    "main.js": "/my-portfolio/static/js/main.db3bc699.js",
     "static/media/shinflix.png": "/my-portfolio/static/media/shinflix.0ef26c5b83dd688462f1.png",
     "static/media/kcert.png": "/my-portfolio/static/media/kcert.b5c35eb9fe7232452e6b.png",
     "static/media/ipcr.png": "/my-portfolio/static/media/ipcr.d3ce7ce1e03f41f082d3.png",
@@ -13,12 +13,16 @@
     "static/media/portfolio.png": "/my-portfolio/static/media/portfolio.8afdfa0d2a0e229ff406.png",
     "static/media/check_kisa.png": "/my-portfolio/static/media/check_kisa.5837e3fb647318a1b160.png",
     "static/media/c_tas.png": "/my-portfolio/static/media/c_tas.688721664887097f353c.png",
+    "static/media/planet.png": "/my-portfolio/static/media/planet.0245f1823766d4940839.png",
     "static/media/mountains_behind.png": "/my-portfolio/static/media/mountains_behind.38e14b5c40238f9f4c60.png",
+    "static/media/front02.png": "/my-portfolio/static/media/front02.0321692b30ed9166e476.png",
     "static/media/stars.png": "/my-portfolio/static/media/stars.409a030fe4ab9632c577.png",
     "static/media/moon.png": "/my-portfolio/static/media/moon.ab81903c55e2dd21511b.png",
+    "static/media/astronaut.png": "/my-portfolio/static/media/astronaut.5fe1c2914b5a702b829d.png",
     "static/media/me.png": "/my-portfolio/static/media/me.915ae8195fd7d602ea75.png",
     "static/media/mountains_behind01.png": "/my-portfolio/static/media/mountains_behind01.cedd9ccd4ba9eabd49be.png",
-    "static/media/planet.png": "/my-portfolio/static/media/planet.0245f1823766d4940839.png",
+    "static/media/fire.png": "/my-portfolio/static/media/fire.8b939379ea5e1744f143.png",
+    "static/media/front01.png": "/my-portfolio/static/media/front01.9f09a113d454da2abd7d.png",
     "static/media/mountains_behind02.png": "/my-portfolio/static/media/mountains_behind02.eda729921a0154abf1df.png",
     "static/media/cloud.png": "/my-portfolio/static/media/cloud.827f64b951ec77ecd83f.png",
     "static/media/marsBg.png": "/my-portfolio/static/media/marsBg.ee226c4968854c27b48f.png",
@@ -37,10 +41,10 @@
     "static/media/html5.svg": "/my-portfolio/static/media/html5.18cfe6abe7c56e2db8080916f6854a4e.svg",
     "static/media/css3.svg": "/my-portfolio/static/media/css3.1323e04024709c8a25e60cd9db22db48.svg",
     "main.739d8fec.css.map": "/my-portfolio/static/css/main.739d8fec.css.map",
-    "main.f3490bc7.js.map": "/my-portfolio/static/js/main.f3490bc7.js.map"
+    "main.db3bc699.js.map": "/my-portfolio/static/js/main.db3bc699.js.map"
   },
   "entrypoints": [
     "static/css/main.739d8fec.css",
-    "static/js/main.f3490bc7.js"
+    "static/js/main.db3bc699.js"
   ]
 }
