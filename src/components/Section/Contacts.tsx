@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
-import github from "../../assets/imgs/contacts/github.png";
-import blog from "../../assets/imgs/contacts/blog.png";
 import { contacts } from "../../FireBaseRead";
 // const Contacts_List = [
 //   {
@@ -25,6 +23,7 @@ interface IContacts {
   name: string;
   comments: string;
   link: string;
+  image: string;
 }
 
 function Contacts() {
@@ -70,7 +69,7 @@ function Contacts() {
                   </Top>
                   <Bottom>
                     <ImgBox>
-                      {/* <img src={contact.img} alt={contact.name} /> */}
+                      <img src={contact.image} alt={contact.name} />
                     </ImgBox>
                   </Bottom>
                 </GoLink>
