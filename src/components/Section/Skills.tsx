@@ -167,7 +167,15 @@ const Contents = styled.ul`
   gap: 8rem 1rem;
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  padding: 1rem;
+  outline: none;
+  transform: all 3s;
+  &:hover {
+    outline: 1px solid orange;
+    transform: all 3s;
+  }
+`;
 
 const Icon = styled.div`
   width: 5.7rem;
@@ -186,7 +194,7 @@ const Div = styled.div`
 `;
 
 const FlexColumn = styled.div`
-  width: calc(100% - 7.7rem);
+  width: calc(100% - 9.7rem);
   display: flex;
   flex-direction: column;
 `;

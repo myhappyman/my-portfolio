@@ -183,27 +183,15 @@ const ImgTag = styled.img`
     }
   }
 
-  @keyframes bounceAnimation {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-10px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
   @keyframes twinkleAnimation {
     0% {
-      opacity: 2;
+      opacity: 0;
     }
     50% {
       opacity: 1;
     }
     100% {
-      opacity: 2;
+      opacity: 0;
     }
   }
 `;

@@ -49,7 +49,7 @@ const ImgTag = styled.img`
     animation: scaleAnimation 5s infinite;
   }
   &.astronaut {
-    animation: bounceAnimation 3s infinite;
+    animation: bounceYAnimation 3s infinite;
     z-index: 13;
   }
   &.fire {
@@ -57,7 +57,7 @@ const ImgTag = styled.img`
     z-index: 12;
   }
 
-  @keyframes bounceAnimation {
+  @keyframes bounceYAnimation {
     0% {
       transform: translateY(0);
     }
@@ -66,18 +66,6 @@ const ImgTag = styled.img`
     }
     100% {
       transform: translateY(0);
-    }
-  }
-
-  @keyframes twinkleAnimation {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
     }
   }
 

@@ -38,8 +38,6 @@ function App() {
         <Projects />
         <Skills />
         <Contacts />
-        <FirstSection />
-        <SecondSection />
         <Footer />
         {/* <OptionBtn /> */}
       </Wrapper>

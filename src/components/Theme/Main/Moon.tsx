@@ -108,7 +108,7 @@ const ImgTag = styled.img`
   pointer-events: none;
 
   &.stars {
-    animation: bounceAnimation 3s infinite;
+    animation: twinkleAnimation 3s infinite;
   }
   &.moon {
     mix-blend-mode: screen;
@@ -125,30 +125,6 @@ const ImgTag = styled.img`
   &.moutains_front {
     z-index: 10;
   }
-
-  @keyframes transScale {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes bounceAnimation {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-10px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
 `;
 
 const MainText = styled(motion.p)`
@@ -159,16 +135,4 @@ const MainText = styled(motion.p)`
   white-space: nowrap;
   font-size: 9.5rem;
   z-index: 9;
-`;
-
-const Explore = styled.button`
-  display: inline-block;
-  padding: 0.8rem 3rem;
-  border-radius: 4rem;
-  background: ${(props) => props.theme.btnColor};
-  color: ${(props) => props.theme.btnTxtColor};
-  font-size: 1.5em;
-  z-index: 9;
-  transform: translateY(100px);
-  cursor: pointer;
 `;

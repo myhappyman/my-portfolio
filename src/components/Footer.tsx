@@ -17,10 +17,10 @@ export default Footer;
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  /* background: linear-gradient(
+  background: linear-gradient(
     ${(props) => props.theme.bgGradientStartColor},
     ${(props) => props.theme.bgGradientEndColor}
-  ); */
+  );
 `;
 
 const Section = styled.section`
@@ -34,18 +34,4 @@ const Section = styled.section`
   height: 100vh;
   padding: 10rem;
   overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 75px;
-    background: linear-gradient(
-      to bottom,
-      ${(props) => props.theme.bgGradientEndColor},
-      transparent
-    );
-    z-index: 1000;
-  }
 `;

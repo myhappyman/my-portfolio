@@ -60,6 +60,7 @@ const Section = styled.section`
   &::before {
     content: "";
     position: absolute;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 75px;

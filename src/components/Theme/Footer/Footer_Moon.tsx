@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import marsBg from "../../../assets/imgs/main/theme/mars/marsBg.png";
-import front01 from "../../../assets/imgs/footer/mars/front01.png";
-import front02 from "../../../assets/imgs/footer/mars/front02.png";
+import moon from "../../../assets/imgs/main/theme/moon/moon.png";
+import fullImg from "../../../assets/imgs/footer/moon/fullImg.png";
+import stars from "../../../assets/imgs/main/theme/moon/stars.png";
 
 function Footer_Moon() {
   return (
     <>
-      <ImgTag src={marsBg} alt="marsBg" className="marsBg" />
-      <ImgTag src={front01} alt="front01" />
-      <ImgTag src={front02} alt="front02" />
+      <ImgTag src={moon} alt="moon" className="moon" />
+      <ImgTag src={fullImg} alt="fullImg" className="fullImg" />
+      <ImgTag src={stars} alt="stars" className="f_stars" />
     </>
   );
 }
@@ -24,25 +24,15 @@ const ImgTag = styled.img`
   object-fit: cover; //png의 배경영역 위치에 딱 맞게 떨어지도록 설정
   pointer-events: none;
 
-  &.stars {
-    animation: bounceAnimation 3s infinite;
-    z-index: 6;
-  }
-  &.cloud {
-    z-index: 7;
-    animation: cloudAnimation 4s ease infinite;
-  }
-  &.planet {
-    margin-top: -10rem;
+  &.moon {
+    z-index: 9;
+    mix-blend-mode: screen;
     animation: transScale 5s infinite;
   }
-  &.moutains_behind01 {
-    z-index: 9;
-  }
-  &.moutains_behind02 {
-    z-index: 8;
-  }
-  &.moutains_front {
+  &.fullImg {
     z-index: 10;
+  }
+  &.f_stars {
+    animation: twinkleAnimation 2.5s infinite;
   }
 `;

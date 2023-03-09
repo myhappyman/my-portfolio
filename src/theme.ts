@@ -15,7 +15,7 @@ export const moonTheme: DefaultTheme = {
 export const marsTheme: DefaultTheme = {
   bgColor: "#f8f8f3",
   bgRGBAColor: "#f8f8f387",
-  bgGradientStartColor: "#e14b57",
+  bgGradientStartColor: "#DB4657",
   bgGradientEndColor: "#fffee6",
   logoColor: "#fff",
   textColor: "#000",
