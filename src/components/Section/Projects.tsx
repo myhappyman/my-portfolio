@@ -199,12 +199,12 @@ const Bottom = styled.div`
   height: 100%; */
   overflow: hidden;
   border-radius: 0 0 2rem 2rem;
-  outline: 1px solid blue;
+
   img {
+    display: block;
     width: 100%;
     height: auto;
     border-radius: 0 0 2rem 2rem;
     object-fit: cover;
-    outline: 1px solid black;
   }
 `;

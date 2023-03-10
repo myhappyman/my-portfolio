@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
-import { contacts } from "../../FireBaseRead";
+import { DocumentData } from "firebase/firestore";
+import { firebase, firestore } from "../../firebase-config";
+import github from "../../assets/imgs/contacts/github.png";
+import blog from "../../assets/imgs/contacts/blog.png";
+import { Snapshot } from "recoil";
+
 // const Contacts_List = [
 //   {
 //     name: "Github",
@@ -19,32 +24,44 @@ import { contacts } from "../../FireBaseRead";
 //     img: blog,
 //   },
 // ];
+// interface IContacts {
+//   name: string;
+//   comments: string;
+//   link: string;
+//   image: string;
+// }
 interface IContacts {
-  name: string;
-  comments: string;
-  link: string;
-  image: string;
+  data: DocumentData;
+  id: string;
 }
 
+//아래 url에서 이어서 시작
+//https://velog.io/@hemtory/ReactFirebaseTypescript
 function Contacts() {
   const [Contacts_List, setContacts_List] = useState<any[]>([]);
   useEffect(() => {
-    // contacts
-    //   .doc("blog")
-    //   .get()
-    //   .then((doc) => {
-    //     console.log(doc);
-    //   });
-    setContacts_List([]);
-    contacts.get().then((querySnapshot) => {
-      querySnapshot.docs.map((doc) => {
+    const array: any[] = [];
+    const collection = firestore.collection("contacts");
+    collection.get().then((docs) => {
+      docs.forEach((doc) => {
         if (doc.exists) {
-          setContacts_List((prev) => [...prev, doc.data()]);
+          array.push(doc.data());
         }
-        console.log(doc.data());
       });
+      setContacts_List(array);
     });
   }, []);
+  // const contactRef = firebase.database().ref("contacts");
+  // useEffect(() => {
+  //   contactRef.on("value", (snapshot) => {
+  //     const users = snapshot.val();
+  //     const contactsData: IContacts[] = [];
+  //     for (let id in users) {
+  //       contactsData.push({ ...users[id], id });
+  //     }
+  //     setContacts_List(contactsData);
+  //   });
+  // }, []);
 
   return (
     <Wrapper>
