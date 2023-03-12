@@ -5,77 +5,97 @@ import img_shinflix from "../../assets/imgs/projects/shinflix.png";
 import img_SINNISFREE from "../../assets/imgs/projects/SINNISFREE.png";
 import img_sevenTwo from "../../assets/imgs/projects/sevenTwo.png";
 import img_portfolio from "../../assets/imgs/projects/portfolio.png";
+import { useEffect, useState } from "react";
+import { firestore } from "../../firebase-config";
+import { DocumentData } from "firebase/firestore";
 
-const PROJECT_LIST = [
-  {
-    name: "shinflix",
-    comments:
-      "대형 스트리밍 플랫폼인 넷플릭스! 그동안 학습해온 React의 기술들을 활용하여 클론 코딩을 작성해보았습니다.",
-    useSkill: [
-      "React",
-      "TypeScript",
-      "styled-component",
-      "react-query",
-      "framer-motion",
-      "react-hook-form",
-      "react-icons",
-      "react-router-dom",
-      "recoil",
-    ],
-    link: "https://myhappyman.github.io/shinflix/",
-    img: img_shinflix,
-  },
-  {
-    name: "SINNISFREE",
-    comments:
-      "아모레 퍼시픽사의 이니스프리 홈페이지를 클론 코딩해보았습니다. 제품에 대한 데이터를 넣어보고, 다양한 슬라이더들을 구현해보았습니다.",
-    useSkill: [
-      "React",
-      "TypeScript",
-      "styled-component",
-      "framer-motion",
-      "react-hook-form",
-      "react-icons",
-      "react-router-dom",
-      "recoil",
-    ],
-    link: "https://myhappyman.github.io/SINNISFREE/",
-    img: img_SINNISFREE,
-  },
-  {
-    name: "72닷컴",
-    comments:
-      "온라인/오프라인 등 다양한 디자인을 진행하는 회사로, 메인페이지의 화려한 3D 애니메이션을 적용해보기 위해 클론 코딩을 진행하게 된 프로젝트입니다.",
-    useSkill: [
-      "React",
-      "TypeScript",
-      "styled-component",
-      "framer-motion",
-      "react-icons",
-      "recoil",
-    ],
-    link: "https://myhappyman.github.io/seven_two/",
-    img: img_sevenTwo,
-  },
-  {
-    name: "Portfolio",
-    comments:
-      "보고 계신 페이지로 프론트엔드 개발자의 저의 개발방향과 그동안의 경력, 개발자로 공부해온 방향성들을 노출하기 위해 작성되었습니다.",
-    useSkill: [
-      "React",
-      "TypeScript",
-      "styled-component",
-      "framer-motion",
-      "react-icons",
-      "react-router-dom",
-      "recoil",
-    ],
-    link: "https://myhappyman.github.io/my-portfolio/",
-    img: img_portfolio,
-  },
-];
+// const PROJECT_LIST = [
+//   {
+//     name: "shinflix",
+//     comments:
+//       "대형 스트리밍 플랫폼인 넷플릭스! 그동안 학습해온 React의 기술들을 활용하여 클론 코딩을 작성해보았습니다.",
+//     useSkill: [
+//       "React",
+//       "TypeScript",
+//       "styled-component",
+//       "react-query",
+//       "framer-motion",
+//       "react-hook-form",
+//       "react-icons",
+//       "react-router-dom",
+//       "recoil",
+//     ],
+//     link: "https://myhappyman.github.io/shinflix/",
+//     img: img_shinflix,
+//   },
+//   {
+//     name: "SINNISFREE",
+//     comments:
+//       "아모레 퍼시픽사의 이니스프리 홈페이지를 클론 코딩해보았습니다. 제품에 대한 데이터를 넣어보고, 다양한 슬라이더들을 구현해보았습니다.",
+//     useSkill: [
+//       "React",
+//       "TypeScript",
+//       "styled-component",
+//       "framer-motion",
+//       "react-hook-form",
+//       "react-icons",
+//       "react-router-dom",
+//       "recoil",
+//     ],
+//     link: "https://myhappyman.github.io/SINNISFREE/",
+//     img: img_SINNISFREE,
+//   },
+//   {
+//     name: "72닷컴",
+//     comments:
+//       "온라인/오프라인 등 다양한 디자인을 진행하는 회사로, 메인페이지의 화려한 3D 애니메이션을 적용해보기 위해 클론 코딩을 진행하게 된 프로젝트입니다.",
+//     useSkill: [
+//       "React",
+//       "TypeScript",
+//       "styled-component",
+//       "framer-motion",
+//       "react-icons",
+//       "recoil",
+//     ],
+//     link: "https://myhappyman.github.io/seven_two/",
+//     img: img_sevenTwo,
+//   },
+//   {
+//     name: "Portfolio",
+//     comments:
+//       "보고 계신 페이지로 프론트엔드 개발자의 저의 개발방향과 그동안의 경력, 개발자로 공부해온 방향성들을 노출하기 위해 작성되었습니다.",
+//     useSkill: [
+//       "React",
+//       "TypeScript",
+//       "styled-component",
+//       "framer-motion",
+//       "react-icons",
+//       "react-router-dom",
+//       "recoil",
+//     ],
+//     link: "https://myhappyman.github.io/my-portfolio/",
+//     img: img_portfolio,
+//   },
+// ];
 
+interface IProject {
+  data: DocumentData;
+  id: string;
+}
 function Projects() {
+  const [projects, setProjects] = useState<IProject[]>([]);
+  useEffect(() => {
+    const array: IProject[] = [];
+    const collection = firestore.collection("Projects");
+    collection.get().then((docs) => {
+      docs.forEach((doc) => {
+        if (doc.exists) {
+          array.push({ data: doc.data(), id: doc.id });
+        }
+      });
+      setProjects(array);
+    });
+  }, []);
   return (
     <Wrapper>
       <AnimationOnScroll
@@ -88,25 +108,28 @@ function Projects() {
 
       <Area>
         <Contents>
-          {PROJECT_LIST &&
-            PROJECT_LIST.map((project, idx) => (
-              <Card key={`${"project" + idx}`}>
+          {projects &&
+            projects.map((project, idx) => (
+              <Card key={project.id}>
                 <Top>
                   <Head>
-                    <Name>{project.name}</Name>
-                    <Icon href={project.link} target="_blank">
+                    <Name>{project.data.name}</Name>
+                    <Icon href={project.data.link} target="_blank">
                       <BiLinkExternal size="20" />
                     </Icon>
                   </Head>
                   <TextBox>
-                    <Comments>{project.comments}</Comments>
+                    <Comments>{project.data.comments}</Comments>
                     <HashTag>
-                      {project.useSkill.map((skill) => "#" + skill)}
+                      {project.data.useSkill &&
+                        project.data.useSkill.map(
+                          (skill: string) => "#" + skill
+                        )}
                     </HashTag>
                   </TextBox>
                 </Top>
                 <Bottom>
-                  <img src={project.img} alt={project.name} />
+                  <img src={project.data.image} alt={project.data.name} />
                 </Bottom>
               </Card>
             ))}

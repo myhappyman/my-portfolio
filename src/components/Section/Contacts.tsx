@@ -40,13 +40,12 @@ function Contacts() {
     collection.get().then((docs) => {
       docs.forEach((doc) => {
         if (doc.exists) {
-          array.push({data:doc.data(), id:doc.id});
+          array.push({ data: doc.data(), id: doc.id });
         }
       });
       setContacts_List(array);
     });
   }, []);
-
   return (
     <Wrapper>
       <Inner>
