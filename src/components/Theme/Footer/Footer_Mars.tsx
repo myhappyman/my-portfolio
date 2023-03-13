@@ -6,13 +6,52 @@ import planet from "../../../assets/imgs/footer/mars/planet.png";
 import astronaut from "../../../assets/imgs/footer/mars/astronaut.png";
 import fire from "../../../assets/imgs/footer/mars/fire.png";
 import stars from "../../../assets/imgs/footer/mars/stars.png";
+import { useEffect, useRef } from "react";
 
 function Footer_Mars() {
+  const ref_moutains_front01 = useRef<HTMLImageElement | null>(null);
+  const ref_moutains_front02 = useRef<HTMLImageElement | null>(null);
+
+  // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
+  const scrollToMoveMain = () => {
+    console.log();
+    const { scrollY, innerHeight } = window;
+    const { scrollHeight } = document.body;
+    console.log();
+
+    if (scrollHeight - innerHeight * 2 > scrollY) {
+    }
+
+    // 앞부분 이미지
+    if (ref_moutains_front01.current) {
+      ref_moutains_front01.current.style.top = `${scrollY * 0.17}rem`;
+    }
+    // 앞부분 이미지
+    if (ref_moutains_front02.current) {
+      ref_moutains_front02.current.style.top = `${scrollY * 0.17}rem`;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollToMoveMain);
+    return () => window.removeEventListener("scroll", scrollToMoveMain);
+  }, []);
+
   return (
     <>
       <ImgTag src={marsBg} alt="marsBg" className="marsBg" />
-      <ImgTag src={front01} alt="front01" className="front01" />
-      <ImgTag src={front02} alt="front02" className="front02" />
+      <ImgTag
+        src={front01}
+        alt="front01"
+        className="front01"
+        ref={ref_moutains_front01}
+      />
+      <ImgTag
+        src={front02}
+        alt="front02"
+        className="front02"
+        ref={ref_moutains_front02}
+      />
       <ImgTag src={stars} alt="stars" className="f_stars" />
       <ImgTag src={planet} alt="planet" className="planet" />
       <ImgTag src={astronaut} alt="astronaut" className="astronaut" />

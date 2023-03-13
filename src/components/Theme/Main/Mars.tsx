@@ -46,7 +46,7 @@ function Mars() {
 
     // 뒷부분 이미지01
     if (ref_moutains_behind01.current) {
-      ref_moutains_behind01.current.style.top = `${scrollY * 0.1}rem`;
+      ref_moutains_behind01.current.style.top = `${scrollY * 0.15}rem`;
     }
 
     // 뒷부분 이미지02

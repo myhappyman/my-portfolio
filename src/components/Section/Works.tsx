@@ -2,12 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
-import c_tas from "../../assets/imgs/works/c_tas.png";
-import yangsansi from "../../assets/imgs/works/yangsansi.png";
-import kcert from "../../assets/imgs/works/kcert.png";
-import check_kisa from "../../assets/imgs/works/check_kisa.png";
-import ipcr from "../../assets/imgs/works/ipcr.png";
-import recsee from "../../assets/imgs/works/recsee.png";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
 
@@ -106,26 +100,27 @@ function Works() {
     });
   }, []);
 
-  const [isHover, setIsHover] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  // const [isHover, setIsHover] = useState([
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  // ]);
+  const [isHover, setIsHover] = useState([true, true, true, true, true, true]);
 
   const toggleHover = (mode: string, idx: number) => {
-    setIsHover((prev) => {
-      const copyArr = [...prev];
-      const frontArr = copyArr.slice(0, idx);
-      const endArr = copyArr.slice(idx + 1, copyArr.length);
-      if (mode === "enter") {
-        return [...frontArr, true, ...endArr];
-      } else {
-        return [...frontArr, false, ...endArr];
-      }
-    });
+    // setIsHover((prev) => {
+    //   const copyArr = [...prev];
+    //   const frontArr = copyArr.slice(0, idx);
+    //   const endArr = copyArr.slice(idx + 1, copyArr.length);
+    //   if (mode === "enter") {
+    //     return [...frontArr, true, ...endArr];
+    //   } else {
+    //     return [...frontArr, false, ...endArr];
+    //   }
+    // });
   };
 
   return (
@@ -155,30 +150,28 @@ function Works() {
                     <img src={work.data.background} alt={work.data.fullTitle} />
                     <FadeIn className={isHover[idx] ? "fadeIn" : "hover"}>
                       <TypeInfo>
-                        <Sep>WEB /</Sep>
-                        <Sep>
+                        <SepWeb className="web">WEB</SepWeb>
+                        <SepWorkType className="worksType">
                           {work.data.worksType &&
                             work.data.worksType.map((wt: string, idx: number) =>
                               idx + 1 === work.data.worksType.length
                                 ? wt
-                                : wt + "&"
+                                : wt + ", "
                             )}
-                        </Sep>
-                        <Sep>
-                          {"/ "}
+                        </SepWorkType>
+                        <SepType className="type">
                           {work.data.type &&
                             work.data.type.map((t: string, idx: number) =>
-                              idx + 1 === work.data.type.length ? t : t + "&"
+                              idx + 1 === work.data.type.length ? t : t + ", "
                             )}
-                        </Sep>
+                        </SepType>
                       </TypeInfo>
-                      <SepLine />
                       <Title>{work.data.title}</Title>
                       <Company>{work.data.company}</Company>
                       <Period>{work.data.period}</Period>
                       <Comments>{work.data.comments}</Comments>
                       <GoLink href={work.data.link} target="_blank">
-                        보러가기
+                        View
                       </GoLink>
                     </FadeIn>
                   </Content>
@@ -245,54 +238,110 @@ const FadeIn = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
   transition: all 0.4s;
 
   &.hover {
     opacity: 0;
   }
   &.fadeIn {
-    padding: 2rem;
+    padding: 5rem 3rem 3rem;
     opacity: 1;
-    color: ${(props) => props.theme.bgColor};
-    background: rgba(87, 96, 111, 0.8);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
   }
 `;
 
 const Title = styled.div`
-  font-size: 3.2rem;
-  font-weight: 500;
+  padding: 1rem 0 0.6rem;
+  font-size: 3.4rem;
+  font-weight: 600;
 `;
 const TypeInfo = styled.div`
   font-size: 2rem;
   font-weight: 400;
 
   span ~ span {
-    margin-left: 1rem;
+    margin-left: 0.8rem;
   }
 `;
+
 const Sep = styled.span`
-  font-size: 1.4rem;
+  display: inline-block;
+  padding: 0.2rem 0.8rem 0.16rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  color: #fff;
 `;
-const SepLine = styled.div`
-  width: 3rem;
-  border: 1px solid ${(props) => props.theme.bgColor};
+const SepWeb = styled(Sep)`
+  background: linear-gradient(91deg, #ff6371 0%, #ff9062 100%);
+`;
+const SepWorkType = styled(Sep)`
+  background: linear-gradient(to left, #72c4e2, #5f93d9);
+`;
+const SepType = styled(Sep)`
+  background: linear-gradient(to right, #4bac9d, #70c799);
 `;
 const Company = styled.div`
+  position: relative;
+  padding-left: 0.8rem;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 500;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    /* width: 1rem; */
+    width: 2.6px;
+    height: 1.4rem;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 `;
 const Period = styled.div`
-  font-size: 1.4rem;
+  padding-top: 0.2rem;
+  font-size: 1.2rem;
   font-weight: 400;
 `;
 const Comments = styled.span`
   display: block;
   margin: 1rem 0;
   font-size: 1.2rem;
+  line-height: 1.9rem;
+  color: rgba(255, 255, 255, 0.95);
 `;
 
 const GoLink = styled.a`
-  font-style: italic;
-  font-size: 1.4rem;
-  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 4rem;
+  right: 3rem;
+  width: 6rem;
+  height: 6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+
+  /* &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3.8rem;
+    height: 0.1rem;
+    background: #fff;
+  } */
+
+  /* &:hover {
+    color: #ff9062;
+  } */
 `;

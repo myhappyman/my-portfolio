@@ -117,13 +117,13 @@ const SectionName = styled.div`
 
 const Area = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 5rem;
+  padding: 0 10rem;
 `;
 const Items = styled.li`
   width: 33%;
-  height: 65rem;
   border-radius: 2rem;
   box-shadow: 0px 7px 15px 0 rgb(0 0 0 / 15%);
   transition: all 0.3s;
@@ -139,7 +139,7 @@ const Top = styled.div`
   height: 45%;
 `;
 const Name = styled.div`
-  padding: 1rem;
+  padding: 1rem 1.8rem;
   border-radius: 2rem 2rem 0 0;
   font-size: 4.6rem;
   font-weight: 600;
@@ -147,12 +147,14 @@ const Name = styled.div`
   color: ${(props) => props.theme.bgColor};
 `;
 const Comments = styled.div`
-  padding: 1rem;
+  padding: 1.8rem;
+  height: 20rem;
   font-size: 1.6rem;
 `;
 const Bottom = styled.div``;
 const ImgBox = styled.div`
   img {
+    display: block;
     width: 100%;
     border-radius: 0 0 2rem 2rem;
   }

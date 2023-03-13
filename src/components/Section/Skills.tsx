@@ -2,17 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
-import { ReactComponent as html5 } from "../../assets/imgs/svgIcon/html5.svg";
-import { ReactComponent as css3 } from "../../assets/imgs/svgIcon/css3.svg";
-import { ReactComponent as javascript } from "../../assets/imgs/svgIcon/javascript.svg";
-import { ReactComponent as react } from "../../assets/imgs/svgIcon/react.svg";
-import { ReactComponent as typescript } from "../../assets/imgs/svgIcon/typescript.svg";
-import { ReactComponent as jquery } from "../../assets/imgs/svgIcon/jquery.svg";
-import { ReactComponent as java } from "../../assets/imgs/svgIcon/java.svg";
-import { ReactComponent as rdb } from "../../assets/imgs/svgIcon/amazondynamodb.svg";
-import { ReactComponent as apachetomcat } from "../../assets/imgs/svgIcon/apachetomcat.svg";
-import { ReactComponent as git } from "../../assets/imgs/svgIcon/git.svg";
-import { ReactComponent as docker } from "../../assets/imgs/svgIcon/docker.svg";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
 
@@ -140,8 +129,8 @@ function Skills() {
                     <Number>{zeroTen(idx + 1)} /</Number>
                     <Div>
                       <Icon>
-                        <img src={skill.data.icon} alt="" />
-                        {/* <skill.data.icon
+                        <img src={skill.data.icon} alt={skill.data.name} />
+                        {/* <skill.data.icon}
                           width={40}
                           height={40}
                           fill={skill.data.iconColor}
@@ -205,6 +194,10 @@ const Icon = styled.div`
     margin-top: 0.4rem;
   }
 `;
+const SvgImg = styled.img<{ color: string }>`
+  color: ${(props) => props.color};
+`;
+
 const Number = styled.span`
   font-size: 3rem;
   font-weight: 700;
