@@ -1,10 +1,41 @@
 import { createGlobalStyle } from "styled-components";
+import PretendardExtraLight from "./assets/fonts/Pretendard/PretendardExtraLight.woff2";
+import PretendardRegular from "./assets/fonts/Pretendard/PretendardRegular.woff2";
+import PretendardBold from "./assets/fonts/Pretendard/PretendardBold.woff2";
+import PretendardExtraBold from "./assets/fonts/Pretendard/PretendardExtraBold.woff2";
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
-  */
+  */    
+  @font-face {
+      font-family: 'Pretendard';
+      font-weight: 200;
+      src: url(${PretendardExtraLight}) format('woff2');    
+      unicode-range: U+AC00-D7A3;
+  }
+  
+  @font-face {
+      font-family: 'Pretendard';
+      font-weight: 400;
+      src: url(${PretendardRegular}) format('woff2');    
+      unicode-range: U+AC00-D7A3;
+  }
+
+  @font-face {
+      font-family: 'Pretendard';
+      font-weight: 700;
+      src: url(${PretendardBold}) format('woff2');    
+      unicode-range: U+AC00-D7A3;
+  }
+
+  @font-face {
+      font-family: 'Pretendard';
+      font-weight: 800;
+      src: url(${PretendardExtraBold}) format('woff2');    
+      unicode-range: U+AC00-D7A3;
+  }
 
   /* REM rules */
   html{font-size:3px !important;}
@@ -51,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -75,7 +106,7 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }  
   body {
-    font-family: 'Poppins', 'Pretendard', sans-serif;
+    font-family: 'Poppins', 'Pretendard', sans-serif;    
     font-weight: 300;
     color: ${(props) => props.theme.textColor};    
     background-color: ${(props) => props.theme.bgRGBAColor};

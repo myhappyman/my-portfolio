@@ -80,7 +80,7 @@ const Contents = styled.ul`
 `;
 
 const Item = styled.li`
-  padding: 1rem;
+  padding: 2rem 1rem 1rem 2rem;
   outline: none;
   transition: 0.3s;
   &:hover {
@@ -113,7 +113,7 @@ const FlexColumn = styled.div`
 `;
 const Name = styled.span`
   padding: 0 1rem;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 500;
 `;
 const Content = styled.span`
