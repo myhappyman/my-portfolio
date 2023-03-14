@@ -1,7 +1,11 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.739d8fec.css",
-    "main.js": "/my-portfolio/static/js/main.f95f3f99.js",
+    "main.js": "/my-portfolio/static/js/main.a413fc3c.js",
+    "static/media/PretendardExtraBold.woff2": "/my-portfolio/static/media/PretendardExtraBold.55bef92e8f01b6b6ef2f.woff2",
+    "static/media/PretendardBold.woff2": "/my-portfolio/static/media/PretendardBold.0676c8838a37a3b770d8.woff2",
+    "static/media/PretendardRegular.woff2": "/my-portfolio/static/media/PretendardRegular.6090e6b5524796768e78.woff2",
+    "static/media/PretendardExtraLight.woff2": "/my-portfolio/static/media/PretendardExtraLight.1a26bede4e9bc7d2e9c0.woff2",
     "static/media/mountains_front.png": "/my-portfolio/static/media/mountains_front.89674e2b5c2bb1aa1005.png",
     "static/media/fullImg.png": "/my-portfolio/static/media/fullImg.f4c2fe13547428e96816.png",
     "static/media/planet.png": "/my-portfolio/static/media/planet.0245f1823766d4940839.png",
@@ -19,10 +23,10 @@
     "static/media/marsBg.png": "/my-portfolio/static/media/marsBg.ee226c4968854c27b48f.png",
     "index.html": "/my-portfolio/index.html",
     "main.739d8fec.css.map": "/my-portfolio/static/css/main.739d8fec.css.map",
-    "main.f95f3f99.js.map": "/my-portfolio/static/js/main.f95f3f99.js.map"
+    "main.a413fc3c.js.map": "/my-portfolio/static/js/main.a413fc3c.js.map"
   },
   "entrypoints": [
     "static/css/main.739d8fec.css",
-    "static/js/main.f95f3f99.js"
+    "static/js/main.a413fc3c.js"
   ]
 }
