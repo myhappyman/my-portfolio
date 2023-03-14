@@ -11,24 +11,36 @@ import { useEffect, useRef } from "react";
 function Footer_Mars() {
   const ref_moutains_front01 = useRef<HTMLImageElement | null>(null);
   const ref_moutains_front02 = useRef<HTMLImageElement | null>(null);
+  const ref_planet = useRef<HTMLImageElement | null>(null);
+  const ref_astronaut = useRef<HTMLImageElement | null>(null);
+  const ref_fire = useRef<HTMLImageElement | null>(null);
 
   // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
   const scrollToMoveMain = () => {
-    console.log();
     const { scrollY, innerHeight } = window;
     const { scrollHeight } = document.body;
-    console.log();
 
-    if (scrollHeight - innerHeight * 2 > scrollY) {
-    }
+    if (scrollHeight - innerHeight * 2 < scrollY) {
+      const value = scrollY - (scrollHeight - innerHeight * 2) - innerHeight;
 
-    // 앞부분 이미지
-    if (ref_moutains_front01.current) {
-      ref_moutains_front01.current.style.top = `${scrollY * 0.17}rem`;
-    }
-    // 앞부분 이미지
-    if (ref_moutains_front02.current) {
-      ref_moutains_front02.current.style.top = `${scrollY * 0.17}rem`;
+      // // 앞부분 이미지01
+      // if (ref_moutains_front01.current) {
+      //   ref_moutains_front01.current.style.top = `-${value * 0.24}rem`;
+      // }
+      // // 앞부분 이미지02
+      // if (ref_moutains_front02.current) {
+      //   ref_moutains_front02.current.style.top = `-${value * 0.25}rem`;
+      // }
+
+      if (ref_planet.current) {
+        ref_planet.current.style.top = `${value * 0.18}rem`;
+      }
+      if (ref_astronaut.current) {
+        ref_astronaut.current.style.top = `${value * 0.11}rem`;
+      }
+      if (ref_fire.current) {
+        ref_fire.current.style.top = `${value * 0.11}rem`;
+      }
     }
   };
 
@@ -53,9 +65,14 @@ function Footer_Mars() {
         ref={ref_moutains_front02}
       />
       <ImgTag src={stars} alt="stars" className="f_stars" />
-      <ImgTag src={planet} alt="planet" className="planet" />
-      <ImgTag src={astronaut} alt="astronaut" className="astronaut" />
-      <FireBox>
+      <ImgTag src={planet} alt="planet" className="planet" ref={ref_planet} />
+      <ImgTag
+        src={astronaut}
+        alt="astronaut"
+        className="astronaut"
+        ref={ref_astronaut}
+      />
+      <FireBox ref={ref_fire}>
         <ImgTag src={fire} alt="fire" className="fire" />
       </FireBox>
     </>

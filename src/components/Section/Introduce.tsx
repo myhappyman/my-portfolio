@@ -3,18 +3,13 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import me from "../../assets/imgs/introduce/me.png";
+import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 function Introduce() {
   return (
     <Wrapper>
-      <Inner>
-        <AnimationOnScroll
-          initiallyVisible={true}
-          animateIn="animate__bounce"
-          delay={10}
-        >
-          <SectionName>🤟 Introduce</SectionName>
-        </AnimationOnScroll>
+      <SectionHeader text="🤟 Introduce" />
+      <GInner>
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"
@@ -50,22 +45,18 @@ function Introduce() {
             </TextArea>
           </Contents>
         </AnimationOnScroll>
-      </Inner>
+      </GInner>
     </Wrapper>
   );
 }
 
 export default Introduce;
 
-const Wrapper = styled.section`
-  position: relative;
-  padding: 8rem 10rem 2rem;
-  height: 100vh;
-
+const Wrapper = styled(GWrapper)`
   &::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 0rem;
     left: 0;
     width: 100%;
     height: 180px;
@@ -75,16 +66,6 @@ const Wrapper = styled.section`
       ${(props) => props.theme.bgGradientEndColor}
     );
   }
-`;
-
-const Inner = styled.div`
-  max-width: 1680px;
-  margin: 0 auto;
-`;
-
-const SectionName = styled.div`
-  font-size: 7.2rem;
-  font-weight: 700;
 `;
 
 const Contents = styled.div`

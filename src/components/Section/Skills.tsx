@@ -4,84 +4,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
-
-// const skills = [
-//   {
-//     name: "HTML5",
-//     icon: html5,
-//     iconColor: "#E34F26",
-//     content: "마크업을 통해 웹 페이지를 작성할 수 있습니다.",
-//   },
-//   {
-//     name: "CSS3",
-//     icon: css3,
-//     iconColor: "#1572B6",
-//     content: "마크업을 꾸미고 애니메이트 활용을 할 수 있습니다.",
-//   },
-//   {
-//     name: "Javascript",
-//     icon: javascript,
-//     iconColor: "#F7DF1E",
-//     content:
-//       "바닐라 스크립트를 통해 이벤트를 부여하거나 동적인 행동의 기능 등을 처리 할 수 있습니다.",
-//   },
-//   {
-//     name: "React",
-//     icon: react,
-//     iconColor: "#61DAFB",
-//     content:
-//       "프론트엔드 개발자로 전향과 집중을 위해 노마드코더 수업과 책을 학습하면서 기본적인 state의 개념과 유용한 라이브러리들인 styled, framer-motion, react-hook-form, router-dom, recoil, react-query 등을 학습해보고 실제로 적용해보는 미니 프로젝트등을 경험했습니다.",
-//   },
-//   {
-//     name: "Typescript",
-//     icon: typescript,
-//     iconColor: "#3178C6",
-//     content:
-//       "Typescript버전의 React를 작성하고 함수, 객체를 정의하고 javascript의 자유성을 배제시키면서 최대한 안전한 코드를 작성하는 습관을 들이기위해 프로젝트에 적용과 학습을 진행했습니다.",
-//   },
-//   {
-//     name: "jQuery",
-//     icon: jquery,
-//     iconColor: "#0769AD",
-//     content:
-//       "jQuery를 통해 페이지의 동적인 이벤트 처리와 활용 가능한 라이브러리 등을 자유롭게 사용할 수 있으며, 경력 기간동안 스크립트 관련 제어의 대부분은 jQuery를 통해 처리를 진행해본 경험이 있습니다.",
-//   },
-//   {
-//     name: "JAVA",
-//     icon: java,
-//     iconColor: "#e74c3c",
-//     content:
-//       "스프링 프레임워크 환경에서 백엔드 서버 개발을 구축을 하면서 api기능이나, 서버의 보안, 스케줄러 작성 등 프로세스 작성해보았습니다.",
-//   },
-//   {
-//     name: "RDB",
-//     icon: rdb,
-//     iconColor: "#4053D6",
-//     content:
-//       "Oracle, Mysql, Mssql, MariaDb, Postgresql등 다양한 rdb를 활용하여 쿼리를 작성하고 crud작업을 진행하였습니다.",
-//   },
-//   {
-//     name: "Apache Tomcat",
-//     icon: apachetomcat,
-//     iconColor: "#F8DC75",
-//     content:
-//       "가장 대중적으로 사용해왔던 was서버로 웹 어플리케이션의 개발이 끝나고 서버의 환경설정 https세팅, 서비스 등록 등의 작업을 tomcat서버를 통해 구성하고 실서버를 동작시켰습니다.",
-//   },
-//   {
-//     name: "Git",
-//     icon: git,
-//     iconColor: "#F05032",
-//     content:
-//       "프로젝트 형상관리 및 팀원과의 협업을 위해 branch를 나누고 프로젝트 merge 작업을 진행하거나, 과거 버전으로 revert 작업등을 수행해보았습니다. github를 통해 개인 소소한 프로젝트 등도 commit처리 하는 습관을 들이도록 노력 중입니다.(잔디심기)",
-//   },
-//   {
-//     name: "Docker",
-//     icon: docker,
-//     iconColor: "#2496ED",
-//     content:
-//       "프로젝트에 필요한 환경구성을 손쉽게 구성하여 테스트서버를 구축하고 수많은 테스트를 진행해보거나, 모의 테스트 구성을 하는 등 다양한 형태로 구성을 해보는 경험을 했습니다.",
-//   },
-// ];
+import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 interface ISkill {
   data: DocumentData;
@@ -97,25 +20,23 @@ function Skills() {
   useEffect(() => {
     const array: ISkill[] = [];
     const collection = firestore.collection("Skills");
-    collection.get().then((docs) => {
-      docs.forEach((doc) => {
-        if (doc.exists) {
-          array.push({ data: doc.data(), id: doc.id });
-        }
+    collection
+      .orderBy("order")
+      .get()
+      .then((docs) => {
+        docs.forEach((doc) => {
+          if (doc.exists) {
+            array.push({ data: doc.data(), id: doc.id });
+          }
+        });
+        setSkills(array);
       });
-      setSkills(array);
-    });
   }, []);
+
   return (
-    <Wrapper>
-      <Inner>
-        <AnimationOnScroll
-          initiallyVisible={true}
-          animateIn="animate__bounce"
-          delay={10}
-        >
-          <Title>🪐 Skills</Title>
-        </AnimationOnScroll>
+    <GWrapper>
+      <SectionHeader text="🪐 Skills" />
+      <GInner>
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"
@@ -130,11 +51,6 @@ function Skills() {
                     <Div>
                       <Icon>
                         <img src={skill.data.icon} alt={skill.data.name} />
-                        {/* <skill.data.icon}
-                          width={40}
-                          height={40}
-                          fill={skill.data.iconColor}
-                        /> */}
                       </Icon>
                       <FlexColumn>
                         <Name>{skill.data.name}</Name>
@@ -146,26 +62,12 @@ function Skills() {
             </Contents>
           </Area>
         </AnimationOnScroll>
-      </Inner>
-    </Wrapper>
+      </GInner>
+    </GWrapper>
   );
 }
 
 export default Skills;
-
-const Wrapper = styled.section`
-  padding: 2rem 10rem;
-`;
-
-const Inner = styled.div`
-  max-width: 1680px;
-  margin: 0 auto;
-`;
-
-const Title = styled.div`
-  font-size: 7.2rem;
-  font-weight: 700;
-`;
 
 const Area = styled.div`
   padding: 10rem;
@@ -180,10 +82,11 @@ const Contents = styled.ul`
 const Item = styled.li`
   padding: 1rem;
   outline: none;
-  transform: all 3s;
+  transition: 0.3s;
   &:hover {
-    outline: 1px solid orange;
-    transform: all 3s;
+    border-radius: 2rem;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
   }
 `;
 
@@ -194,9 +97,6 @@ const Icon = styled.div`
     margin-top: 0.4rem;
   }
 `;
-const SvgImg = styled.img<{ color: string }>`
-  color: ${(props) => props.color};
-`;
 
 const Number = styled.span`
   font-size: 3rem;
@@ -206,11 +106,10 @@ const Div = styled.div`
   display: flex;
   margin-top: 0.4rem;
 `;
-
 const FlexColumn = styled.div`
-  width: calc(100% - 9.7rem);
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
 `;
 const Name = styled.span`
   padding: 0 1rem;
