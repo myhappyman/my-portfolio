@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
-  */    
+  */
+  
   @font-face {
       font-family: 'Pretendard';
       font-weight: 200;
@@ -82,7 +83,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    /* font: inherit; */
+    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */

@@ -91,10 +91,11 @@ const Item = styled.li`
 `;
 
 const Icon = styled.div`
-  width: 5.7rem;
-  height: 5.7rem;
-  svg {
-    margin-top: 0.4rem;
+  width: 5.2rem;
+  height: 5.2rem;
+  img {
+    display: block;
+    height: 100%;
   }
 `;
 
