@@ -236,7 +236,7 @@ const GoLink = styled.a`
   background-color: transparent;
 
   &:hover {
-    border: 2px solid rgba(114, 196, 226, 0.6);
+    border: 2px solid rgba(114, 196, 226, 1);
   }
   &:hover::before {
     content: "";

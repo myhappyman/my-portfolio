@@ -86,7 +86,7 @@ const Item = styled.li`
   &:hover {
     border-radius: 2rem;
     transform: translateY(-2px);
-    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
+    box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 `;
 

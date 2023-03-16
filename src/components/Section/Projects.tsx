@@ -3,7 +3,10 @@ import { BiLinkExternal } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
-import { GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GWrapper, GInner, SectionHeader } from "../../GlobalComponents";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import "swiper/css";
 
 interface IProject {
   data: DocumentData;
@@ -30,33 +33,69 @@ function Projects() {
     <GWrapper>
       <SectionHeader text="🚀 Projects" />
       <Area>
-        <Contents>
+        <SwiperWrap
+          slidesPerView={3.5}
+          spaceBetween={50}
+          grabCursor={true}
+          loop={true}
+          loopedSlides={3}
+        >
           {projects &&
-            projects.map((project, idx) => (
-              <Card key={project.id}>
-                <Top>
-                  <Head>
-                    <Name>{project.data.name}</Name>
-                    <Icon href={project.data.link} target="_blank">
-                      <BiLinkExternal size="20" />
-                    </Icon>
-                  </Head>
-                  <TextBox>
-                    <Comments>{project.data.comments}</Comments>
-                    <HashTag>
-                      {project.data.useSkill &&
-                        project.data.useSkill.map(
-                          (skill: string) => "#" + skill
-                        )}
-                    </HashTag>
-                  </TextBox>
-                </Top>
-                <Bottom>
-                  <img src={project.data.image} alt={project.data.name} />
-                </Bottom>
-              </Card>
+            projects.map((project) => (
+              <Slide key={project.id}>
+                <GoLink href={project.data.link} target="_blank">
+                  <Top>
+                    <Head>
+                      <Name>{project.data.name}</Name>
+                      <Icon>
+                        <BiLinkExternal className="icon" size="24" />
+                      </Icon>
+                    </Head>
+                    <TextBox>
+                      <Comments>{project.data.comments}</Comments>
+                      <HashTag>
+                        {project.data.useSkill &&
+                          project.data.useSkill.map(
+                            (skill: string) => "#" + skill
+                          )}
+                      </HashTag>
+                    </TextBox>
+                  </Top>
+                  <Bottom>
+                    <img src={project.data.image} alt={project.data.name} />
+                  </Bottom>
+                </GoLink>
+              </Slide>
             ))}
-        </Contents>
+          {/* 같은 프로젝트 내용 추가해줘야 무한루프처럼 동작해서 같은내용 추가함   */}
+          {projects &&
+            projects.map((project) => (
+              <Slide key={project.id}>
+                <GoLink href={project.data.link} target="_blank">
+                  <Top>
+                    <Head>
+                      <Name>{project.data.name}</Name>
+                      <Icon>
+                        <BiLinkExternal size="20" />
+                      </Icon>
+                    </Head>
+                    <TextBox>
+                      <Comments>{project.data.comments}</Comments>
+                      <HashTag>
+                        {project.data.useSkill &&
+                          project.data.useSkill.map(
+                            (skill: string) => "#" + skill
+                          )}
+                      </HashTag>
+                    </TextBox>
+                  </Top>
+                  <Bottom>
+                    <img src={project.data.image} alt={project.data.name} />
+                  </Bottom>
+                </GoLink>
+              </Slide>
+            ))}
+        </SwiperWrap>
       </Area>
     </GWrapper>
   );
@@ -66,20 +105,16 @@ export default Projects;
 
 const Area = styled.div`
   width: 100%;
-  padding: 10rem 0;
 `;
 
-const Contents = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const SwiperWrap = styled(Swiper)`
+  margin: 6rem 0 0 19rem;
+  padding: 2rem 0 2rem 2rem;
 `;
-
-const Card = styled.li`
-  width: calc(100% / 4 - 4rem);
-  margin-right: 4rem;
+const Slide = styled(SwiperSlide)`
+  width: calc(100% / 3.5 - 4rem) !important;
   border-radius: 2rem;
-  box-shadow: 0px 7px 15px 0 rgb(0 0 0 / 15%);
+  box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 0.3s;
 
   &:last-child {
@@ -87,31 +122,39 @@ const Card = styled.li`
   }
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
+    box-shadow: ${(props) => props.theme.boxShadowHover};
   }
+`;
+const GoLink = styled.a`
+  cursor: pointer;
 `;
 
 const Top = styled.div`
   position: relative;
-  height: 45%;
+  min-height: 22rem;
+  border-radius: 2rem 2rem 0 0;
   padding: 1rem;
+  background-color: #fff;
+  color: #000;
 `;
 const Head = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 1.2rem 1rem 1rem;
 `;
 const Name = styled.span`
-  padding: 0.4rem;
-  font-size: 1.4rem;
-  border-radius: 1rem;
+  padding: 0.5rem 1.4rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 1.8rem;
   background: ${(props) => props.theme.bgGradientStartColor};
-  color: ${(props) => props.theme.bgColor};
+  color: #fff;
 `;
-const Icon = styled.a`
+const Icon = styled.span`
   width: 2rem;
   height: 2rem;
   svg {
+    margin-top: 0.6rem;
     color: ${(props) => props.theme.bgGradientStartColor};
   }
 `;
@@ -123,22 +166,27 @@ const Comments = styled.span`
   font-weight: 700;
 `;
 const HashTag = styled.div`
+  position: absolute;
+  width: calc(100% - 3.8rem);
+  bottom: 1rem;
+  left: 1.8rem;
   margin-top: 2rem;
+  font-size: 1.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #bdc3c7;
-  overflow-y: hidden;
-  word-wrap: break-word;
 `;
 
 const Bottom = styled.div`
-  /* width: 100%;
-  height: 100%; */
+  max-height: 45rem;
   overflow: hidden;
   border-radius: 0 0 2rem 2rem;
 
   img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 0 0 2rem 2rem;
     object-fit: cover;
   }

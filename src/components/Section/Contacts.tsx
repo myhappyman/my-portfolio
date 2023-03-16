@@ -84,17 +84,17 @@ const Area = styled.ul`
   justify-content: space-around;
   align-items: center;
   margin-top: 5rem;
-  padding: 0 10rem;
+  padding: 10rem;
 `;
 const Items = styled.li`
   width: 33%;
   border-radius: 2rem;
-  box-shadow: 0px 7px 15px 0 rgb(0 0 0 / 15%);
+  box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 0.3s;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 5px 5px 20px rgb(0 0 0 / 20%);
+    box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 `;
 const GoLink = styled.a``;

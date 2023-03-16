@@ -13,5 +13,7 @@ declare module "styled-components" {
     btnColor: string; // 버튼류 배경 색상
     btnTxtColor: string; // 버튼류 텍스트 색상
     linkHoverColor: string; // 링크류 색상
+    boxShadow: string; // 그림자
+    boxShadowHover: string; // 그림자 호버시 강조
   }
 }

@@ -75,6 +75,12 @@ function Footer_Mars() {
       <FireBox ref={ref_fire}>
         <ImgTag src={fire} alt="fire" className="fire" />
       </FireBox>
+      <ThkWatching>
+        Thank you
+        <br />
+        for watching.
+      </ThkWatching>
+      <BottomTextArea>© 2023. ParkShinwoo all rights reserved.</BottomTextArea>
     </>
   );
 }
@@ -91,26 +97,29 @@ const ImgTag = styled.img`
   pointer-events: none;
 
   &.front01 {
-    z-index: 10;
+    z-index: 1;
   }
   &.front02 {
-    z-index: 11;
+    z-index: 2;
   }
   &.f_stars {
     animation: twinkleAnimation 2.5s infinite;
   }
   &.planet {
-    transform: translateX(-30rem);
+    transform: translate(-53rem, -30rem);
     scale: 0.7;
     animation: scaleAnimation 5s infinite;
   }
   &.astronaut {
+    margin-left: 36rem;
+    margin-top: 20rem;
     animation: bounceYAnimation 3s infinite;
     z-index: 13;
   }
   &.fire {
+    margin-left: 36rem;
+    margin-top: 20rem;
     animation: twinkleAnimation 2s infinite;
-    z-index: 12;
   }
 
   @keyframes bounceYAnimation {
@@ -142,6 +151,7 @@ const FireBox = styled.span`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 12;
   animation: fireBounceAnimation 3s infinite;
 
   @keyframes fireBounceAnimation {
@@ -155,4 +165,27 @@ const FireBox = styled.span`
       transform: translateY(0);
     }
   }
+`;
+
+const BottomTextArea = styled.div`
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.6rem;
+  color: #fff;
+  z-index: 14;
+`;
+
+const ThkWatching = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 9.2rem;
+  font-weight: 700;
+  color: #fff;
+  z-index: 14;
 `;

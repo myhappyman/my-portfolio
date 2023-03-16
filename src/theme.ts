@@ -10,6 +10,8 @@ export const moonTheme: DefaultTheme = {
   btnColor: "#fff",
   btnTxtColor: "#2b1055",
   linkHoverColor: "#cd84f1",
+  boxShadow: "0px 7px 15px 0 rgb(255 255 255 / 75%)",
+  boxShadowHover: "5px 5px 20px rgb(255 255 255 / 80%)",
 };
 
 export const marsTheme: DefaultTheme = {
@@ -22,4 +24,6 @@ export const marsTheme: DefaultTheme = {
   btnColor: "#fff",
   btnTxtColor: "#2b1055",
   linkHoverColor: "#cd84f1",
+  boxShadow: "0px 7px 15px 0 rgb(0 0 0 / 15%)",
+  boxShadowHover: "5px 5px 20px rgb(0 0 0 / 20%)",
 };
