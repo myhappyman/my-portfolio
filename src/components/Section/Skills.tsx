@@ -4,7 +4,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
-import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 interface ISkill {
   data: DocumentData;
@@ -42,7 +42,7 @@ function Skills() {
           animateIn="animate__fadeInUp"
           delay={300}
         >
-          <Area>
+          <GArea>
             <Contents>
               {skills &&
                 skills.map((skill, idx) => (
@@ -60,7 +60,7 @@ function Skills() {
                   </Item>
                 ))}
             </Contents>
-          </Area>
+          </GArea>
         </AnimationOnScroll>
       </GInner>
     </GWrapper>
@@ -68,10 +68,6 @@ function Skills() {
 }
 
 export default Skills;
-
-const Area = styled.div`
-  padding: 10rem;
-`;
 
 const Contents = styled.ul`
   display: grid;

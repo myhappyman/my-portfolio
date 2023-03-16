@@ -80,7 +80,7 @@ function Footer_Mars() {
         <br />
         for watching.
       </ThkWatching>
-      <BottomTextArea>© 2023. ParkShinwoo all rights reserved.</BottomTextArea>
+      <BottomTextArea>© 2023. Park ShinWoo all rights reserved.</BottomTextArea>
     </>
   );
 }
@@ -111,14 +111,14 @@ const ImgTag = styled.img`
     animation: scaleAnimation 5s infinite;
   }
   &.astronaut {
-    margin-left: 36rem;
-    margin-top: 20rem;
+    margin-left: 34rem;
+    margin-top: 18rem;
     animation: bounceYAnimation 3s infinite;
-    z-index: 13;
+    z-index: 15;
   }
   &.fire {
-    margin-left: 36rem;
-    margin-top: 20rem;
+    margin-left: 34rem;
+    margin-top: 18rem;
     animation: twinkleAnimation 2s infinite;
   }
 

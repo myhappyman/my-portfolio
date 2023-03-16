@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import me from "../../assets/imgs/introduce/me.png";
-import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 function Introduce() {
   return (
@@ -68,11 +68,9 @@ const Wrapper = styled(GWrapper)`
   }
 `;
 
-const Contents = styled.div`
+const Contents = styled(GArea)`
   display: flex;
   justify-content: center;
-  width: 100%;
-  padding: 10rem;
 `;
 
 const Area = styled.div`

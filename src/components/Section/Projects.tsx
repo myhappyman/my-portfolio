@@ -3,9 +3,8 @@ import { BiLinkExternal } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
-import { GWrapper, GInner, SectionHeader } from "../../GlobalComponents";
+import { GWrapper, SectionHeader } from "../../GlobalComponents";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
 import "swiper/css";
 
 interface IProject {
@@ -108,7 +107,7 @@ const Area = styled.div`
 `;
 
 const SwiperWrap = styled(Swiper)`
-  margin: 6rem 0 0 19rem;
+  margin: 4rem 0 0 19rem;
   padding: 2rem 0 2rem 2rem;
 `;
 const Slide = styled(SwiperSlide)`

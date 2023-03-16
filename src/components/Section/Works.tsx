@@ -4,7 +4,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
-import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 interface IWorks {
   data: DocumentData;
@@ -60,7 +60,7 @@ function Works() {
           animateIn="animate__fadeInUp"
           delay={300}
         >
-          <Area>
+          <GArea>
             <Contents>
               {works.map((work, idx) => (
                 <Article
@@ -98,7 +98,7 @@ function Works() {
                 </Article>
               ))}
             </Contents>
-          </Area>
+          </GArea>
         </AnimationOnScroll>
       </GInner>
     </GWrapper>
@@ -106,11 +106,6 @@ function Works() {
 }
 
 export default Works;
-
-const Area = styled.div`
-  width: 100%;
-  padding: 10rem;
-`;
 
 const Contents = styled.ul`
   display: flex;

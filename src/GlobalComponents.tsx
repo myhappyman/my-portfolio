@@ -24,7 +24,7 @@ export function SectionHeader({ text }: { text: string }) {
 export const GWrapper = styled.section`
   position: relative;
   min-height: 100vh;
-  padding: 8rem 0 2rem;
+  padding: 6rem 0 2rem;
 `;
 
 /**
@@ -33,6 +33,11 @@ export const GWrapper = styled.section`
 export const GInner = styled.div`
   max-width: 1680px;
   margin: 0 auto;
+`;
+
+export const GArea = styled.div`
+  width: 100%;
+  padding: 6rem;
 `;
 
 /**

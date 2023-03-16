@@ -6,10 +6,10 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts";
 import Introduce from "./components/Section/Introduce";
+import OptionBtn from "./components/Section/OptionBtn";
 import Projects from "./components/Section/Projects";
 import Skills from "./components/Section/Skills";
 import Works from "./components/Section/Works";
-
 import GlobalStyle from "./GlobalStyle";
 import { marsTheme, moonTheme } from "./theme";
 
@@ -29,7 +29,7 @@ function App() {
         <Skills />
         <Contacts />
         <Footer />
-        {/* <OptionBtn /> */}
+        <OptionBtn />
       </Wrapper>
     </ThemeProvider>
   );

@@ -4,7 +4,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
-import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 
 interface IContacts {
   data: DocumentData;
@@ -79,12 +79,10 @@ const Wrapper = styled(GWrapper)`
   }
 `;
 
-const Area = styled.ul`
+const Area = styled(GArea.withComponent("ul"))`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5rem;
-  padding: 10rem;
 `;
 const Items = styled.li`
   width: 33%;
