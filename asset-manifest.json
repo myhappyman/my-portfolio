@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-portfolio/static/css/main.739d8fec.css",
-    "main.js": "/my-portfolio/static/js/main.2458144d.js",
+    "main.css": "/my-portfolio/static/css/main.7888881e.css",
+    "main.js": "/my-portfolio/static/js/main.8df2e7d5.js",
     "static/media/PretendardExtraBold.woff2": "/my-portfolio/static/media/PretendardExtraBold.55bef92e8f01b6b6ef2f.woff2",
     "static/media/PretendardBold.woff2": "/my-portfolio/static/media/PretendardBold.0676c8838a37a3b770d8.woff2",
     "static/media/PretendardRegular.woff2": "/my-portfolio/static/media/PretendardRegular.6090e6b5524796768e78.woff2",
@@ -22,11 +22,11 @@
     "static/media/cloud.png": "/my-portfolio/static/media/cloud.827f64b951ec77ecd83f.png",
     "static/media/marsBg.png": "/my-portfolio/static/media/marsBg.ee226c4968854c27b48f.png",
     "index.html": "/my-portfolio/index.html",
-    "main.739d8fec.css.map": "/my-portfolio/static/css/main.739d8fec.css.map",
-    "main.2458144d.js.map": "/my-portfolio/static/js/main.2458144d.js.map"
+    "main.7888881e.css.map": "/my-portfolio/static/css/main.7888881e.css.map",
+    "main.8df2e7d5.js.map": "/my-portfolio/static/js/main.8df2e7d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.739d8fec.css",
-    "static/js/main.2458144d.js"
+    "static/css/main.7888881e.css",
+    "static/js/main.8df2e7d5.js"
   ]
 }
