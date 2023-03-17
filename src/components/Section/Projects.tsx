@@ -109,9 +109,13 @@ const Area = styled.div`
 const SwiperWrap = styled(Swiper)`
   margin: 4rem 0 0 19rem;
   padding: 2rem 0 2rem 2rem;
+
+  @media (max-width: 1200px) {
+    margin: 4rem 0 0 8rem;
+  }
 `;
 const Slide = styled(SwiperSlide)`
-  width: calc(100% / 3.5 - 4rem) !important;
+  /* width: calc(100% / 3.5 - 4rem); */
   border-radius: 2rem;
   box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 0.3s;

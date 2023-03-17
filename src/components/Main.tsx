@@ -69,6 +69,6 @@ const Section = styled.section`
       ${(props) => props.theme.bgGradientEndColor},
       transparent
     );
-    z-index: 1000;
+    z-index: 99;
   }
 `;

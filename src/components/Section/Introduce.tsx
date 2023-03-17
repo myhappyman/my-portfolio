@@ -71,11 +71,20 @@ const Wrapper = styled(GWrapper)`
 const Contents = styled(GArea)`
   display: flex;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const Area = styled.div`
   width: 50%;
   padding: 1rem;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const ImgArea = styled(Area)`
@@ -89,6 +98,13 @@ const TextArea = styled(Area)``;
 const Title = styled.h2`
   font-size: 4.8rem;
   font-weight: 700;
+
+  @media (max-width: 1200px) {
+    font-size: 3.2rem;
+  }
+  @media (max-width: 900px) {
+    margin-top: 3rem;
+  }
 `;
 
 const Paragraph = styled.p`

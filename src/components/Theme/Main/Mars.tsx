@@ -131,8 +131,8 @@ const ImgTag = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover; //png의 배경영역 위치에 딱 맞게 떨어지도록 설정
   pointer-events: none;
 
@@ -194,6 +194,10 @@ const ImgTag = styled.img`
       opacity: 0;
     }
   }
+
+  @media (max-width: 1200px) {
+    object-fit: unset;
+  }
 `;
 
 const MainText = styled(motion.p)`
@@ -204,4 +208,14 @@ const MainText = styled(motion.p)`
   font-weight: 800;
   white-space: nowrap;
   z-index: 8;
+
+  @media (max-width: 1200px) {
+    font-size: 9.5rem;
+  }
+  @media (max-width: 900px) {
+    font-size: 7.5rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 5.5rem;
+  }
 `;

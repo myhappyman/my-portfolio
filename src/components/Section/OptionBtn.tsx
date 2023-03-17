@@ -1,61 +1,78 @@
 import styled from "styled-components";
-import { IoMdArrowUp } from "react-icons/io";
+import { FaArrowUp } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion";
 
-function OptionBtn() {
+function OptionBtn({ show }: { show: boolean }) {
   const moveTop = () => {
     window.scroll({
       behavior: "smooth",
       top: 0,
     });
   };
+
   return (
-    <Wrapper>
-      <Area>
-        {/* <Icon onClick={moveTop}>☝</Icon> */}
-        <Icon onClick={moveTop}>
-          <IoMdArrowUp className="icon" />
-        </Icon>
-      </Area>
-    </Wrapper>
+    <AnimatePresence mode={"popLayout"}>
+      {show && (
+        <Wrapper
+          key="modal"
+          variants={themeSliderVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <Icon onClick={moveTop}>
+            <FaArrowUp className="icon" />
+          </Icon>
+        </Wrapper>
+      )}
+    </AnimatePresence>
   );
 }
 
 export default OptionBtn;
 
-const Wrapper = styled.div`
+const themeSliderVariants = {
+  initial: {
+    height: 40,
+  },
+  animate: {
+    height: 0,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+    },
+  },
+  exit: {
+    height: 40,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
+const Wrapper = styled(motion.div)`
   position: fixed;
   right: 10rem;
-  bottom: 10rem;
-  width: 6rem;
-  height: 6rem;
+  bottom: 15rem;
+  width: 8rem;
+  height: 8rem;
   z-index: 99999;
   cursor: pointer;
 `;
 
-const Area = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 6rem;
-  height: 6rem;
-`;
-
 const Icon = styled.span`
   display: block;
-  width: 6rem;
-  height: 6rem;
-  padding: 0.5rem 1rem;
-  font-size: 4rem;
+  font-size: 4.6rem;
   text-align: center;
   border-radius: 50%;
   color: ${(props) => props.theme.btnTxtColor};
-  box-shadow: ${(props) => props.theme.boxShadow};
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: ${(props) => props.theme.boxShadowHover};
-  }
   .icon {
+    display: block;
     color: ${(props) => props.theme.textColor};
+    z-index: 99999;
+  }
+  .icon:hover {
+    scale: 1.1;
   }
 `;

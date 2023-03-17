@@ -5,6 +5,8 @@ import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
 import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import contact_bg from "../../assets/imgs/contacts/contact_bg2.png";
+import ContactBg from "./ContackBg";
 
 interface IContacts {
   data: DocumentData;
@@ -34,9 +36,10 @@ function Contacts() {
           animateIn="animate__fadeInUp"
           delay={300}
         >
+          <ContactBg />
           <Area>
             {Contacts_List &&
-              Contacts_List.map((contact, idx) => (
+              Contacts_List.map((contact) => (
                 <Items key={contact.id}>
                   <GoLink href={contact.data.link} target="_blank">
                     <Top>
@@ -45,7 +48,10 @@ function Contacts() {
                     </Top>
                     <Bottom>
                       <ImgBox>
-                        <img src={contact.data.image} alt={contact.data.name} />
+                        {contact.data.image &&
+                          contact.data.image.map((imgUrl: string) => (
+                            <img src={imgUrl} alt={contact.data.name} />
+                          ))}
                       </ImgBox>
                     </Bottom>
                   </GoLink>
@@ -86,38 +92,60 @@ const Area = styled(GArea.withComponent("ul"))`
 `;
 const Items = styled.li`
   width: 33%;
+  height: 100%;
   border-radius: 2rem;
-  box-shadow: ${(props) => props.theme.boxShadow};
   transition: all 0.3s;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: brightness(1.1) blur(40px);
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 `;
+
 const GoLink = styled.a``;
 const Top = styled.div`
   position: relative;
-  height: 45%;
 `;
 const Name = styled.div`
   padding: 1rem 1.8rem;
   border-radius: 2rem 2rem 0 0;
   font-size: 4.6rem;
   font-weight: 600;
-  background-color: ${(props) => props.theme.textColor};
-  color: ${(props) => props.theme.bgColor};
 `;
 const Comments = styled.div`
   padding: 1.8rem;
   height: 20rem;
   font-size: 1.6rem;
 `;
-const Bottom = styled.div``;
+const Bottom = styled.div`
+  padding: 0 3rem 3rem 3rem;
+`;
 const ImgBox = styled.div`
-  img {
+  display: block;
+  position: relative;
+  height: 26rem;
+
+  &::after {
+    content: "";
     display: block;
-    width: 100%;
-    border-radius: 0 0 2rem 2rem;
+    clear: both;
+  }
+  img {
+    position: absolute;
+    width: 75%;
+    border: 1px solid ${(props) => props.theme.btnTxtColor};
+    border-radius: 0.8rem;
+  }
+  img:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  img:nth-child(2) {
+    bottom: 0;
+    right: 0;
   }
 `;

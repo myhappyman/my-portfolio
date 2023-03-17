@@ -47,4 +47,8 @@ const SectionName = styled.div`
   padding: 0 9rem;
   font-size: 7.2rem;
   font-weight: 700;
+
+  @media (max-width: 1200px) {
+    font-size: 6rem;
+  }
 `;

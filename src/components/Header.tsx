@@ -87,7 +87,7 @@ const themeSliderVariants = {
   initial: {
     height: 0,
     opacity: 0,
-    trasition: {
+    transition: {
       type: "tween",
       duration: 0.5,
     },
@@ -95,14 +95,14 @@ const themeSliderVariants = {
   animate: {
     height: 100,
     opacity: 1,
-    trasition: {
+    transition: {
       type: "tween",
       duration: 0.5,
     },
   },
   exit: {
     height: 0,
-    trasition: {
+    transition: {
       type: "tween",
       duration: 0.5,
     },
@@ -149,13 +149,13 @@ const Job = styled.span`
 `;
 
 const ThemeArea = styled.ul`
-  width: 15rem;
+  width: 16rem;
   height: 4.6rem;
   line-height: 4.6rem;
   border-radius: 5rem;
   font-size: 2.2rem;
-  font-weight: 300;
-  border: 1px solid ${(props) => props.theme.logoColor};
+  font-weight: 400;
+  border: 2px solid ${(props) => props.theme.logoColor};
   transition: all 0.3s;
   cursor: pointer;
 

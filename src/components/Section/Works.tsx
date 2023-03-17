@@ -119,6 +119,13 @@ const CursorPointer = styled.li`
 const Article = styled(CursorPointer)`
   float: left;
   width: 33.3%;
+
+  @media (max-width: 900px) {
+    width: 50%;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const Content = styled.div`
@@ -149,6 +156,14 @@ const FadeIn = styled.div`
     opacity: 1;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 900px) {
+      padding: 3rem;
+    }
+
+    @media (max-width: 500px) {
+      padding: 1rem;
+    }
   }
 `;
 

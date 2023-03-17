@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled, { ThemeProvider } from "styled-components";
 import { themeMode, themeSelectIsOpen } from "./atom";
@@ -18,6 +18,16 @@ function App() {
   const [isOpen, setIsOpen] = useRecoilState(themeSelectIsOpen); // 바디 클릭하면 테마모드 셀렉터 닫히도록
   const toggleThemeSelectIsOpen = () => (isOpen ? setIsOpen(false) : null);
 
+  const [fixedButtonShow, setFixedButtonShow] = useState(false);
+  const scrollIsTop = () => {
+    const { scrollY } = window;
+    scrollY > 600 ? setFixedButtonShow(true) : setFixedButtonShow(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", scrollIsTop);
+    return () => window.removeEventListener("scroll", scrollIsTop);
+  }, [scrollIsTop]);
+
   return (
     <ThemeProvider theme={selectTheme === "mars" ? marsTheme : moonTheme}>
       <GlobalStyle />
@@ -29,7 +39,7 @@ function App() {
         <Skills />
         <Contacts />
         <Footer />
-        <OptionBtn />
+        <OptionBtn show={fixedButtonShow} />
       </Wrapper>
     </ThemeProvider>
   );
