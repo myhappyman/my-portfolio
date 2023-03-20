@@ -29,8 +29,8 @@ function Contacts() {
   }, []);
   return (
     <Wrapper>
-      <SectionHeader text="👓 Contacts" />
       <GInner>
+        <SectionHeader text="👓 Contacts" />
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"
@@ -49,9 +49,15 @@ function Contacts() {
                     <Bottom>
                       <ImgBox>
                         {contact.data.image &&
-                          contact.data.image.map((imgUrl: string) => (
-                            <img src={imgUrl} alt={contact.data.name} />
-                          ))}
+                          contact.data.image.map(
+                            (imgUrl: string, idx: number) => (
+                              <img
+                                key={`img${idx}${contact.id}`}
+                                src={imgUrl}
+                                alt={contact.data.name}
+                              />
+                            )
+                          )}
                       </ImgBox>
                     </Bottom>
                   </GoLink>

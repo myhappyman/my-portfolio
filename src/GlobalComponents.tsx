@@ -23,28 +23,34 @@ export function SectionHeader({ text }: { text: string }) {
  */
 export const GWrapper = styled.section`
   position: relative;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 6rem 0 2rem;
+
+  & ~ & {
+    margin-top: 6rem;
+  }
 `;
 
 /**
  * 공통 Inner
  */
 export const GInner = styled.div`
-  max-width: 1680px;
+  width: 1600px;
   margin: 0 auto;
+  /* padding: 0 20rem; */
 `;
 
 export const GArea = styled.div`
   width: 100%;
-  padding: 6rem;
+  /* padding: 6rem; */
 `;
 
 /**
  * 공통 헤더 이름작성용
  */
 const SectionName = styled.div`
-  padding: 0 9rem;
+  /* padding: 0 6rem; */
+  margin-bottom: 6rem;
   font-size: 7.2rem;
   font-weight: 700;
 

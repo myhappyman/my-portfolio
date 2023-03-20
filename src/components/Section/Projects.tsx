@@ -3,7 +3,7 @@ import { BiLinkExternal } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
-import { GWrapper, SectionHeader } from "../../GlobalComponents";
+import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -29,86 +29,110 @@ function Projects() {
       });
   }, []);
   return (
-    <GWrapper>
-      <SectionHeader text="🚀 Projects" />
-      <Area>
-        <SwiperWrap
-          slidesPerView={3.5}
-          spaceBetween={50}
-          grabCursor={true}
-          loop={true}
-          loopedSlides={3}
-        >
-          {projects &&
-            projects.map((project) => (
-              <Slide key={project.id}>
-                <GoLink href={project.data.link} target="_blank">
-                  <Top>
-                    <Head>
-                      <Name>{project.data.name}</Name>
-                      <Icon>
-                        <BiLinkExternal className="icon" size="24" />
-                      </Icon>
-                    </Head>
-                    <TextBox>
-                      <Comments>{project.data.comments}</Comments>
-                      <HashTag>
-                        {project.data.useSkill &&
-                          project.data.useSkill.map(
-                            (skill: string) => "#" + skill
-                          )}
-                      </HashTag>
-                    </TextBox>
-                  </Top>
-                  <Bottom>
-                    <img src={project.data.image} alt={project.data.name} />
-                  </Bottom>
-                </GoLink>
-              </Slide>
-            ))}
-          {/* 같은 프로젝트 내용 추가해줘야 무한루프처럼 동작해서 같은내용 추가함   */}
-          {projects &&
-            projects.map((project) => (
-              <Slide key={project.id}>
-                <GoLink href={project.data.link} target="_blank">
-                  <Top>
-                    <Head>
-                      <Name>{project.data.name}</Name>
-                      <Icon>
-                        <BiLinkExternal size="20" />
-                      </Icon>
-                    </Head>
-                    <TextBox>
-                      <Comments>{project.data.comments}</Comments>
-                      <HashTag>
-                        {project.data.useSkill &&
-                          project.data.useSkill.map(
-                            (skill: string) => "#" + skill
-                          )}
-                      </HashTag>
-                    </TextBox>
-                  </Top>
-                  <Bottom>
-                    <img src={project.data.image} alt={project.data.name} />
-                  </Bottom>
-                </GoLink>
-              </Slide>
-            ))}
-        </SwiperWrap>
-      </Area>
-    </GWrapper>
+    <Wrapper>
+      <GInner>
+        <Area>
+          <SectionHeader text="🚀 Projects" />
+
+          <SwiperWrap
+            slidesPerView={3.5}
+            spaceBetween={50}
+            grabCursor={true}
+            loop={true}
+            loopedSlides={3}
+            className="swiper-container project_swiper"
+          >
+            {projects &&
+              projects.map((project) => (
+                <Slide key={project.id}>
+                  <GoLink href={project.data.link} target="_blank">
+                    <Top>
+                      <Head>
+                        <Name>{project.data.name}</Name>
+                        <Icon>
+                          <BiLinkExternal className="icon" size="24" />
+                        </Icon>
+                      </Head>
+                      <TextBox>
+                        <Comments>{project.data.comments}</Comments>
+                        <HashTag>
+                          {project.data.useSkill &&
+                            project.data.useSkill.map(
+                              (skill: string) => "#" + skill
+                            )}
+                        </HashTag>
+                      </TextBox>
+                    </Top>
+                    <Bottom>
+                      <img src={project.data.image} alt={project.data.name} />
+                    </Bottom>
+                  </GoLink>
+                </Slide>
+              ))}
+            {/* 같은 프로젝트 내용 추가해줘야 무한루프처럼 동작해서 같은내용 추가함   */}
+            {projects &&
+              projects.map((project) => (
+                <Slide key={project.id}>
+                  <GoLink href={project.data.link} target="_blank">
+                    <Top>
+                      <Head>
+                        <Name>{project.data.name}</Name>
+                        <Icon>
+                          <BiLinkExternal size="20" />
+                        </Icon>
+                      </Head>
+                      <TextBox>
+                        <Comments>{project.data.comments}</Comments>
+                        <HashTag>
+                          {project.data.useSkill &&
+                            project.data.useSkill.map(
+                              (skill: string) => "#" + skill
+                            )}
+                        </HashTag>
+                      </TextBox>
+                    </Top>
+                    <Bottom>
+                      <img src={project.data.image} alt={project.data.name} />
+                    </Bottom>
+                  </GoLink>
+                </Slide>
+              ))}
+          </SwiperWrap>
+        </Area>
+      </GInner>
+    </Wrapper>
   );
 }
 
 export default Projects;
 
+const Wrapper = styled(GWrapper)`
+  overflow: hidden;
+`;
+
 const Area = styled.div`
+  /* position: relative;
   width: 100%;
+  height: 100%;
+  transition: all 1.5s;
+  transition-delay: 0.4s; */
+
+  .project_swiper {
+    width: 150%;
+    padding: 20px;
+    margin-left: -20px;
+  }
 `;
 
 const SwiperWrap = styled(Swiper)`
-  margin: 4rem 0 0 19rem;
+  margin: -2rem 0 -2rem -2rem;
   padding: 2rem 0 2rem 2rem;
+  /* width: 140%; */
+  /* overflow-x: hidden; */
+  /* width: 150%; */
+  /* margin: 4rem 0 0 19rem;
+  padding: 2rem 0 2rem 2rem;
+  overflow-x: hidden; */
 
   @media (max-width: 1200px) {
     margin: 4rem 0 0 8rem;

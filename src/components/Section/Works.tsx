@@ -53,8 +53,8 @@ function Works() {
 
   return (
     <GWrapper>
-      <SectionHeader text="💻 Works" />
       <GInner>
+        <SectionHeader text="💻 Works" />
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"

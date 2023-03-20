@@ -8,8 +8,8 @@ import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 function Introduce() {
   return (
     <Wrapper>
-      <SectionHeader text="🤟 Introduce" />
       <GInner>
+        <SectionHeader text="🤟 Introduce" />
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"
@@ -70,7 +70,7 @@ const Wrapper = styled(GWrapper)`
 
 const Contents = styled(GArea)`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -78,13 +78,13 @@ const Contents = styled(GArea)`
 `;
 
 const Area = styled.div`
-  width: 50%;
+  /* width: 50%;
   padding: 1rem;
   margin: 0 auto;
 
   @media (max-width: 900px) {
     width: 100%;
-  }
+  } */
 `;
 
 const ImgArea = styled(Area)`

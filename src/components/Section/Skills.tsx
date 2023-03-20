@@ -35,8 +35,8 @@ function Skills() {
 
   return (
     <GWrapper>
-      <SectionHeader text="🪐 Skills" />
       <GInner>
+        <SectionHeader text="🪐 Skills" />
         <AnimationOnScroll
           initiallyVisible={true}
           animateIn="animate__fadeInUp"
