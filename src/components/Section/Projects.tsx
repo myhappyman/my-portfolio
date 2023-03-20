@@ -33,9 +33,8 @@ function Projects() {
       <GInner>
         <Area>
           <SectionHeader text="🚀 Projects" />
-
           <SwiperWrap
-            slidesPerView={3.5}
+            slidesPerView={5}
             spaceBetween={50}
             grabCursor={true}
             loop={true}
@@ -111,12 +110,6 @@ const Wrapper = styled(GWrapper)`
 `;
 
 const Area = styled.div`
-  /* position: relative;
-  width: 100%;
-  height: 100%;
-  transition: all 1.5s;
-  transition-delay: 0.4s; */
-
   .project_swiper {
     width: 150%;
     padding: 20px;
@@ -127,12 +120,6 @@ const Area = styled.div`
 const SwiperWrap = styled(Swiper)`
   margin: -2rem 0 -2rem -2rem;
   padding: 2rem 0 2rem 2rem;
-  /* width: 140%; */
-  /* overflow-x: hidden; */
-  /* width: 150%; */
-  /* margin: 4rem 0 0 19rem;
-  padding: 2rem 0 2rem 2rem;
-  overflow-x: hidden; */
 
   @media (max-width: 1200px) {
     margin: 4rem 0 0 8rem;

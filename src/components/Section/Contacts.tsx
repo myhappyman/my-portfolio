@@ -5,7 +5,6 @@ import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
 import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
-import contact_bg from "../../assets/imgs/contacts/contact_bg2.png";
 import ContactBg from "./ContackBg";
 
 interface IContacts {
@@ -95,7 +94,9 @@ const Area = styled(GArea.withComponent("ul"))`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 6rem;
 `;
+
 const Items = styled.li`
   width: 33%;
   height: 100%;

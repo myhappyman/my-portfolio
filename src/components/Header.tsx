@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCaretDown } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { IoMdPlanet } from "react-icons/io";
+import { GInner } from "../GlobalComponents";
 
 function Header() {
   const isTop = useRecoilValue(IsTop);
@@ -21,41 +22,43 @@ function Header() {
       exit="exit"
       mixmode={isTop ? "normal" : "difference"}
     >
-      <LogoBox>
-        <Logo>P.S.W.</Logo>
-        <Job>Front Web Programmer</Job>
-      </LogoBox>
+      <Inner>
+        <LogoBox>
+          <Logo>P.S.W.</Logo>
+          <Job>Front Web Programmer</Job>
+        </LogoBox>
 
-      <Box>
-        <ThemeArea onClick={switchClickFn}>
-          {theme === "moon" ? (
-            <SelectTheme isOpen={isOpen}>
-              <BsFillMoonStarsFill className="icon moon" />
-              <SText>THEME</SText>
-              <AiFillCaretDown className="arrow" />
-            </SelectTheme>
-          ) : (
-            <SelectTheme isOpen={isOpen}>
-              <IoMdPlanet className="icon" />
-              <SText>THEME</SText>
-              <AiFillCaretDown className="arrow" />
-            </SelectTheme>
-          )}
-          <AnimatePresence>
-            {isOpen ? (
-              <ThemeList
-                variants={themeSliderVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                <Theme onClick={() => setTheme("moon")}>MOON</Theme>
-                <Theme onClick={() => setTheme("mars")}>MARS</Theme>
-              </ThemeList>
-            ) : null}
-          </AnimatePresence>
-        </ThemeArea>
-      </Box>
+        <Box>
+          <ThemeArea onClick={switchClickFn}>
+            {theme === "moon" ? (
+              <SelectTheme isOpen={isOpen}>
+                <BsFillMoonStarsFill className="icon moon" />
+                <SText>THEME</SText>
+                <AiFillCaretDown className="arrow" />
+              </SelectTheme>
+            ) : (
+              <SelectTheme isOpen={isOpen}>
+                <IoMdPlanet className="icon" />
+                <SText>THEME</SText>
+                <AiFillCaretDown className="arrow" />
+              </SelectTheme>
+            )}
+            <AnimatePresence>
+              {isOpen ? (
+                <ThemeList
+                  variants={themeSliderVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <Theme onClick={() => setTheme("moon")}>MOON</Theme>
+                  <Theme onClick={() => setTheme("mars")}>MARS</Theme>
+                </ThemeList>
+              ) : null}
+            </AnimatePresence>
+          </ThemeArea>
+        </Box>
+      </Inner>
     </Wrapper>
   );
 }
@@ -113,13 +116,16 @@ const Wrapper = styled(motion.header)<{ mixmode: string }>`
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  z-index: 9999;
+  mix-blend-mode: ${(props) => props.mixmode};
+`;
+
+const Inner = styled(GInner.withComponent(motion.div))`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 2rem 10rem;
-  mix-blend-mode: ${(props) => props.mixmode};
-  z-index: 9999;
+  padding: 2rem 0;
 `;
 
 const Box = styled.div`

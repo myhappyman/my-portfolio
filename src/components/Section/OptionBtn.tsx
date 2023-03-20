@@ -52,27 +52,32 @@ const themeSliderVariants = {
 
 const Wrapper = styled(motion.div)`
   position: fixed;
-  right: 10rem;
-  bottom: 15rem;
-  width: 8rem;
-  height: 8rem;
+  right: 7rem;
+  bottom: 12rem;
   z-index: 99999;
   cursor: pointer;
 `;
 
 const Icon = styled.span`
   display: block;
-  font-size: 4.6rem;
+  font-size: 3.6rem;
   text-align: center;
   border-radius: 50%;
   color: ${(props) => props.theme.btnTxtColor};
+  padding: 0.7rem;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset,
+    rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.22) 0px 4px 20px;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 26px;
 
   .icon {
     display: block;
     color: ${(props) => props.theme.textColor};
     z-index: 99999;
   }
-  .icon:hover {
+  &:hover {
     scale: 1.1;
+    box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 `;
