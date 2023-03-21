@@ -11,7 +11,7 @@ function Introduce() {
       <GInner>
         <SectionHeader text="🤟 Introduce" />
         <AnimationOnScroll
-          initiallyVisible={true}
+          initiallyVisible={false}
           animateIn="animate__fadeInUp"
           delay={300}
         >

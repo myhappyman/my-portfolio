@@ -56,7 +56,7 @@ function Works() {
       <GInner>
         <SectionHeader text="💻 Works" />
         <AnimationOnScroll
-          initiallyVisible={true}
+          initiallyVisible={false}
           animateIn="animate__fadeInUp"
           delay={300}
         >
@@ -92,6 +92,16 @@ function Works() {
                       <Company>{work.data.company}</Company>
                       <Period>{work.data.period}</Period>
                       <Comments>{work.data.comments}</Comments>
+                      <UseSkillArea>
+                        {work.data.useSkill &&
+                          work.data.useSkill.map((s: string, idx: number) =>
+                            idx + 1 === work.data.useSkill.length ? (
+                              <Skill>{s}</Skill>
+                            ) : (
+                              <Skill>{s}</Skill>
+                            )
+                          )}
+                      </UseSkillArea>
                       <GoLink href={work.data.link} target="_blank" />
                     </FadeIn>
                   </Content>
@@ -226,6 +236,16 @@ const Comments = styled.span`
   font-size: 1.2rem;
   line-height: 1.9rem;
   color: rgba(255, 255, 255, 0.95);
+`;
+const UseSkillArea = styled.div``;
+const Skill = styled.span`
+  display: inline-block;
+  font-size: 1.4rem;
+  background-color: rgba(100, 100, 100, 0.7);
+  border-radius: 2rem;
+  padding: 0.3rem 1.2rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.6rem;
 `;
 const GoLink = styled.a`
   display: flex;

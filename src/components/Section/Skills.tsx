@@ -38,7 +38,7 @@ function Skills() {
       <GInner>
         <SectionHeader text="🪐 Skills" />
         <AnimationOnScroll
-          initiallyVisible={true}
+          initiallyVisible={false}
           animateIn="animate__fadeInUp"
           delay={300}
         >

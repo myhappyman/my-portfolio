@@ -65,15 +65,14 @@ const Icon = styled.span`
   border-radius: 50%;
   color: ${(props) => props.theme.btnTxtColor};
   padding: 0.7rem;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset,
-    rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.22) 0px 4px 20px;
+  box-shadow: ${(props) => props.theme.boxShadow};
   backdrop-filter: blur(30px);
   background: rgba(255, 255, 255, 0.9);
   border-radius: 26px;
 
   .icon {
     display: block;
-    color: ${(props) => props.theme.textColor};
+    color: #000;
     z-index: 99999;
   }
   &:hover {

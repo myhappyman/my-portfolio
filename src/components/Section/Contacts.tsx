@@ -31,7 +31,7 @@ function Contacts() {
       <GInner>
         <SectionHeader text="👓 Contacts" />
         <AnimationOnScroll
-          initiallyVisible={true}
+          initiallyVisible={false}
           animateIn="animate__fadeInUp"
           delay={300}
         >

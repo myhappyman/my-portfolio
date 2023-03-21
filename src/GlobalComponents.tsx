@@ -9,7 +9,7 @@ import styled from "styled-components";
 export function SectionHeader({ text }: { text: string }) {
   return (
     <AnimationOnScroll
-      initiallyVisible={true}
+      initiallyVisible={false}
       animateIn="animate__bounce"
       delay={10}
     >
