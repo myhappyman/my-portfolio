@@ -73,6 +73,14 @@ const Contents = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8rem 1rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 5rem;
+  }
+
+  @media (max-width: 500px) {
+  }
 `;
 
 const Item = styled.li`

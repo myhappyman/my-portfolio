@@ -2,7 +2,7 @@
 
 ### 사용한 기술 및 라이브러리
 
-`React`, `typescript`, `framer-motion`, `recoil`,
+`React`, `typescript`, `framer-motion`, `recoil`, `firebase`, `HTML5`, `CSS3`
 
 ### 자료 도움 받은 사이트
 

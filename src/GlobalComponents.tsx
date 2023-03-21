@@ -23,7 +23,6 @@ export function SectionHeader({ text }: { text: string }) {
  */
 export const GWrapper = styled.section`
   position: relative;
-  /* min-height: 100vh; */
   padding: 6rem 0 2rem;
 
   & ~ & {
@@ -35,26 +34,51 @@ export const GWrapper = styled.section`
  * 공통 Inner
  */
 export const GInner = styled.div`
-  width: 1600px;
+  width: 100%;
   margin: 0 auto;
-  /* padding: 0 20rem; */
+
+  @media (min-width: 0px) {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  @media (min-width: 500px) {
+    padding: 0 4rem;
+  }
+  @media (min-width: 1000px) {
+    padding: 0 10rem;
+  }
+  @media (min-width: 1200px) {
+    width: 1000px;
+    padding: 0;
+  }
+  @media (min-width: 1400px) {
+    width: 1200px;
+  }
+  @media (min-width: 1600px) {
+    width: 1400px;
+  }
+  @media (min-width: 1900px) {
+    width: 1600px;
+  }
 `;
 
 export const GArea = styled.div`
   width: 100%;
-  /* padding: 6rem; */
 `;
 
 /**
  * 공통 헤더 이름작성용
  */
 const SectionName = styled.div`
-  /* padding: 0 6rem; */
   margin-bottom: 6rem;
   font-size: 7.2rem;
   font-weight: 700;
 
   @media (max-width: 1200px) {
     font-size: 6rem;
+  }
+
+  @media (max-width: 900px) {
+    padding-left: 3rem;
   }
 `;

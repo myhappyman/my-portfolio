@@ -23,15 +23,6 @@ function Footer_Mars() {
     if (scrollHeight - innerHeight * 2 < scrollY) {
       const value = scrollY - (scrollHeight - innerHeight * 2) - innerHeight;
 
-      // // 앞부분 이미지01
-      // if (ref_moutains_front01.current) {
-      //   ref_moutains_front01.current.style.top = `-${value * 0.24}rem`;
-      // }
-      // // 앞부분 이미지02
-      // if (ref_moutains_front02.current) {
-      //   ref_moutains_front02.current.style.top = `-${value * 0.25}rem`;
-      // }
-
       if (ref_planet.current) {
         ref_planet.current.style.top = `${value * 0.18}rem`;
       }
@@ -65,15 +56,15 @@ function Footer_Mars() {
         ref={ref_moutains_front02}
       />
       <ImgTag src={stars} alt="stars" className="f_stars" />
-      <ImgTag src={planet} alt="planet" className="planet" ref={ref_planet} />
-      <ImgTag
+      <Planet src={planet} alt="planet" className="planet" ref={ref_planet} />
+      <Astronaut
         src={astronaut}
         alt="astronaut"
         className="astronaut"
         ref={ref_astronaut}
       />
       <FireBox ref={ref_fire}>
-        <ImgTag src={fire} alt="fire" className="fire" />
+        <Fire src={fire} alt="fire" className="fire" />
       </FireBox>
       <ThkWatching>
         Thank you
@@ -105,22 +96,6 @@ const ImgTag = styled.img`
   &.f_stars {
     animation: twinkleAnimation 2.5s infinite;
   }
-  &.planet {
-    transform: translate(-53rem, -30rem);
-    scale: 0.7;
-    animation: scaleAnimation 5s infinite;
-  }
-  &.astronaut {
-    margin-left: 34rem;
-    margin-top: 18rem;
-    animation: bounceYAnimation 3s infinite;
-    z-index: 15;
-  }
-  &.fire {
-    margin-left: 34rem;
-    margin-top: 18rem;
-    animation: twinkleAnimation 2s infinite;
-  }
 
   @keyframes bounceYAnimation {
     0% {
@@ -145,6 +120,57 @@ const ImgTag = styled.img`
       scale: 0.7;
     }
   }
+
+  @media (max-width: 1200px) {
+    object-fit: unset;
+  }
+`;
+
+const Planet = styled(ImgTag)`
+  transform: translate(-37%, -30%);
+  scale: 0.7;
+  animation: scaleAnimation 5s infinite;
+`;
+
+const Astronaut = styled(ImgTag)`
+  margin-top: 18rem;
+  margin-left: 34rem;
+  animation: bounceYAnimation 3s infinite;
+  z-index: 15;
+
+  @media (max-width: 1280px) {
+    margin-left: 30rem;
+  }
+  @media (max-width: 1180px) {
+    margin-left: 26rem;
+  }
+  @media (max-width: 1090px) {
+    margin-left: 24rem;
+  }
+  @media (max-width: 1020px) {
+    margin-left: 22rem;
+  }
+  @media (max-width: 940px) {
+    margin-left: 20rem;
+  }
+  @media (max-width: 820px) {
+    margin-left: 18rem;
+    margin-top: 16rem;
+  }
+  @media (max-width: 720px) {
+    margin-left: 16rem;
+    margin-top: 14rem;
+  }
+  @media (max-width: 640px) {
+    margin-left: 14rem;
+  }
+  @media (max-width: 480px) {
+    margin-left: 12rem;
+  }
+`;
+
+const Fire = styled(Astronaut)`
+  animation: twinkleAnimation 2s infinite;
 `;
 
 const FireBox = styled.span`
@@ -188,4 +214,32 @@ const ThkWatching = styled.div`
   font-weight: 700;
   color: #fff;
   z-index: 14;
+
+  @media (max-width: 1280px) {
+    font-size: 8.6rem;
+  }
+  @media (max-width: 1180px) {
+    font-size: 8rem;
+  }
+  @media (max-width: 1090px) {
+    font-size: 7.4rem;
+  }
+  @media (max-width: 1020px) {
+    font-size: 6.8rem;
+  }
+  @media (max-width: 940px) {
+    font-size: 6rem;
+  }
+  @media (max-width: 820px) {
+    font-size: 5.2rem;
+  }
+  @media (max-width: 720px) {
+    font-size: 4.6rem;
+  }
+  @media (max-width: 640px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 3.6rem;
+  }
 `;

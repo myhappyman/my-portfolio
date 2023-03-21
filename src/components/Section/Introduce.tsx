@@ -72,8 +72,13 @@ const Contents = styled(GArea)`
   display: flex;
   justify-content: space-around;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1400px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    padding: 0 4rem;
   }
 `;
 

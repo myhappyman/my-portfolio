@@ -95,6 +95,10 @@ const Area = styled(GArea.withComponent("ul"))`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 6rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const Items = styled.li`
@@ -110,6 +114,11 @@ const Items = styled.li`
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${(props) => props.theme.boxShadowHover};
+  }
+
+  @media (max-width: 900px) {
+    width: 90%;
+    margin-bottom: 3rem;
   }
 `;
 
