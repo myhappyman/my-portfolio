@@ -94,13 +94,11 @@ function Works() {
                       <Comments>{work.data.comments}</Comments>
                       <UseSkillArea>
                         {work.data.useSkill &&
-                          work.data.useSkill.map((s: string, idx: number) =>
-                            idx + 1 === work.data.useSkill.length ? (
-                              <Skill>{s}</Skill>
-                            ) : (
-                              <Skill>{s}</Skill>
-                            )
-                          )}
+                          work.data.useSkill.map((s: string, idx: number) => (
+                            <Skill key={`${work.data.title}${s}${idx}`}>
+                              {s}
+                            </Skill>
+                          ))}
                       </UseSkillArea>
                       <GoLink href={work.data.link} target="_blank" />
                     </FadeIn>

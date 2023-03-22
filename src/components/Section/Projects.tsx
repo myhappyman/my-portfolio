@@ -6,12 +6,17 @@ import { DocumentData } from "firebase/firestore";
 import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useRecoilValue } from "recoil";
+import { WindowSize } from "../../atom";
+import { useWindowSize } from "../../utils";
 
 interface IProject {
   data: DocumentData;
   id: string;
 }
 function Projects() {
+  const windowSize = useWindowSize();
+  const [slidePerView, setSliderPerView] = useState(5);
   const [projects, setProjects] = useState<IProject[]>([]);
   useEffect(() => {
     const array: IProject[] = [];
@@ -28,13 +33,27 @@ function Projects() {
         setProjects(array);
       });
   }, []);
+
+  useEffect(() => {
+    const { width } = windowSize;
+    if (width > 1200) {
+      setSliderPerView(5);
+    } else if (width > 800) {
+      setSliderPerView(4);
+    } else if (width > 600) {
+      setSliderPerView(3);
+    } else {
+      setSliderPerView(2);
+    }
+  }, [windowSize]);
+
   return (
     <Wrapper>
       <GInner>
         <Area>
           <SectionHeader text="🚀 Projects" />
           <SwiperWrap
-            slidesPerView={5}
+            slidesPerView={slidePerView}
             spaceBetween={50}
             grabCursor={true}
             loop={true}

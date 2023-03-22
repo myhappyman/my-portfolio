@@ -19,3 +19,8 @@ export const IsUp = atom<boolean>({
   key: "IsUp",
   default: false,
 });
+
+export const WindowSize = atom({
+  key: "WindowSize",
+  default: [0, 0],
+});

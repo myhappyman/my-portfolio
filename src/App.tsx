@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import React, { useCallback, useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled, { ThemeProvider } from "styled-components";
-import { themeMode, themeSelectIsOpen } from "./atom";
+import { themeMode, themeSelectIsOpen, WindowSize } from "./atom";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts";
@@ -19,6 +19,7 @@ function App() {
   const toggleThemeSelectIsOpen = () => (isOpen ? setIsOpen(false) : null);
 
   const [fixedButtonShow, setFixedButtonShow] = useState(false);
+
   const scrollIsTop = () => {
     const { scrollY } = window;
     scrollY > 600 ? setFixedButtonShow(true) : setFixedButtonShow(false);
@@ -26,7 +27,24 @@ function App() {
   useEffect(() => {
     window.addEventListener("scroll", scrollIsTop);
     return () => window.removeEventListener("scroll", scrollIsTop);
-  }, [scrollIsTop]);
+  }, []);
+
+  const setWindowSize = useSetRecoilState(WindowSize);
+  // const handleResize = () => {
+  //   console.log("handleResize");
+  //   const { innerWidth, innerHeight } = window;
+  //   setWindowSize([innerWidth, innerHeight]);
+  // };
+  const handleResize = useCallback(() => {
+    console.log("handleResize");
+    const { innerWidth, innerHeight } = window;
+    setWindowSize([innerWidth, innerHeight]);
+  }, [setWindowSize]);
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   return (
     <ThemeProvider theme={selectTheme === "mars" ? marsTheme : moonTheme}>
