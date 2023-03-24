@@ -10,6 +10,7 @@ declare module "styled-components" {
     bgGradientEndColor: string; // 배경 gradient 종료색
     logoColor: string; // 상단 헤더 로고 글씨 색상
     textColor: string; // 텍스트 색상
+    textHoverColor: string; //텍스트 호버 색상
     btnColor: string; // 버튼류 배경 색상
     btnTxtColor: string; // 버튼류 텍스트 색상
     linkHoverColor: string; // 링크류 색상

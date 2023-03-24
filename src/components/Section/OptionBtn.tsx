@@ -54,7 +54,7 @@ const Wrapper = styled(motion.div)`
   position: fixed;
   right: 7rem;
   bottom: 12rem;
-  z-index: 99999;
+  z-index: 99997;
   cursor: pointer;
 `;
 
@@ -73,7 +73,6 @@ const Icon = styled.span`
   .icon {
     display: block;
     color: #000;
-    z-index: 99999;
   }
   &:hover {
     scale: 1.1;

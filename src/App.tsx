@@ -9,6 +9,7 @@ import Introduce from "./components/Section/Introduce";
 import OptionBtn from "./components/Section/OptionBtn";
 import Projects from "./components/Section/Projects";
 import Skills from "./components/Section/Skills";
+import TimeLine from "./components/Section/TimeLine/TimeLine";
 import Works from "./components/Section/Works";
 import GlobalStyle from "./GlobalStyle";
 import { marsTheme, moonTheme } from "./theme";
@@ -52,9 +53,10 @@ function App() {
       <Wrapper onClick={toggleThemeSelectIsOpen}>
         <Main />
         <Introduce />
+        <TimeLine />
         <Works />
         <Projects />
-        <Skills />
+        {/* <Skills /> */}
         <Contacts />
         <Footer />
         <OptionBtn show={fixedButtonShow} />
