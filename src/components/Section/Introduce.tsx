@@ -96,6 +96,10 @@ const ImgArea = styled(Area)`
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const TextArea = styled(Area)``;

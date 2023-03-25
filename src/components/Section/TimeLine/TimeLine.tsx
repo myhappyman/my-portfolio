@@ -4,7 +4,8 @@ import { GInner, GWrapper, SectionHeader } from "../../../GlobalComponents";
 
 function TimeLine() {
   const [openModal, setOpenModal] = useState(false);
-  const toggleModal = () => setOpenModal((prop) => !prop);
+  // const toggleModal = () => setOpenModal((prop) => !prop);
+  const toggleModal = () => null;
 
   return (
     <GWrapper>
@@ -83,6 +84,17 @@ const TimeLineArea = styled.ul`
     height: 0.2rem;
     background-color: ${(props) => props.theme.textColor};
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: baseline;
+
+    &::before {
+      left: 6rem;
+      width: 0.2rem;
+      height: 90%;
+    }
+  }
 `;
 
 const Incident = styled.li`
@@ -92,6 +104,11 @@ const Incident = styled.li`
   transition: 0.3s;
   z-index: 98;
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    width: calc(100% - 6rem);
+    margin-left: 6rem;
+  }
 `;
 
 const Text = styled.span`
@@ -102,6 +119,7 @@ const Text = styled.span`
   padding-top: 3rem;
   font-size: 2rem;
   font-weight: 700;
+  white-space: nowrap;
 
   &::before {
     content: "";
@@ -138,6 +156,23 @@ const Text = styled.span`
   &:hover::before {
     background-color: ${(props) => props.theme.textHoverColor};
   }
+
+  @media (max-width: 800px) {
+    left: 0;
+    transform: translate(0, -50%);
+    padding: 0 0 0 3rem;
+
+    &::before {
+      top: 50%;
+      left: -0.6rem;
+      transform: translate(0, -50%);
+    }
+    &::after {
+      top: 50%;
+      left: -0.3rem;
+      transform: translate(0, -50%);
+    }
+  }
 `;
 
 const SpeechBubble = styled.div`
@@ -152,7 +187,15 @@ const SpeechBubble = styled.div`
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.8rem;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: ${(props) => props.theme.boxShadow};
+
+  &:hover {
+    box-shadow: ${(props) => props.theme.boxShadowHover};
+  }
+
+  @media (max-width: 800px) {
+    width: 60%;
+  }
 `;
 
 const SBUpType = styled(SpeechBubble)`
@@ -182,6 +225,28 @@ const SBUpType = styled(SpeechBubble)`
     border-right: 5px solid transparent;
     border-top: 11px solid #fff;
   }
+
+  @media (max-width: 800px) {
+    bottom: auto;
+    top: 65%;
+    left: 3rem;
+    transform: translate(0, 0);
+
+    &::before {
+      top: -12px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 12px solid rgba(0, 0, 0, 0.25);
+      border-top: none;
+    }
+    &::after {
+      top: -10px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 11px solid #fff;
+      border-top: none;
+    }
+  }
 `;
 
 const SBDownType = styled(SpeechBubble)`
@@ -210,6 +275,22 @@ const SBDownType = styled(SpeechBubble)`
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 11px solid #fff;
+  }
+
+  @media (max-width: 800px) {
+    top: 65%;
+    left: 3rem;
+    right: 0;
+    transform: translate(0, 0);
+
+    &::before {
+      left: 1rem;
+      border-top: none;
+    }
+    &::after {
+      left: 1rem;
+      border-top: none;
+    }
   }
 `;
 

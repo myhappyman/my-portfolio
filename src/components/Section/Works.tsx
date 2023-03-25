@@ -118,6 +118,9 @@ export default Works;
 const Contents = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 500px) {
+    padding: 3rem;
+  }
 `;
 
 const CursorPointer = styled.li`
@@ -155,11 +158,17 @@ const FadeIn = styled.div`
   bottom: 0;
   display: flex;
   flex-direction: column;
+  /* opacity로 처리해서 hover되기전에 view쪽 클릭으로 이동되는 현상 방지용 */
+  width: 0;
+  height: 0;
 
   &.hover {
     opacity: 0;
   }
   &.fadeIn {
+    /* hover시 사이즈 원상복구 */
+    width: 100%;
+    height: 100%;
     padding: 5rem 3rem 3rem;
     opacity: 1;
     color: #fff;

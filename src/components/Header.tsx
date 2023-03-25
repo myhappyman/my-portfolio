@@ -126,6 +126,10 @@ const Inner = styled(GInner.withComponent(motion.div))`
   justify-content: space-between;
   align-items: center;
   padding: 2rem 1rem;
+
+  @media (max-width: 420px) {
+    padding: 2rem 3rem;
+  }
 `;
 
 const Box = styled.div`

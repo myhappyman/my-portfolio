@@ -74,12 +74,12 @@ const Contents = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   gap: 8rem 1rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem 5rem;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem 1rem;
   }
@@ -132,13 +132,16 @@ const Name = styled.span`
   font-weight: 500;
   @media (max-width: 500px) {
     font-size: 1.6rem;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
   }
 `;
 const Content = styled.span`
   padding: 0 1rem;
   font-size: 1.4rem;
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `;

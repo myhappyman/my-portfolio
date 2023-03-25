@@ -52,8 +52,8 @@ const themeSliderVariants = {
 
 const Wrapper = styled(motion.div)`
   position: fixed;
-  right: 7rem;
-  bottom: 12rem;
+  right: 8%;
+  bottom: 12%;
   z-index: 99997;
   cursor: pointer;
 `;
@@ -77,5 +77,9 @@ const Icon = styled.span`
   &:hover {
     scale: 1.1;
     box-shadow: ${(props) => props.theme.boxShadowHover};
+  }
+
+  @media (max-width: 320px) {
+    font-size: 4.8rem;
   }
 `;

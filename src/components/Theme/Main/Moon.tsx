@@ -120,10 +120,12 @@ const ImgTag = styled.img`
      * 포토샵 효과!
      */
   }
-  &.moutains_behind {
-  }
   &.moutains_front {
     z-index: 10;
+  }
+
+  @media (max-width: 1200px) {
+    object-fit: unset;
   }
 `;
 
@@ -135,4 +137,17 @@ const MainText = styled(motion.p)`
   white-space: nowrap;
   font-size: 9.5rem;
   z-index: 9;
+
+  @media (max-width: 1400px) {
+    font-size: 7rem;
+  }
+  @media (max-width: 1200px) {
+    font-size: 5.4rem;
+  }
+  @media (max-width: 900px) {
+    font-size: 3.6rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 3rem;
+  }
 `;

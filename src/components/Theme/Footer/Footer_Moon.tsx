@@ -47,8 +47,8 @@ const ImgTag = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover; //png의 배경영역 위치에 딱 맞게 떨어지도록 설정
   pointer-events: none;
 
@@ -62,6 +62,10 @@ const ImgTag = styled.img`
   }
   &.f_stars {
     animation: twinkleAnimation 2.5s infinite;
+  }
+
+  @media (max-width: 1200px) {
+    object-fit: unset;
   }
 `;
 
@@ -84,4 +88,32 @@ const ThkWatching = styled.div`
   font-size: 9.2rem;
   font-weight: 700;
   z-index: 11;
+
+  @media (max-width: 1280px) {
+    font-size: 8.6rem;
+  }
+  @media (max-width: 1180px) {
+    font-size: 8rem;
+  }
+  @media (max-width: 1090px) {
+    font-size: 7.4rem;
+  }
+  @media (max-width: 1020px) {
+    font-size: 6.8rem;
+  }
+  @media (max-width: 940px) {
+    font-size: 6rem;
+  }
+  @media (max-width: 820px) {
+    font-size: 5.2rem;
+  }
+  @media (max-width: 720px) {
+    font-size: 4.6rem;
+  }
+  @media (max-width: 640px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 3.6rem;
+  }
 `;
