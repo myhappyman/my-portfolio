@@ -16,7 +16,6 @@ function Footer() {
 export default Footer;
 
 const Wrapper = styled.div`
-  min-height: 100vh;
   background: linear-gradient(
     ${(props) => props.theme.bgGradientStartColor},
     ${(props) => props.theme.bgGradientEndColor}
@@ -34,4 +33,14 @@ const Section = styled.section`
   height: 100vh;
   padding: 10rem;
   overflow: hidden;
+
+  @media (max-width: 1400px) {
+    height: 90vh;
+  }
+  @media (max-width: 820px) {
+    height: 80vh;
+  }
+  @media (max-width: 420px) {
+    height: 50vh;
+  }
 `;

@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { GInner, GWrapper, SectionHeader } from "../../../GlobalComponents";
 
 function TimeLine() {
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => setOpenModal((prop) => !prop);
 
   return (

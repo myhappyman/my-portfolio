@@ -125,7 +125,7 @@ const Inner = styled(GInner.withComponent(motion.div))`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 `;
 
 const Box = styled.div`

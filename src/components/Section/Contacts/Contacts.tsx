@@ -3,9 +3,14 @@ import styled from "styled-components";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
-import { firestore } from "../../firebase-config";
-import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
-import ContactBg from "./ContackBg";
+import { firestore } from "../../../firebase-config";
+import {
+  GArea,
+  GInner,
+  GWrapper,
+  SectionHeader,
+} from "../../../GlobalComponents";
+import ContactBg from "./ContactBg";
 
 interface IContacts {
   data: DocumentData;

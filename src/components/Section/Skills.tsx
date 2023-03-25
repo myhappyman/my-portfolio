@@ -80,6 +80,8 @@ const Contents = styled.ul`
   }
 
   @media (max-width: 500px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem 1rem;
   }
 `;
 
@@ -101,11 +103,19 @@ const Icon = styled.div`
     display: block;
     height: 100%;
   }
+
+  @media (max-width: 500px) {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
 `;
 
 const Number = styled.span`
   font-size: 3rem;
   font-weight: 700;
+  @media (max-width: 500px) {
+    font-size: 2rem;
+  }
 `;
 const Div = styled.div`
   display: flex;
@@ -120,8 +130,15 @@ const Name = styled.span`
   padding: 0 1rem;
   font-size: 2.2rem;
   font-weight: 500;
+  @media (max-width: 500px) {
+    font-size: 1.6rem;
+  }
 `;
 const Content = styled.span`
   padding: 0 1rem;
   font-size: 1.4rem;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;

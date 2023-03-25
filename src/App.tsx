@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { themeMode, themeSelectIsOpen, WindowSize } from "./atom";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
-import Contacts from "./components/Section/Contacts";
+import Contacts from "./components/Section/Contacts/Contacts";
 import Introduce from "./components/Section/Introduce";
 import OptionBtn from "./components/Section/OptionBtn";
 import Projects from "./components/Section/Projects";
@@ -56,7 +56,7 @@ function App() {
         <TimeLine />
         <Works />
         <Projects />
-        {/* <Skills /> */}
+        <Skills />
         <Contacts />
         <Footer />
         <OptionBtn show={fixedButtonShow} />

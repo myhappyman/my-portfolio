@@ -38,7 +38,6 @@ function Main() {
 export default Main;
 
 const Wrapper = styled.div`
-  min-height: 100vh;
   background: linear-gradient(
     ${(props) => props.theme.bgGradientStartColor},
     ${(props) => props.theme.bgGradientEndColor}
@@ -70,5 +69,15 @@ const Section = styled.section`
       transparent
     );
     z-index: 99;
+  }
+
+  @media (max-width: 1400px) {
+    height: 90vh;
+  }
+  @media (max-width: 820px) {
+    height: 80vh;
+  }
+  @media (max-width: 420px) {
+    height: 50vh;
   }
 `;
