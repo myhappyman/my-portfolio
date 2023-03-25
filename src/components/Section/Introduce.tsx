@@ -100,6 +100,12 @@ const ImgArea = styled(Area)`
     display: block;
     width: 100%;
   }
+
+  @media (max-width: 500px) {
+    img {
+      width: 60%;
+    }
+  }
 `;
 
 const TextArea = styled(Area)``;
@@ -114,10 +120,19 @@ const Title = styled.h2`
   @media (max-width: 900px) {
     margin-top: 3rem;
   }
+  @media (max-width: 500px) {
+    font-size: 2.4rem;
+  }
 `;
 
 const Paragraph = styled.p`
   padding-top: 1.2rem;
   font-size: 2.4rem;
   font-weight: 400;
+  @media (max-width: 1200px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.6rem;
+  }
 `;

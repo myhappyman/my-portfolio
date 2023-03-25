@@ -81,4 +81,8 @@ const SectionName = styled.div`
   @media (max-width: 900px) {
     padding-left: 3rem;
   }
+
+  @media (max-width: 500px) {
+    margin-bottom: 2rem;
+  }
 `;

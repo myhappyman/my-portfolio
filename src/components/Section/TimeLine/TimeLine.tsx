@@ -88,9 +88,9 @@ const TimeLineArea = styled.ul`
   @media (max-width: 800px) {
     flex-direction: column;
     align-items: baseline;
-
+    margin-left: 6rem;
     &::before {
-      left: 6rem;
+      left: 0;
       width: 0.2rem;
       height: 90%;
     }
@@ -106,8 +106,7 @@ const Incident = styled.li`
   cursor: pointer;
 
   @media (max-width: 800px) {
-    width: calc(100% - 6rem);
-    margin-left: 6rem;
+    width: 100%;
   }
 `;
 

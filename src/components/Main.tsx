@@ -77,7 +77,10 @@ const Section = styled.section`
   @media (max-width: 820px) {
     height: 80vh;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     height: 50vh;
+    &::before {
+      bottom: -1px;
+    }
   }
 `;
