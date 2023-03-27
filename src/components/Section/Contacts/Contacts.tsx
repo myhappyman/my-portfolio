@@ -34,7 +34,7 @@ function Contacts() {
   return (
     <Wrapper>
       <GInner>
-        <SectionHeader text="👓 Contacts" />
+        <SectionHeader text="👀 Contacts" />
         <AnimationOnScroll
           initiallyVisible={false}
           animateIn="animate__fadeInUp"

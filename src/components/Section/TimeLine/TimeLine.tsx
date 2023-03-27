@@ -1,11 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRecoilValue } from "recoil";
 import styled, { createGlobalStyle } from "styled-components";
 import { GInner, GWrapper, SectionHeader } from "../../../GlobalComponents";
+import { themeMode } from "../../../atom";
+import { firestore } from "../../../firebase-config";
+import { DocumentData } from "firebase/firestore";
+import { DownBubble, SBDownType, SBUpType, UpBubble } from "./SpeechBubble";
+
+interface ITimeLine {
+  data: DocumentData;
+  id: string;
+}
 
 function TimeLine() {
   const [openModal, setOpenModal] = useState(false);
   // const toggleModal = () => setOpenModal((prop) => !prop);
   const toggleModal = () => null;
+  const theme = useRecoilValue(themeMode);
+
+  const [timeline, setTimeline] = useState<ITimeLine[]>([]);
+  useEffect(() => {
+    const array: ITimeLine[] = [];
+    const collection = firestore.collection("TimeLine");
+    collection
+      .orderBy("order")
+      .get()
+      .then((docs) => {
+        docs.forEach((doc) => {
+          if (doc.exists) {
+            array.push({ data: doc.data(), id: doc.id });
+          }
+        });
+        setTimeline(array);
+      });
+  }, []);
+  timeline.map((d) => console.log(d.data.comments.split("\\n")));
 
   return (
     <GWrapper>
@@ -13,33 +42,20 @@ function TimeLine() {
         <SectionHeader text="💡 TimeLine" />
         <Area>
           <TimeLineArea>
-            <Incident onClick={toggleModal}>
-              <Text>JavaSript 방과 후 강사</Text>
-              <SBUpType>
-                <p>
-                  웹 개발자 양성 학원에서 방과 후 시간강사로 Javascript문법에
-                  대한 수업을 진행하였습니다.
-                </p>
-              </SBUpType>
-            </Incident>
-            <Incident onClick={toggleModal}>
-              <Text>3D 지구본 제작</Text>
-              <SBDownType>
-                <p>Three.js를 활용한 지구본 렌더링, 이벤트 및 데이터 처리</p>
-              </SBDownType>
-            </Incident>
-            <Incident onClick={toggleModal}>
-              <Text> 해킹대회 참여</Text>
-              <SBUpType>
-                <p>'한국인터넷진흥원'이 주관한 해킹대회에서~ </p>
-              </SBUpType>
-            </Incident>
-            <Incident onClick={toggleModal}>
-              <Text>프론트엔드 과정 진행 중~</Text>
-              <SBDownType>
-                <p>프론트엔드 과정 진행 중~</p>
-              </SBDownType>
-            </Incident>
+            {timeline &&
+              timeline.map((d, idx) => (
+                <Incident key={d.id}>
+                  <Text>
+                    <Year>{d.data.year}</Year>
+                    {d.data.title}
+                  </Text>
+                  {idx % 2 === 1 ? (
+                    <DownBubble comments={d.data.comments} theme={theme} />
+                  ) : (
+                    <UpBubble comments={d.data.comments} theme={theme} />
+                  )}
+                </Incident>
+              ))}
           </TimeLineArea>
         </Area>
       </GInner>
@@ -85,7 +101,7 @@ const TimeLineArea = styled.ul`
     background-color: ${(props) => props.theme.textColor};
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1400px) {
     flex-direction: column;
     align-items: baseline;
     margin-left: 6rem;
@@ -100,13 +116,18 @@ const TimeLineArea = styled.ul`
 const Incident = styled.li`
   position: relative;
   width: calc(100% / 4);
-  padding: 12rem 0;
+  padding: 17rem 0;
   transition: 0.3s;
   z-index: 98;
   cursor: pointer;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1400px) {
+    padding: 9rem 0;
+  }
+
+  @media (max-width: 1400px) {
     width: 100%;
+    padding: 10rem 0;
   }
 `;
 
@@ -156,7 +177,7 @@ const Text = styled.span`
     background-color: ${(props) => props.theme.textHoverColor};
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1400px) {
     left: 0;
     transform: translate(0, -50%);
     padding: 0 0 0 3rem;
@@ -174,123 +195,15 @@ const Text = styled.span`
   }
 `;
 
-const SpeechBubble = styled.div`
-  position: absolute;
-  width: 75%;
-  padding: 1rem 1.5rem;
-  color: rgba(36, 46, 71, 0.5);
+const Year = styled.em`
+  margin-right: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1.2rem;
+  background-color: #c6c6c6;
   font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.6px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.8rem;
-  box-shadow: ${(props) => props.theme.boxShadow};
-
-  &:hover {
-    box-shadow: ${(props) => props.theme.boxShadowHover};
-  }
-
-  @media (max-width: 800px) {
-    width: 60%;
-  }
-`;
-
-const SBUpType = styled(SpeechBubble)`
-  bottom: 80%;
-  left: 50%;
-  transform: translateX(-1.5rem);
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 1rem;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 12px solid rgba(0, 0, 0, 0.25);
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 1rem;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 11px solid #fff;
-  }
-
-  @media (max-width: 800px) {
-    bottom: auto;
-    top: 65%;
-    left: 3rem;
-    transform: translate(0, 0);
-
-    &::before {
-      top: -12px;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 12px solid rgba(0, 0, 0, 0.25);
-      border-top: none;
-    }
-    &::after {
-      top: -10px;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 11px solid #fff;
-      border-top: none;
-    }
-  }
-`;
-
-const SBDownType = styled(SpeechBubble)`
-  top: 100%;
-  right: 50%;
-  transform: translateX(1.5rem);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    right: 1rem;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 12px solid rgba(0, 0, 0, 0.25);
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 1rem;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 11px solid #fff;
-  }
-
-  @media (max-width: 800px) {
-    top: 65%;
-    left: 3rem;
-    right: 0;
-    transform: translate(0, 0);
-
-    &::before {
-      left: 1rem;
-      border-top: none;
-    }
-    &::after {
-      left: 1rem;
-      border-top: none;
-    }
-  }
+  font-weight: 500;
+  line-height: 1.2rem;
+  vertical-align: middle;
 `;
 
 const DimLayer = styled.div`
