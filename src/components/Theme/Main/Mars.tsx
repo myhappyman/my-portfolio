@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import marsBg from "../../../assets/imgs/main/theme/mars/marsBg.png";
 import stars from "../../../assets/imgs/main/theme/mars/stars.png";
 import planet from "../../../assets/imgs/main/theme/mars/planet.png";
 import cloud from "../../../assets/imgs/main/theme/mars/cloud.png";
@@ -78,7 +77,6 @@ function Mars() {
 
   return (
     <>
-      <ImgTag src={marsBg} alt="marsBg" className="marsBg" />
       <ImgTag src={stars} alt="stars" className="stars" ref={ref_stars} />
       <ImgTag src={planet} alt="planet" className="planet" ref={ref_planet} />
       <ImgTag src={cloud} alt="cloud" className="cloud" ref={ref_cloud} />

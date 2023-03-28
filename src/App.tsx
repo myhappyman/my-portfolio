@@ -31,13 +31,8 @@ function App() {
   }, []);
 
   const setWindowSize = useSetRecoilState(WindowSize);
-  // const handleResize = () => {
-  //   console.log("handleResize");
-  //   const { innerWidth, innerHeight } = window;
-  //   setWindowSize([innerWidth, innerHeight]);
-  // };
+
   const handleResize = useCallback(() => {
-    console.log("handleResize");
     const { innerWidth, innerHeight } = window;
     setWindowSize([innerWidth, innerHeight]);
   }, [setWindowSize]);

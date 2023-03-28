@@ -75,9 +75,6 @@ const Contents = styled(GArea)`
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: 800px) {
-    padding: 0 4rem;
-  }
 `;
 
 const Area = styled.div`

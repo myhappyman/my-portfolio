@@ -60,7 +60,7 @@ const SpeechBubble = styled.div<{ thisTheme: string }>`
   }
 `;
 
-export const SBUpType = styled(SpeechBubble)`
+const SBUpType = styled(SpeechBubble)`
   bottom: 68%;
   left: 50%;
   transform: translateX(-1.5rem);
@@ -109,9 +109,17 @@ export const SBUpType = styled(SpeechBubble)`
       border-top: none;
     }
   }
+
+  @media (max-width: 500px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 2rem 0 1rem 3rem;
+    transform: none;
+  }
 `;
 
-export const SBDownType = styled(SpeechBubble)`
+const SBDownType = styled(SpeechBubble)`
   top: 82%;
   right: 50%;
   transform: translateX(1.5rem);
@@ -153,5 +161,14 @@ export const SBDownType = styled(SpeechBubble)`
       left: 1rem;
       border-top: none;
     }
+  }
+
+  @media (max-width: 500px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 2rem 3rem 1rem;
+    transform: none;
   }
 `;

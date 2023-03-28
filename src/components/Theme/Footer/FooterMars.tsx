@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import marsBg from "../../../assets/imgs/main/theme/mars/marsBg.png";
 import front01 from "../../../assets/imgs/footer/mars/front01.png";
 import front02 from "../../../assets/imgs/footer/mars/front02.png";
 import planet from "../../../assets/imgs/footer/mars/planet.png";
@@ -8,7 +7,7 @@ import fire from "../../../assets/imgs/footer/mars/fire.png";
 import stars from "../../../assets/imgs/footer/mars/stars.png";
 import { useEffect, useRef } from "react";
 
-function Footer_Mars() {
+function FooterMars() {
   const ref_moutains_front01 = useRef<HTMLImageElement | null>(null);
   const ref_moutains_front02 = useRef<HTMLImageElement | null>(null);
   const ref_planet = useRef<HTMLImageElement | null>(null);
@@ -42,7 +41,6 @@ function Footer_Mars() {
 
   return (
     <>
-      <ImgTag src={marsBg} alt="marsBg" className="marsBg" />
       <ImgTag
         src={front01}
         alt="front01"
@@ -76,7 +74,7 @@ function Footer_Mars() {
   );
 }
 
-export default Footer_Mars;
+export default FooterMars;
 
 const ImgTag = styled.img`
   position: absolute;

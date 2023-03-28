@@ -40,6 +40,7 @@ export default Main;
 const Wrapper = styled.div`
   background: linear-gradient(
     ${(props) => props.theme.bgGradientStartColor},
+    ${(props) => props.theme.bgGradientMiddleColor},
     ${(props) => props.theme.bgGradientEndColor}
   );
 `;

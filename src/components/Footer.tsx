@@ -1,14 +1,14 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { themeMode } from "../atom";
-import Footer_Mars from "./Theme/Footer/Footer_Mars";
-import Footer_Moon from "./Theme/Footer/Footer_Moon";
+import FooterMars from "./Theme/Footer/FooterMars";
+import FooterMoon from "./Theme/Footer/FooterMoon";
 
 function Footer() {
   const theme = useRecoilValue(themeMode);
   return (
     <Wrapper>
-      <Section>{theme === "moon" ? <Footer_Moon /> : <Footer_Mars />}</Section>
+      <Section>{theme === "moon" ? <FooterMoon /> : <FooterMars />}</Section>
     </Wrapper>
   );
 }
@@ -18,6 +18,7 @@ export default Footer;
 const Wrapper = styled.div`
   background: linear-gradient(
     ${(props) => props.theme.bgGradientStartColor},
+    ${(props) => props.theme.bgGradientMiddleColor},
     ${(props) => props.theme.bgGradientEndColor}
   );
 `;
@@ -39,8 +40,9 @@ const Section = styled.section`
   }
   @media (max-width: 820px) {
     height: 80vh;
+    margin-top: -3px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     height: 50vh;
   }
 `;

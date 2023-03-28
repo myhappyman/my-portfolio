@@ -28,6 +28,14 @@ export const GWrapper = styled.section`
   & ~ & {
     margin-top: 6rem;
   }
+
+  @media (max-width: 500px) {
+    padding: 3rem 0 0;
+
+    & ~ & {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 /**
@@ -39,7 +47,7 @@ export const GInner = styled.div`
 
   @media (min-width: 0px) {
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 5%;
   }
   @media (min-width: 500px) {
     padding: 0 4rem;
@@ -76,13 +84,17 @@ const SectionName = styled.div`
 
   @media (max-width: 1200px) {
     font-size: 6rem;
+    margin-bottom: 4rem;
   }
 
   @media (max-width: 900px) {
-    padding-left: 3rem;
+    margin-bottom: 3rem;
+    font-size: 5.4rem;
   }
 
   @media (max-width: 500px) {
+    /* padding-left: 3rem; */
     margin-bottom: 2rem;
+    font-size: 4.6rem;
   }
 `;

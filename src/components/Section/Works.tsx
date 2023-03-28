@@ -100,7 +100,11 @@ function Works() {
                             </Skill>
                           ))}
                       </UseSkillArea>
-                      <GoLink href={work.data.link} target="_blank" />
+                      <GoLink
+                        isHover={isHover[idx]}
+                        href={work.data.link}
+                        target="_blank"
+                      />
                     </FadeIn>
                   </Content>
                 </Article>
@@ -118,9 +122,6 @@ export default Works;
 const Contents = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  @media (max-width: 500px) {
-    padding: 3rem;
-  }
 `;
 
 const CursorPointer = styled.li`
@@ -131,7 +132,7 @@ const Article = styled(CursorPointer)`
   float: left;
   width: 33.3%;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     width: 50%;
   }
   @media (max-width: 500px) {
@@ -158,28 +159,28 @@ const FadeIn = styled.div`
   bottom: 0;
   display: flex;
   flex-direction: column;
-  /* opacity로 처리해서 hover되기전에 view쪽 클릭으로 이동되는 현상 방지용 */
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
 
   &.hover {
     opacity: 0;
   }
   &.fadeIn {
-    /* hover시 사이즈 원상복구 */
-    width: 100%;
-    height: 100%;
     padding: 5rem 3rem 3rem;
     opacity: 1;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
 
-    @media (max-width: 900px) {
+    @media (max-width: 1400px) {
       padding: 3rem;
     }
 
+    @media (max-width: 1200px) {
+      padding: 1rem 1.5rem;
+    }
+
     @media (max-width: 500px) {
-      padding: 1rem;
+      padding: 5rem 3rem 3rem;
     }
   }
 `;
@@ -188,6 +189,17 @@ const Title = styled.div`
   padding: 1rem 0 0.6rem;
   font-size: 3.4rem;
   font-weight: 600;
+
+  @media (max-width: 1600px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 1400px) {
+    font-size: 2rem;
+    padding: 0.6rem 0;
+  }
+  @media (max-width: 500px) {
+    font-size: 3.6rem;
+  }
 `;
 const TypeInfo = styled.div`
   font-size: 2rem;
@@ -243,6 +255,15 @@ const Comments = styled.span`
   font-size: 1.2rem;
   line-height: 1.9rem;
   color: rgba(255, 255, 255, 0.95);
+
+  @media (max-width: 1400px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
 `;
 const UseSkillArea = styled.div``;
 const Skill = styled.span`
@@ -253,9 +274,15 @@ const Skill = styled.span`
   padding: 0.3rem 1.2rem;
   margin-right: 0.6rem;
   margin-bottom: 0.6rem;
+
+  @media (max-width: 1400px) {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
 `;
-const GoLink = styled.a`
-  display: flex;
+const GoLink = styled.a<{ isHover: boolean }>`
+  /* opacity로 처리해서 hover되기전에 view쪽 클릭으로 이동되는 현상 방지용 */
+  display: ${(props) => (props.isHover ? "flex" : "none")};
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -271,6 +298,23 @@ const GoLink = styled.a`
   overflow: hidden;
   transition: 0.5s;
   background-color: transparent;
+
+  @media (max-width: 1400px) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media (max-width: 1200px) {
+    bottom: 2rem;
+    right: 1.5rem;
+  }
+
+  @media (max-width: 500px) {
+    bottom: 4rem;
+    right: 3rem;
+    width: 6rem;
+    height: 6rem;
+  }
 
   &:hover {
     border: 2px solid rgba(114, 196, 226, 1);
@@ -299,6 +343,14 @@ const GoLink = styled.a`
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
     z-index: 9;
+
+    @media (max-width: 1400px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 1.6rem;
+    }
   }
 
   @keyframes wave {

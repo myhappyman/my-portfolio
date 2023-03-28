@@ -127,8 +127,16 @@ const Inner = styled(GInner.withComponent(motion.div))`
   align-items: center;
   padding: 2rem 1rem;
 
-  @media (max-width: 420px) {
-    padding: 2rem 3rem;
+  @media (max-width: 1200px) {
+    padding: 2rem 10rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 2rem 4rem;
+  }
+
+  @media (max-width: 500px) {
+    padding: 2rem 4rem;
   }
 `;
 

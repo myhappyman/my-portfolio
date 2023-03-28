@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { GInner, GWrapper, SectionHeader } from "../../../GlobalComponents";
 import { themeMode } from "../../../atom";
 import { firestore } from "../../../firebase-config";
 import { DocumentData } from "firebase/firestore";
-import { DownBubble, SBDownType, SBUpType, UpBubble } from "./SpeechBubble";
+import { DownBubble, UpBubble } from "./SpeechBubble";
 
 interface ITimeLine {
   data: DocumentData;
@@ -13,9 +13,8 @@ interface ITimeLine {
 }
 
 function TimeLine() {
-  const [openModal, setOpenModal] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
   // const toggleModal = () => setOpenModal((prop) => !prop);
-  const toggleModal = () => null;
   const theme = useRecoilValue(themeMode);
 
   const [timeline, setTimeline] = useState<ITimeLine[]>([]);
@@ -34,7 +33,6 @@ function TimeLine() {
         setTimeline(array);
       });
   }, []);
-  timeline.map((d) => console.log(d.data.comments.split("\\n")));
 
   return (
     <GWrapper>
@@ -59,7 +57,7 @@ function TimeLine() {
           </TimeLineArea>
         </Area>
       </GInner>
-      {openModal && (
+      {/* {openModal && (
         <>
           <GlobalStyle />
           <DimLayer onClick={toggleModal}></DimLayer>
@@ -71,16 +69,16 @@ function TimeLine() {
             </Footer>
           </Modal>
         </>
-      )}
+      )} */}
     </GWrapper>
   );
 }
 
 export default TimeLine;
 
-const GlobalStyle = createGlobalStyle`
-  html{overflow: hidden;}
-`;
+// const GlobalStyle = createGlobalStyle`
+//   html{overflow: hidden;}
+// `;
 
 const Area = styled.div``;
 
@@ -104,11 +102,11 @@ const TimeLineArea = styled.ul`
   @media (max-width: 1400px) {
     flex-direction: column;
     align-items: baseline;
-    margin-left: 6rem;
+    margin-left: 2rem;
     &::before {
       left: 0;
       width: 0.2rem;
-      height: 90%;
+      height: 97%;
     }
   }
 `;
@@ -119,15 +117,21 @@ const Incident = styled.li`
   padding: 17rem 0;
   transition: 0.3s;
   z-index: 98;
-  cursor: pointer;
 
   @media (max-width: 1400px) {
     padding: 9rem 0;
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 500px) {
     width: 100%;
-    padding: 10rem 0;
+    padding: 2rem 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 `;
 
@@ -140,6 +144,10 @@ const Text = styled.span`
   font-size: 2rem;
   font-weight: 700;
   white-space: nowrap;
+
+  @media (max-width: 500px) {
+    position: relative;
+  }
 
   &::before {
     content: "";
@@ -169,14 +177,6 @@ const Text = styled.span`
     z-index: 99;
   }
 
-  &:hover {
-    color: ${(props) => props.theme.textHoverColor};
-  }
-
-  &:hover::before {
-    background-color: ${(props) => props.theme.textHoverColor};
-  }
-
   @media (max-width: 1400px) {
     left: 0;
     transform: translate(0, -50%);
@@ -196,7 +196,7 @@ const Text = styled.span`
 `;
 
 const Year = styled.em`
-  margin-right: 0.6rem;
+  margin-right: 0.8rem;
   padding: 0.4rem 0.8rem;
   border-radius: 1.2rem;
   background-color: #c6c6c6;
@@ -206,47 +206,47 @@ const Year = styled.em`
   vertical-align: middle;
 `;
 
-const DimLayer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(15px);
-  z-index: 99998;
-`;
+// const DimLayer = styled.div`
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   background-color: rgba(0, 0, 0, 0.4);
+//   backdrop-filter: blur(15px);
+//   z-index: 99998;
+// `;
 
-const Modal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 70vh;
-  border-radius: 5rem;
-  background-color: ${(props) => props.theme.bgColor};
-  z-index: 99999;
-`;
+// const Modal = styled.div`
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 80%;
+//   height: 70vh;
+//   border-radius: 5rem;
+//   background-color: ${(props) => props.theme.bgColor};
+//   z-index: 99999;
+// `;
 
-const Header = styled.div`
-  outline: 1px solid #000;
-`;
-const Contents = styled.div`
-  outline: 1px solid red;
-`;
-const Footer = styled.div`
-  text-align: right;
-  padding: 1rem;
-  outline: 1px solid blue;
-`;
-const CloseBtn = styled.button`
-  width: 10rem;
-  padding: 1rem;
-  font-size: 1.6rem;
-  border: none;
-  border-radius: 1rem;
-  background: ${(props) => props.theme.btnColor};
-  color: ${(props) => props.theme.btnTxtColor};
-  cursor: pointer;
-`;
+// const Header = styled.div`
+//   outline: 1px solid #000;
+// `;
+// const Contents = styled.div`
+//   outline: 1px solid red;
+// `;
+// const Footer = styled.div`
+//   text-align: right;
+//   padding: 1rem;
+//   outline: 1px solid blue;
+// `;
+// const CloseBtn = styled.button`
+//   width: 10rem;
+//   padding: 1rem;
+//   font-size: 1.6rem;
+//   border: none;
+//   border-radius: 1rem;
+//   background: ${(props) => props.theme.btnColor};
+//   color: ${(props) => props.theme.btnTxtColor};
+//   cursor: pointer;
+// `;

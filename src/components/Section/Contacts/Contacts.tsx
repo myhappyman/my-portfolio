@@ -93,6 +93,12 @@ const Wrapper = styled(GWrapper)`
     );
     z-index: 1000;
   }
+
+  @media (max-width: 900px) {
+    &::before {
+      height: 100px;
+    }
+  }
 `;
 
 const Area = styled(GArea.withComponent("ul"))`
@@ -136,11 +142,19 @@ const Name = styled.div`
   border-radius: 2rem 2rem 0 0;
   font-size: 4.6rem;
   font-weight: 600;
+
+  @media (max-width: 500px) {
+    font-size: 3rem;
+  }
 `;
 const Comments = styled.div`
   padding: 1.8rem;
   height: 20rem;
   font-size: 1.6rem;
+
+  @media (max-width: 500px) {
+    font-weight: 500;
+  }
 `;
 const Bottom = styled.div`
   padding: 0 3rem 3rem 3rem;

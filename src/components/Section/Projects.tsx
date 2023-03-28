@@ -17,6 +17,7 @@ interface IProject {
 function Projects() {
   const windowSize = useWindowSize();
   const [slidePerView, setSliderPerView] = useState(5);
+  const [spaceBetween, setSpaceBetween] = useState(50);
   const [projects, setProjects] = useState<IProject[]>([]);
   useEffect(() => {
     const array: IProject[] = [];
@@ -38,12 +39,16 @@ function Projects() {
     const { width } = windowSize;
     if (width > 1200) {
       setSliderPerView(5);
+      setSpaceBetween(50);
     } else if (width > 800) {
       setSliderPerView(4);
-    } else if (width > 600) {
+      setSpaceBetween(40);
+    } else if (width > 500) {
       setSliderPerView(3);
+      setSpaceBetween(30);
     } else {
       setSliderPerView(2);
+      setSpaceBetween(30);
     }
   }, [windowSize]);
 
@@ -54,7 +59,7 @@ function Projects() {
           <SectionHeader text="🚀 Projects" />
           <SwiperWrap
             slidesPerView={slidePerView}
-            spaceBetween={50}
+            spaceBetween={spaceBetween}
             grabCursor={true}
             loop={true}
             loopedSlides={3}
@@ -126,13 +131,24 @@ export default Projects;
 
 const Wrapper = styled(GWrapper)`
   overflow: hidden;
+
+  @media (max-width: 500px) {
+    padding: 3rem 0 0;
+    margin-bottom: -2rem;
+  }
 `;
 
 const Area = styled.div`
   .project_swiper {
     width: 150%;
-    padding: 20px;
-    margin-left: -20px;
+    padding: 2rem;
+    margin-left: -2rem;
+  }
+
+  @media (max-width: 500px) {
+    /* .project_swiper {
+      width: 180%;
+    } */
   }
 `;
 
@@ -144,6 +160,7 @@ const SwiperWrap = styled(Swiper)`
     margin: 4rem 0 0 8rem;
   }
 `;
+
 const Slide = styled(SwiperSlide)`
   /* width: calc(100% / 3.5 - 4rem); */
   border-radius: 2rem;
@@ -182,6 +199,10 @@ const Name = styled.span`
   border-radius: 1.8rem;
   background: ${(props) => props.theme.bgGradientStartColor};
   color: #fff;
+
+  @media (max-width: 500px) {
+    font-size: 1.6rem;
+  }
 `;
 const Icon = styled.span`
   width: 2rem;
@@ -190,13 +211,32 @@ const Icon = styled.span`
     margin-top: 0.6rem;
     color: ${(props) => props.theme.bgGradientStartColor};
   }
+
+  @media (max-width: 500px) {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
 `;
 const TextBox = styled.div`
   padding: 1rem;
+
+  @media (max-width: 380px) {
+    padding: 0 1rem 2rem 1rem;
+  }
 `;
 const Comments = styled.span`
   font-size: 1.6rem;
   font-weight: 700;
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 380px) {
+    font-size: 1.2rem;
+  }
 `;
 const HashTag = styled.div`
   position: absolute;
@@ -209,6 +249,11 @@ const HashTag = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #bdc3c7;
+
+  @media (max-width: 500px) {
+    bottom: 0;
+    font-size: 1rem;
+  }
 `;
 
 const Bottom = styled.div`

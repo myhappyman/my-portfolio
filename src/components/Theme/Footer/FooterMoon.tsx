@@ -4,7 +4,7 @@ import moon from "../../../assets/imgs/main/theme/moon/moon.png";
 import fullImg from "../../../assets/imgs/footer/moon/fullImg.png";
 import stars from "../../../assets/imgs/main/theme/moon/stars.png";
 
-function Footer_Moon() {
+function FooterMoon() {
   const ref_moon = useRef<HTMLImageElement | null>(null);
 
   // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
@@ -41,7 +41,7 @@ function Footer_Moon() {
   );
 }
 
-export default Footer_Moon;
+export default FooterMoon;
 
 const ImgTag = styled.img`
   position: absolute;

@@ -72,16 +72,20 @@ export default Skills;
 const Contents = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8rem 1rem;
+  gap: 1rem;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 5rem;
   }
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem 1rem;
+  }
+
+  @media (max-width: 500px) {
+    /* grid-template-columns: 33% 33% 33%; */
+    /* grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 0; */
   }
 `;
 
@@ -94,6 +98,10 @@ const Item = styled.li`
     transform: translateY(-2px);
     box-shadow: ${(props) => props.theme.boxShadowHover};
   }
+
+  @media (max-width: 500px) {
+    padding: 0.4rem;
+  }
 `;
 
 const Icon = styled.div`
@@ -104,17 +112,26 @@ const Icon = styled.div`
     height: 100%;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     width: 3.8rem;
     height: 3.8rem;
+  }
+
+  @media (max-width: 500px) {
+    width: 3rem;
+    height: 3rem;
   }
 `;
 
 const Number = styled.span`
   font-size: 3rem;
   font-weight: 700;
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
   }
 `;
 const Div = styled.div`
@@ -130,11 +147,12 @@ const Name = styled.span`
   padding: 0 1rem;
   font-size: 2.2rem;
   font-weight: 500;
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     font-size: 1.6rem;
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
   }
 `;
 const Content = styled.span`
