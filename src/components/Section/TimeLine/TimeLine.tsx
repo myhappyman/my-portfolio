@@ -118,11 +118,11 @@ const Incident = styled.li`
   transition: 0.3s;
   z-index: 98;
 
-  @media (max-width: 1400px) {
+  /* @media (max-width: 1400px) {
     padding: 9rem 0;
-  }
+  } */
 
-  @media (max-width: 500px) {
+  @media (max-width: 1400px) {
     width: 100%;
     padding: 2rem 0;
 
@@ -145,7 +145,7 @@ const Text = styled.span`
   font-weight: 700;
   white-space: nowrap;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1400px) {
     position: relative;
   }
 

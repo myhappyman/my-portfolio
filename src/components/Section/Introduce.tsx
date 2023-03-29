@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import me from "../../assets/imgs/introduce/me.png";
 import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
@@ -10,39 +9,33 @@ function Introduce() {
     <Wrapper>
       <GInner>
         <SectionHeader text="🤟 Introduce" />
-        <AnimationOnScroll
-          initiallyVisible={false}
-          animateIn="animate__fadeInUp"
-          delay={300}
-        >
-          <Contents>
-            <ImgArea>
-              <img src={me} alt="psw" />
-            </ImgArea>
-            <TextArea>
-              <Title>
-                안녕하세요!
-                <br /> 웹 개발자 박신우 입니다. 😊
-              </Title>
-              <Paragraph>
-                지금까지 5년차 풀 스택 개발자로 여러가지 경험을 쌓았습니다.
-                <br />
-                <br />
-                현재 한가지에 집중 하고자 프론트엔드를 선택해 공부 중입니다.
-                <br />
-                <br />
-                React와 ES6 이상의 문법, Typescript등을 습득하고 있으며,
-                <br />
-                필요한 기술들을 추가적으로 학습 중입니다.
-                <br />
-                <br />
-                그동안 제가 작업한 결과물과 미니 프로젝트를 구경해보세요!
-                <br />
-                감사합니다 :)
-              </Paragraph>
-            </TextArea>
-          </Contents>
-        </AnimationOnScroll>
+        <Contents>
+          <ImgArea>
+            <img src={me} alt="psw" />
+          </ImgArea>
+          <TextArea>
+            <Title>
+              안녕하세요!
+              <br /> 웹 개발자 박신우 입니다. 😊
+            </Title>
+            <Paragraph>
+              지금까지 5년차 풀 스택 개발자로 여러가지 경험을 쌓았습니다.
+              <br />
+              <br />
+              현재 한가지에 집중 하고자 프론트엔드를 선택해 공부 중입니다.
+              <br />
+              <br />
+              React와 ES6 이상의 문법, Typescript등을 습득하고 있으며,
+              <br />
+              필요한 기술들을 추가적으로 학습 중입니다.
+              <br />
+              <br />
+              그동안 제가 작업한 결과물과 미니 프로젝트를 구경해보세요!
+              <br />
+              감사합니다 :)
+            </Paragraph>
+          </TextArea>
+        </Contents>
       </GInner>
     </Wrapper>
   );
@@ -57,12 +50,24 @@ const Wrapper = styled(GWrapper)`
     top: 0rem;
     left: 0;
     width: 100%;
-    height: 180px;
+    height: 18rem;
     background: linear-gradient(
       to top,
       ${(props) => props.theme.bgRGBAColor},
       ${(props) => props.theme.bgGradientEndColor}
     );
+  }
+
+  @media (max-width: 900px) {
+    &::before {
+      height: 10rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &::before {
+      height: 5rem;
+    }
   }
 `;
 

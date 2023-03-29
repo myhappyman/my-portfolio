@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../firebase-config";
@@ -37,31 +36,25 @@ function Skills() {
     <GWrapper>
       <GInner>
         <SectionHeader text="🪐 Skills" />
-        <AnimationOnScroll
-          initiallyVisible={false}
-          animateIn="animate__fadeInUp"
-          delay={300}
-        >
-          <GArea>
-            <Contents>
-              {skills &&
-                skills.map((skill, idx) => (
-                  <Item key={skill.id}>
-                    <Number>{zeroTen(idx + 1)} /</Number>
-                    <Div>
-                      <Icon>
-                        <img src={skill.data.icon} alt={skill.data.name} />
-                      </Icon>
-                      <FlexColumn>
-                        <Name>{skill.data.name}</Name>
-                        <Content>{skill.data.content}</Content>
-                      </FlexColumn>
-                    </Div>
-                  </Item>
-                ))}
-            </Contents>
-          </GArea>
-        </AnimationOnScroll>
+        <GArea>
+          <Contents>
+            {skills &&
+              skills.map((skill, idx) => (
+                <Item key={skill.id}>
+                  <Number>{zeroTen(idx + 1)} /</Number>
+                  <Div>
+                    <Icon>
+                      <img src={skill.data.icon} alt={skill.data.name} />
+                    </Icon>
+                    <FlexColumn>
+                      <Name>{skill.data.name}</Name>
+                      <Content>{skill.data.content}</Content>
+                    </FlexColumn>
+                  </Div>
+                </Item>
+              ))}
+          </Contents>
+        </GArea>
       </GInner>
     </GWrapper>
   );

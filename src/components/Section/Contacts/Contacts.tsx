@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { DocumentData } from "firebase/firestore";
 import { firestore } from "../../../firebase-config";
@@ -35,40 +34,34 @@ function Contacts() {
     <Wrapper>
       <GInner>
         <SectionHeader text="👀 Contacts" />
-        <AnimationOnScroll
-          initiallyVisible={false}
-          animateIn="animate__fadeInUp"
-          delay={300}
-        >
-          <ContactBg />
-          <Area>
-            {Contacts_List &&
-              Contacts_List.map((contact) => (
-                <Items key={contact.id}>
-                  <GoLink href={contact.data.link} target="_blank">
-                    <Top>
-                      <Name>{contact.data.name}</Name>
-                      <Comments>{contact.data.comments}</Comments>
-                    </Top>
-                    <Bottom>
-                      <ImgBox>
-                        {contact.data.image &&
-                          contact.data.image.map(
-                            (imgUrl: string, idx: number) => (
-                              <img
-                                key={`img${idx}${contact.id}`}
-                                src={imgUrl}
-                                alt={contact.data.name}
-                              />
-                            )
-                          )}
-                      </ImgBox>
-                    </Bottom>
-                  </GoLink>
-                </Items>
-              ))}
-          </Area>
-        </AnimationOnScroll>
+        <ContactBg />
+        <Area>
+          {Contacts_List &&
+            Contacts_List.map((contact) => (
+              <Items key={contact.id}>
+                <GoLink href={contact.data.link} target="_blank">
+                  <Top>
+                    <Name>{contact.data.name}</Name>
+                    <Comments>{contact.data.comments}</Comments>
+                  </Top>
+                  <Bottom>
+                    <ImgBox>
+                      {contact.data.image &&
+                        contact.data.image.map(
+                          (imgUrl: string, idx: number) => (
+                            <img
+                              key={`img${idx}${contact.id}`}
+                              src={imgUrl}
+                              alt={contact.data.name}
+                            />
+                          )
+                        )}
+                    </ImgBox>
+                  </Bottom>
+                </GoLink>
+              </Items>
+            ))}
+        </Area>
       </GInner>
     </Wrapper>
   );
@@ -96,7 +89,13 @@ const Wrapper = styled(GWrapper)`
 
   @media (max-width: 900px) {
     &::before {
-      height: 100px;
+      height: 10rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &::before {
+      height: 5rem;
     }
   }
 `;
@@ -107,7 +106,7 @@ const Area = styled(GArea.withComponent("ul"))`
   align-items: center;
   margin-bottom: 6rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
@@ -127,7 +126,11 @@ const Items = styled.li`
     box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1400px) {
+    width: 45%;
+  }
+
+  @media (max-width: 800px) {
     width: 90%;
     margin-bottom: 3rem;
   }
@@ -155,32 +158,38 @@ const Comments = styled.div`
   @media (max-width: 500px) {
     font-weight: 500;
   }
+  @media (max-width: 270px) {
+    display: none;
+  }
 `;
 const Bottom = styled.div`
   padding: 0 3rem 3rem 3rem;
 `;
 const ImgBox = styled.div`
-  display: block;
   position: relative;
   height: 26rem;
-
   &::after {
     content: "";
     display: block;
     clear: both;
   }
   img {
+    display: block;
     position: absolute;
     width: 75%;
     border: 1px solid ${(props) => props.theme.btnTxtColor};
     border-radius: 0.8rem;
   }
   img:nth-child(1) {
-    top: 0;
+    bottom: 20%;
     left: 0;
   }
   img:nth-child(2) {
     bottom: 0;
-    right: 0;
+    left: 20%;
+  }
+
+  @media (max-width: 320px) {
+    height: 35rem;
   }
 `;

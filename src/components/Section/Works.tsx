@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
@@ -55,63 +54,57 @@ function Works() {
     <GWrapper>
       <GInner>
         <SectionHeader text="💻 Works" />
-        <AnimationOnScroll
-          initiallyVisible={false}
-          animateIn="animate__fadeInUp"
-          delay={300}
-        >
-          <GArea>
-            <Contents>
-              {works.map((work, idx) => (
-                <Article
-                  key={work.id}
-                  onMouseEnter={() => toggleHover("enter", idx)}
-                  onMouseLeave={() => toggleHover("leave", idx)}
-                >
-                  <Content>
-                    <img src={work.data.background} alt={work.data.fullTitle} />
-                    <FadeIn className={isHover[idx] ? "fadeIn" : "hover"}>
-                      <TypeInfo>
-                        <SepWeb className="web">WEB</SepWeb>
-                        <SepWorkType className="worksType">
-                          {work.data.worksType &&
-                            work.data.worksType.map((wt: string, idx: number) =>
-                              idx + 1 === work.data.worksType.length
-                                ? wt
-                                : wt + ", "
-                            )}
-                        </SepWorkType>
-                        <SepType className="type">
-                          {work.data.type &&
-                            work.data.type.map((t: string, idx: number) =>
-                              idx + 1 === work.data.type.length ? t : t + ", "
-                            )}
-                        </SepType>
-                      </TypeInfo>
-                      <Title>{work.data.title}</Title>
-                      <Company>{work.data.company}</Company>
-                      <Period>{work.data.period}</Period>
-                      <Comments>{work.data.comments}</Comments>
-                      <UseSkillArea>
-                        {work.data.useSkill &&
-                          work.data.useSkill.map((s: string, idx: number) => (
-                            <Skill key={`${work.data.title}${s}${idx}`}>
-                              {s}
-                            </Skill>
-                          ))}
-                      </UseSkillArea>
-                      <GoLink
-                        isHover={isHover[idx]}
-                        href={work.data.link}
-                        target="_blank"
-                      />
-                    </FadeIn>
-                  </Content>
-                </Article>
-              ))}
-            </Contents>
-          </GArea>
-        </AnimationOnScroll>
+        <GArea>
+          <Contents>
+            {works.map((work, idx) => (
+              <Article
+                key={work.id}
+                onMouseEnter={() => toggleHover("enter", idx)}
+                onMouseLeave={() => toggleHover("leave", idx)}
+              >
+                <Content>
+                  <img src={work.data.background} alt={work.data.fullTitle} />
+                  <FadeIn className={isHover[idx] ? "fadeIn" : "hover"}>
+                    <TypeInfo>
+                      <SepWeb className="web">WEB</SepWeb>
+                      <SepWorkType className="worksType">
+                        {work.data.worksType &&
+                          work.data.worksType.map((wt: string, idx: number) =>
+                            idx + 1 === work.data.worksType.length
+                              ? wt
+                              : wt + ", "
+                          )}
+                      </SepWorkType>
+                      <SepType className="type">
+                        {work.data.type &&
+                          work.data.type.map((t: string, idx: number) =>
+                            idx + 1 === work.data.type.length ? t : t + ", "
+                          )}
+                      </SepType>
+                    </TypeInfo>
+                    <Title>{work.data.title}</Title>
+                    <Company>{work.data.company}</Company>
+                    <Period>{work.data.period}</Period>
+                    <Comments>{work.data.comments}</Comments>
+                    <UseSkillArea>
+                      {work.data.useSkill &&
+                        work.data.useSkill.map((s: string, idx: number) => (
+                          <Skill key={`${work.data.title}${s}${idx}`}>
+                            {s}
+                          </Skill>
+                        ))}
+                    </UseSkillArea>
+                    <GoLink
+                      isHover={isHover[idx]}
+                      href={work.data.link}
+                      target="_blank"
+                    />
+                  </FadeIn>
+                </Content>
+              </Article>
+            ))}
+          </Contents>
+        </GArea>
       </GInner>
     </GWrapper>
   );

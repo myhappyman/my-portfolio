@@ -46,6 +46,16 @@ const CircleType2 = styled(Circle)`
     ${(props) => props.theme.bgGradientStartColor},
     ${(props) => props.theme.bgColor}
   );
+
+  @media (max-width: 800px) {
+    right: 2rem;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  @media (max-width: 620px) {
+    top: 13rem;
+  }
 `;
 
 const CircleType3 = styled(Circle)`
@@ -83,4 +93,9 @@ const LongCircle2 = styled(Circle)`
     ${(props) => props.theme.bgColor}
   );
   transform: rotate(225deg);
+
+  @media (max-width: 620px) {
+    top: 11rem;
+    left: 45%;
+  }
 `;

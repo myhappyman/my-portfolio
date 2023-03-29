@@ -89,10 +89,16 @@ const SBUpType = styled(SpeechBubble)`
   }
 
   @media (max-width: 1400px) {
+    position: relative;
+    top: auto;
+    left: auto;
     bottom: auto;
-    top: 65%;
-    left: 3rem;
-    transform: translate(0, 0);
+    transform: none;
+    margin: 2rem 0 1rem 3rem;
+
+    /* top: 65%;
+    left: 3rem; */
+    /* transform: translate(0, 0); */
 
     &::before {
       top: -12px;
@@ -110,13 +116,13 @@ const SBUpType = styled(SpeechBubble)`
     }
   }
 
-  @media (max-width: 500px) {
+  /* @media (max-width: 500px) {
     position: relative;
     top: auto;
     left: auto;
     margin: 2rem 0 1rem 3rem;
     transform: none;
-  }
+  } */
 `;
 
 const SBDownType = styled(SpeechBubble)`
@@ -148,10 +154,16 @@ const SBDownType = styled(SpeechBubble)`
   }
 
   @media (max-width: 1400px) {
-    top: 65%;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 2rem 3rem 1rem;
+    transform: none;
+    /* top: 65%;
     left: 3rem;
     right: 0;
-    transform: translate(0, 0);
+    transform: translate(0, 0); */
 
     &::before {
       left: 1rem;
@@ -163,12 +175,12 @@ const SBDownType = styled(SpeechBubble)`
     }
   }
 
-  @media (max-width: 500px) {
+  /* @media (max-width: 500px) {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     margin: 2rem 3rem 1rem;
     transform: none;
-  }
+  } */
 `;
