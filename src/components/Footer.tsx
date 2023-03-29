@@ -35,12 +35,14 @@ const Section = styled.section`
   padding: 10rem;
   overflow: hidden;
 
+  @media (max-width: 1800px) {
+    margin-top: -3px;
+  }
   @media (max-width: 1400px) {
     height: 90vh;
   }
   @media (max-width: 820px) {
     height: 80vh;
-    margin-top: -3px;
   }
   @media (max-width: 500px) {
     height: 50vh;

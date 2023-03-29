@@ -159,11 +159,9 @@ const Astronaut = styled(ImgTag)`
     margin-left: 16rem;
     margin-top: 14rem;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 500px) {
     margin-left: 14rem;
-  }
-  @media (max-width: 480px) {
-    margin-left: 12rem;
+    margin-top: 8rem;
   }
 `;
 

@@ -20,29 +20,29 @@ function Mars() {
 
   // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
   const scrollToMoveMain = () => {
-    const { scrollY } = window;
+    const { scrollY, innerHeight } = window;
 
     // ios에서 최상단에서 강제로 끌고 올리면 동작하는 현상 방지용
-    if (scrollY >= 0) {
+    if (scrollY >= 0 && scrollY < innerHeight) {
       // 별 이미지
-      if (ref_stars.current) {
-        ref_stars.current.style.left = `${scrollY * 0.025}rem`;
-      }
+      // if (ref_stars.current) {
+      //   ref_stars.current.style.left = `${scrollY * 0.025}rem`;
+      // }
 
       // 행성 이미지
       if (ref_planet.current) {
         ref_planet.current.style.top = `${scrollY * 0.25}rem`;
         ref_planet.current.style.left = `-${scrollY * 0.05}rem`;
 
-        const scaleValue = scrollY === 0 ? 1 : 1 + scrollY * -0.0015;
-        ref_planet.current.style.scale = `${scaleValue}`;
+        // const scaleValue = scrollY === 0 ? 1 : 1 + scrollY * -0.0015;
+        // ref_planet.current.style.scale = `${scaleValue}`;
       }
 
       // 구름 이미지
-      if (ref_cloud.current) {
-        ref_cloud.current.style.top = `-${scrollY * 0.15}rem`;
-        ref_cloud.current.style.left = `-${scrollY * 0.15}rem`;
-      }
+      // if (ref_cloud.current) {
+      //   ref_cloud.current.style.top = `-${scrollY * 0.15}rem`;
+      //   ref_cloud.current.style.left = `-${scrollY * 0.15}rem`;
+      // }
 
       // 뒷부분 이미지01
       if (ref_moutains_behind01.current) {

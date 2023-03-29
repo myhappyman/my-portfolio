@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled, { ThemeProvider } from "styled-components";
-import { themeMode, themeSelectIsOpen, WindowSize } from "./atom";
+import { IsTop, IsUp, themeMode, themeSelectIsOpen, WindowSize } from "./atom";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Contacts from "./components/Section/Contacts/Contacts";
@@ -20,15 +20,25 @@ function App() {
   const toggleThemeSelectIsOpen = () => (isOpen ? setIsOpen(false) : null);
 
   const [fixedButtonShow, setFixedButtonShow] = useState(false);
+  const setIsUp = useSetRecoilState(IsUp);
+  const setIsTop = useSetRecoilState(IsTop);
+  const [prevScroll, setPrevScroll] = useState(0);
 
-  const scrollIsTop = () => {
+  const handleScroll = useCallback(() => {
     const { scrollY } = window;
+
     scrollY > 600 ? setFixedButtonShow(true) : setFixedButtonShow(false);
-  };
+
+    scrollY <= 10 ? setIsTop(true) : setIsTop(false); //최상단인지 아닌지 체크
+
+    setIsUp(() => (scrollY - prevScroll > 0 ? true : false));
+    setPrevScroll(scrollY);
+  }, [prevScroll, setIsUp, setIsTop]);
+
   useEffect(() => {
-    window.addEventListener("scroll", scrollIsTop);
-    return () => window.removeEventListener("scroll", scrollIsTop);
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const setWindowSize = useSetRecoilState(WindowSize);
 
