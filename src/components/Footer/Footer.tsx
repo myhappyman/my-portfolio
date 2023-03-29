@@ -1,8 +1,8 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { themeMode } from "../atom";
-import FooterMars from "./Theme/Footer/FooterMars";
-import FooterMoon from "./Theme/Footer/FooterMoon";
+import { themeMode } from "../../atom";
+import FooterMars from "./FooterMars";
+import FooterMoon from "./FooterMoon";
 
 function Footer() {
   const theme = useRecoilValue(themeMode);

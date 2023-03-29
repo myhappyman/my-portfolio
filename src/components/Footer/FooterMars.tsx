@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import front01 from "../../../assets/imgs/footer/mars/front01.png";
-import front02 from "../../../assets/imgs/footer/mars/front02.png";
-import planet from "../../../assets/imgs/footer/mars/planet.png";
-import astronaut from "../../../assets/imgs/footer/mars/astronaut.png";
-import fire from "../../../assets/imgs/footer/mars/fire.png";
-import stars from "../../../assets/imgs/footer/mars/stars.png";
+import front01 from "../../assets/imgs/footer/mars/front01.png";
+import front02 from "../../assets/imgs/footer/mars/front02.png";
+import planet from "../../assets/imgs/footer/mars/planet.png";
+import astronaut from "../../assets/imgs/footer/mars/astronaut.png";
+import fire from "../../assets/imgs/footer/mars/fire.png";
+import stars from "../../assets/imgs/footer/mars/stars.png";
 import { useEffect, useRef } from "react";
 
 function FooterMars() {

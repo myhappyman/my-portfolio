@@ -65,24 +65,19 @@ function Header() {
 
 export default Header;
 
+const duration = { duration: 0.5 };
 const headerVariants = {
   initial: {
     marginTop: -300,
-    transition: {
-      duration: 0.5,
-    },
+    transition: duration,
   },
   animate: {
     marginTop: 0,
-    transition: {
-      duration: 0.5,
-    },
+    transition: duration,
   },
   exit: {
     marginTop: -300,
-    transition: {
-      duration: 0.5,
-    },
+    transition: duration,
   },
 };
 
@@ -90,25 +85,16 @@ const themeSliderVariants = {
   initial: {
     height: 0,
     opacity: 0,
-    transition: {
-      type: "tween",
-      duration: 0.5,
-    },
+    transition: duration,
   },
   animate: {
-    height: 100,
+    height: "auto",
     opacity: 1,
-    transition: {
-      type: "tween",
-      duration: 0.5,
-    },
+    transition: duration,
   },
   exit: {
     height: 0,
-    transition: {
-      type: "tween",
-      duration: 0.5,
-    },
+    transition: duration,
   },
 };
 
@@ -215,10 +201,7 @@ const ThemeList = styled(motion.ul)`
 `;
 
 const Theme = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  text-align: center;
 
   &:first-child {
     margin-top: 0.3rem;

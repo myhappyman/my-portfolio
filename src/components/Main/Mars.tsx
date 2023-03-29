@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import stars from "../../../assets/imgs/main/theme/mars/stars.png";
-import planet from "../../../assets/imgs/main/theme/mars/planet.png";
-import cloud from "../../../assets/imgs/main/theme/mars/cloud.png";
-import moutains_front from "../../../assets/imgs/main/theme/mars/mountains_front.png";
-import moutains_behind01 from "../../../assets/imgs/main/theme/mars/mountains_behind01.png";
-import moutains_behind02 from "../../../assets/imgs/main/theme/mars/mountains_behind02.png";
+import stars from "../../assets/imgs/main/theme/mars/stars.png";
+import planet from "../../assets/imgs/main/theme/mars/planet.png";
+import cloud from "../../assets/imgs/main/theme/mars/cloud.png";
+import moutains_front from "../../assets/imgs/main/theme/mars/mountains_front.png";
+import moutains_behind01 from "../../assets/imgs/main/theme/mars/mountains_behind01.png";
+import moutains_behind02 from "../../assets/imgs/main/theme/mars/mountains_behind02.png";
 
 import { motion } from "framer-motion";
 

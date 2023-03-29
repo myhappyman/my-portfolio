@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import moon from "../../../assets/imgs/main/theme/moon/moon.png";
-import fullImg from "../../../assets/imgs/footer/moon/fullImg.png";
-import stars from "../../../assets/imgs/main/theme/moon/stars.png";
+import moon from "../../assets/imgs/main/theme/moon/moon.png";
+import fullImg from "../../assets/imgs/footer/moon/fullImg.png";
+import stars from "../../assets/imgs/main/theme/moon/stars.png";
 
 function FooterMoon() {
   const ref_moon = useRef<HTMLImageElement | null>(null);

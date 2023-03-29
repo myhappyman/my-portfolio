@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
-import Header from "./Header";
+import Header from "../Header";
 import { useRecoilValue } from "recoil";
-import { IsUp, themeMode } from "../atom";
-import Moon from "./Theme/Main/Moon";
-import Mars from "./Theme/Main/Mars";
+import { IsUp, themeMode } from "../../atom";
+import Moon from "./Moon";
+import Mars from "./Mars";
 
 function Main() {
   const selectTheme = useRecoilValue(themeMode);
