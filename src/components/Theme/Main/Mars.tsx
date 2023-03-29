@@ -17,56 +17,53 @@ function Mars() {
   const ref_moutains_behind02 = useRef<HTMLImageElement | null>(null);
   const ref_moutains_front = useRef<HTMLImageElement | null>(null);
   const ref_mainText = useRef<HTMLParagraphElement | null>(null);
-  const ref_explore = useRef<HTMLButtonElement | null>(null);
 
   // 스크롤 이벤트에 따른 메인 이미지 애니메이트 처리
   const scrollToMoveMain = () => {
     const { scrollY } = window;
 
-    // 별 이미지
-    if (ref_stars.current) {
-      ref_stars.current.style.left = `${scrollY * 0.025}rem`;
-    }
+    // ios에서 최상단에서 강제로 끌고 올리면 동작하는 현상 방지용
+    if (scrollY > 0) {
+      // 별 이미지
+      if (ref_stars.current) {
+        ref_stars.current.style.left = `${scrollY * 0.025}rem`;
+      }
 
-    // 행성 이미지
-    if (ref_planet.current) {
-      ref_planet.current.style.top = `${scrollY * 0.25}rem`;
-      ref_planet.current.style.left = `-${scrollY * 0.05}rem`;
+      // 행성 이미지
+      if (ref_planet.current) {
+        ref_planet.current.style.top = `${scrollY * 0.25}rem`;
+        ref_planet.current.style.left = `-${scrollY * 0.05}rem`;
 
-      const scaleValue = scrollY === 0 ? 1 : 1 + scrollY * -0.0015;
-      ref_planet.current.style.scale = `${scaleValue}`;
-    }
+        const scaleValue = scrollY === 0 ? 1 : 1 + scrollY * -0.0015;
+        ref_planet.current.style.scale = `${scaleValue}`;
+      }
 
-    // 구름 이미지
-    if (ref_cloud.current) {
-      ref_cloud.current.style.top = `-${scrollY * 0.15}rem`;
-      ref_cloud.current.style.left = `-${scrollY * 0.15}rem`;
-    }
+      // 구름 이미지
+      if (ref_cloud.current) {
+        ref_cloud.current.style.top = `-${scrollY * 0.15}rem`;
+        ref_cloud.current.style.left = `-${scrollY * 0.15}rem`;
+      }
 
-    // 뒷부분 이미지01
-    if (ref_moutains_behind01.current) {
-      ref_moutains_behind01.current.style.top = `${scrollY * 0.15}rem`;
-    }
+      // 뒷부분 이미지01
+      if (ref_moutains_behind01.current) {
+        ref_moutains_behind01.current.style.top = `${scrollY * 0.15}rem`;
+      }
 
-    // 뒷부분 이미지02
-    if (ref_moutains_behind02.current) {
-      ref_moutains_behind02.current.style.top = `${scrollY * 0.14}rem`;
-    }
+      // 뒷부분 이미지02
+      if (ref_moutains_behind02.current) {
+        ref_moutains_behind02.current.style.top = `${scrollY * 0.14}rem`;
+      }
 
-    // 앞부분 이미지
-    if (ref_moutains_front.current) {
-      ref_moutains_front.current.style.top = `${scrollY * 0.17}rem`;
-    }
+      // 앞부분 이미지
+      if (ref_moutains_front.current) {
+        ref_moutains_front.current.style.top = `${scrollY * 0.17}rem`;
+      }
 
-    // 포트폴리오 텍스트
-    if (ref_mainText.current) {
-      ref_mainText.current.style.marginRight = `${scrollY * 0.4}rem`;
-      ref_mainText.current.style.marginTop = `${scrollY * 0.15}rem`;
-    }
-
-    // 더보기 버튼
-    if (ref_explore.current) {
-      ref_explore.current.style.marginTop = `${scrollY * 0.25}rem`;
+      // 포트폴리오 텍스트
+      if (ref_mainText.current) {
+        ref_mainText.current.style.marginRight = `${scrollY * 0.4}rem`;
+        ref_mainText.current.style.marginTop = `${scrollY * 0.15}rem`;
+      }
     }
   };
 
