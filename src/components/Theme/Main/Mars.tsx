@@ -23,7 +23,7 @@ function Mars() {
     const { scrollY } = window;
 
     // ios에서 최상단에서 강제로 끌고 올리면 동작하는 현상 방지용
-    if (scrollY > 0) {
+    if (scrollY >= 0) {
       // 별 이미지
       if (ref_stars.current) {
         ref_stars.current.style.left = `${scrollY * 0.025}rem`;

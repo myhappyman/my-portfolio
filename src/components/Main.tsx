@@ -17,7 +17,6 @@ function Main() {
   // 스크롤 이벤트에 따른 상단 헤더 보여주거나 숨기기 애니메이트
   const handleScroll = useCallback(() => {
     const { scrollY } = window;
-    // alert(`${scrollY}, ${prevScroll}`);
     scrollY <= 10 ? setIsTop(true) : setIsTop(false); //최상단인지 아닌지 체크
     setIsUp(() => (scrollY - prevScroll > 0 ? true : false));
     setPrevScroll(scrollY);
@@ -28,11 +27,11 @@ function Main() {
     return () => window.removeEventListener("scroll", handleScroll); //clean up
   }, [handleScroll]);
 
-  useEffect(() => {
-    if (ref_wrapper.current) {
-      console.log(ref_wrapper.current.clientHeight);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (ref_wrapper.current) {
+  //     console.log(ref_wrapper.current.clientHeight);
+  //   }
+  // }, []);
 
   return (
     <Wrapper ref={ref_wrapper}>
