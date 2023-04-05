@@ -41,7 +41,6 @@ function App() {
   }, [handleScroll]);
 
   const setWindowSize = useSetRecoilState(WindowSize);
-
   const handleResize = useCallback(() => {
     const { innerWidth, innerHeight } = window;
     setWindowSize([innerWidth, innerHeight]);

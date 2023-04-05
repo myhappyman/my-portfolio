@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "animate.css/animate.min.css";
-import { DocumentData } from "firebase/firestore";
-import { firestore } from "../../../firebase-config";
 import {
   GArea,
   GInner,
@@ -10,25 +8,14 @@ import {
   SectionHeader,
 } from "../../../GlobalComponents";
 import ContactBg from "./ContactBg";
-
-interface IContacts {
-  data: DocumentData;
-  id: string;
-}
+import { IDocumentData, getStoreToData } from "../../../getFireStoreData";
 
 function Contacts() {
-  const [Contacts_List, setContacts_List] = useState<IContacts[]>([]);
+  const [Contacts_List, setContacts_List] = useState<IDocumentData[]>([]);
   useEffect(() => {
-    const array: IContacts[] = [];
-    const collection = firestore.collection("contacts");
-    collection.get().then((docs) => {
-      docs.forEach((doc) => {
-        if (doc.exists) {
-          array.push({ data: doc.data(), id: doc.id });
-        }
-      });
-      setContacts_List(array);
-    });
+    getStoreToData("contacts", "order").then((datas) =>
+      setContacts_List(datas)
+    );
   }, []);
   return (
     <Wrapper>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "animate.css/animate.min.css";
-import { firestore } from "../../firebase-config";
 import { DocumentData } from "firebase/firestore";
 import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { getStoreToData } from "../../getFireStoreData";
 
 interface IWorks {
   data: DocumentData;
@@ -13,19 +13,7 @@ interface IWorks {
 function Works() {
   const [works, setWorks] = useState<IWorks[]>([]);
   useEffect(() => {
-    const array: IWorks[] = [];
-    const collection = firestore.collection("Works");
-    collection
-      .orderBy("order")
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          if (doc.exists) {
-            array.push({ data: doc.data(), id: doc.id });
-          }
-        });
-        setWorks(array);
-      });
+    getStoreToData("Works", "order").then((datas) => setWorks(datas));
   }, []);
 
   const [isHover, setIsHover] = useState([

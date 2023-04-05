@@ -1,55 +1,37 @@
 import styled from "styled-components";
 import { BiLinkExternal } from "react-icons/bi";
 import { useEffect, useState } from "react";
-import { firestore } from "../../firebase-config";
-import { DocumentData } from "firebase/firestore";
 import { GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { useRecoilValue } from "recoil";
-import { WindowSize } from "../../atom";
 import { useWindowSize } from "../../utils";
+import { IDocumentData, getStoreToData } from "../../getFireStoreData";
 
-interface IProject {
-  data: DocumentData;
-  id: string;
-}
 function Projects() {
   const windowSize = useWindowSize();
   const [slidePerView, setSliderPerView] = useState(5);
   const [spaceBetween, setSpaceBetween] = useState(50);
-  const [projects, setProjects] = useState<IProject[]>([]);
+  const [projects, setProjects] = useState<IDocumentData[]>([]);
   useEffect(() => {
-    const array: IProject[] = [];
-    const collection = firestore.collection("Projects");
-    collection
-      .orderBy("order")
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          if (doc.exists) {
-            array.push({ data: doc.data(), id: doc.id });
-          }
-        });
-        setProjects(array);
-      });
+    getStoreToData("Projects", "order").then((datas) => setProjects(datas));
   }, []);
 
   useEffect(() => {
     const { width } = windowSize;
+    let sliderPerView = 2;
+    let spaceBetween = 30;
     if (width > 1200) {
-      setSliderPerView(5);
-      setSpaceBetween(50);
+      sliderPerView = 5;
+      spaceBetween = 50;
     } else if (width > 800) {
-      setSliderPerView(4);
-      setSpaceBetween(40);
+      sliderPerView = 4;
+      spaceBetween = 40;
     } else if (width > 500) {
-      setSliderPerView(3);
-      setSpaceBetween(30);
-    } else {
-      setSliderPerView(2);
-      setSpaceBetween(30);
+      sliderPerView = 3;
+      spaceBetween = 30;
     }
+    setSliderPerView(sliderPerView);
+    setSpaceBetween(spaceBetween);
   }, [windowSize]);
 
   return (

@@ -1,35 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "animate.css/animate.min.css";
-import { DocumentData } from "firebase/firestore";
-import { firestore } from "../../firebase-config";
 import { GArea, GInner, GWrapper, SectionHeader } from "../../GlobalComponents";
+import { IDocumentData, getStoreToData } from "../../getFireStoreData";
 
-interface ISkill {
-  data: DocumentData;
-  id: string;
-}
-
-function zeroTen(num: number): string {
-  return num < 10 ? `0${num}` : num + "";
-}
+const zeroTen = (num: number): string => (num < 10 ? `0${num}` : `${num}`);
 
 function Skills() {
-  const [skills, setSkills] = useState<ISkill[]>([]);
+  const [skills, setSkills] = useState<IDocumentData[]>([]);
   useEffect(() => {
-    const array: ISkill[] = [];
-    const collection = firestore.collection("Skills");
-    collection
-      .orderBy("order")
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          if (doc.exists) {
-            array.push({ data: doc.data(), id: doc.id });
-          }
-        });
-        setSkills(array);
-      });
+    getStoreToData("Skills", "order").then((datas) => setSkills(datas));
   }, []);
 
   return (

@@ -3,35 +3,17 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { GInner, GWrapper, SectionHeader } from "../../../GlobalComponents";
 import { themeMode } from "../../../atom";
-import { firestore } from "../../../firebase-config";
-import { DocumentData } from "firebase/firestore";
 import { DownBubble, UpBubble } from "./SpeechBubble";
-
-interface ITimeLine {
-  data: DocumentData;
-  id: string;
-}
+import { IDocumentData, getStoreToData } from "../../../getFireStoreData";
 
 function TimeLine() {
   // const [openModal, setOpenModal] = useState(false);
   // const toggleModal = () => setOpenModal((prop) => !prop);
   const theme = useRecoilValue(themeMode);
 
-  const [timeline, setTimeline] = useState<ITimeLine[]>([]);
+  const [timeline, setTimeline] = useState<IDocumentData[]>([]);
   useEffect(() => {
-    const array: ITimeLine[] = [];
-    const collection = firestore.collection("TimeLine");
-    collection
-      .orderBy("order")
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          if (doc.exists) {
-            array.push({ data: doc.data(), id: doc.id });
-          }
-        });
-        setTimeline(array);
-      });
+    getStoreToData("TimeLine", "order").then((datas) => setTimeline(datas));
   }, []);
 
   return (
@@ -117,10 +99,6 @@ const Incident = styled.li`
   padding: 17rem 0;
   transition: 0.3s;
   z-index: 98;
-
-  /* @media (max-width: 1400px) {
-    padding: 9rem 0;
-  } */
 
   @media (max-width: 1400px) {
     width: 100%;
