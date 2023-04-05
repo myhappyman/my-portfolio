@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 200;
       src: url(${PretendardExtraLight}) format('woff2');    
       unicode-range: U+AC00-D7A3;
+      font-display: swap;
   }
   
   @font-face {
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 400;
       src: url(${PretendardRegular}) format('woff2');    
       unicode-range: U+AC00-D7A3;
+      font-display: swap;
   }
 
   @font-face {
@@ -29,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 700;
       src: url(${PretendardBold}) format('woff2');    
       unicode-range: U+AC00-D7A3;
+      font-display: swap;
   }
 
   @font-face {
@@ -36,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 800;
       src: url(${PretendardExtraBold}) format('woff2');    
       unicode-range: U+AC00-D7A3;
+      font-display: swap;
   }
 
   /* REM rules */
