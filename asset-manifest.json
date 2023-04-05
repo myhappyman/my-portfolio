@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.7888881e.css",
-    "main.js": "/my-portfolio/static/js/main.e5357aef.js",
+    "main.js": "/my-portfolio/static/js/main.14c9fe5d.js",
     "static/media/PretendardExtraBold.woff2": "/my-portfolio/static/media/PretendardExtraBold.55bef92e8f01b6b6ef2f.woff2",
     "static/media/PretendardBold.woff2": "/my-portfolio/static/media/PretendardBold.0676c8838a37a3b770d8.woff2",
     "static/media/PretendardRegular.woff2": "/my-portfolio/static/media/PretendardRegular.6090e6b5524796768e78.woff2",
@@ -14,18 +14,24 @@
     "static/media/stars.png": "/my-portfolio/static/media/stars.409a030fe4ab9632c577.png",
     "static/media/moon.png": "/my-portfolio/static/media/moon.ab81903c55e2dd21511b.png",
     "static/media/astronaut.png": "/my-portfolio/static/media/astronaut.5fe1c2914b5a702b829d.png",
+    "static/media/mountains_behind01_1024.png": "/my-portfolio/static/media/mountains_behind01_1024.8feff2c1b96be6e2c3d8.png",
     "static/media/me.png": "/my-portfolio/static/media/me.915ae8195fd7d602ea75.png",
     "static/media/mountains_behind01.png": "/my-portfolio/static/media/mountains_behind01.cedd9ccd4ba9eabd49be.png",
+    "static/media/mountains_front_1024.png": "/my-portfolio/static/media/mountains_front_1024.778b1bc046e455c09b9c.png",
     "static/media/fire.png": "/my-portfolio/static/media/fire.8b939379ea5e1744f143.png",
+    "static/media/mountains_behind02_1024.png": "/my-portfolio/static/media/mountains_behind02_1024.b7282590025a47850a4f.png",
     "static/media/front01.png": "/my-portfolio/static/media/front01.9f09a113d454da2abd7d.png",
+    "static/media/planet_1024.png": "/my-portfolio/static/media/planet_1024.6abc5326b1ee7130686d.png",
+    "static/media/cloud_1024.png": "/my-portfolio/static/media/cloud_1024.f6c572cfac818323ba3a.png",
     "static/media/mountains_behind02.png": "/my-portfolio/static/media/mountains_behind02.eda729921a0154abf1df.png",
+    "static/media/stars_1024.png": "/my-portfolio/static/media/stars_1024.e339a19bfb301671cb8d.png",
     "static/media/cloud.png": "/my-portfolio/static/media/cloud.827f64b951ec77ecd83f.png",
     "index.html": "/my-portfolio/index.html",
     "main.7888881e.css.map": "/my-portfolio/static/css/main.7888881e.css.map",
-    "main.e5357aef.js.map": "/my-portfolio/static/js/main.e5357aef.js.map"
+    "main.14c9fe5d.js.map": "/my-portfolio/static/js/main.14c9fe5d.js.map"
   },
   "entrypoints": [
     "static/css/main.7888881e.css",
-    "static/js/main.e5357aef.js"
+    "static/js/main.14c9fe5d.js"
   ]
 }
