@@ -7,6 +7,13 @@ import moutains_front from "../../assets/imgs/main/theme/mars/mountains_front.pn
 import moutains_behind01 from "../../assets/imgs/main/theme/mars/mountains_behind01.png";
 import moutains_behind02 from "../../assets/imgs/main/theme/mars/mountains_behind02.png";
 
+// import stars_1024 from "../../assets/imgs/main/theme/mars/stars_1024.png";
+// import planet_1024 from "../../assets/imgs/main/theme/mars/planet_1024.png";
+// import cloud_1024 from "../../assets/imgs/main/theme/mars/cloud_1024.png";
+// import moutains_front_1024 from "../../assets/imgs/main/theme/mars/mountains_front_1024.png";
+// import moutains_behind01_1024 from "../../assets/imgs/main/theme/mars/mountains_behind01_1024.png";
+// import moutains_behind02_1024 from "../../assets/imgs/main/theme/mars/mountains_behind02_1024.png";
+
 import { motion } from "framer-motion";
 
 function Mars() {
@@ -74,17 +81,37 @@ function Mars() {
 
   return (
     <>
-      <ImgTag src={stars} alt="stars" className="stars" ref={ref_stars} />
-      <ImgTag src={planet} alt="planet" className="planet" ref={ref_planet} />
-      <ImgTag src={cloud} alt="cloud" className="cloud" ref={ref_cloud} />
+      <ImgTag
+        src={stars}
+        // srcSet={`${stars_1024} 500w, ${stars} 501w`}
+        alt="stars"
+        className="stars"
+        ref={ref_stars}
+      />
+      <ImgTag
+        src={planet}
+        // srcSet={`${planet_1024} 500w, ${planet} 501w`}
+        alt="planet"
+        className="planet"
+        ref={ref_planet}
+      />
+      <ImgTag
+        src={cloud}
+        // srcSet={`${cloud_1024} 500w, ${cloud} 501w`}
+        alt="cloud"
+        className="cloud"
+        ref={ref_cloud}
+      />
       <ImgTag
         src={moutains_behind01}
+        // srcSet={`${moutains_behind01_1024} 500w, ${moutains_behind01} 501w`}
         alt="moutains_behind01"
         className="moutains_behind01"
         ref={ref_moutains_behind01}
       />
       <ImgTag
         src={moutains_behind02}
+        // srcSet={`${moutains_behind02_1024} 500w, ${moutains_behind02} 501w`}
         alt="moutains_behind02"
         className="moutains_behind02"
         ref={ref_moutains_behind02}
@@ -100,6 +127,7 @@ function Mars() {
 
       <ImgTag
         src={moutains_front}
+        // srcSet={`${moutains_front_1024} 500w, ${moutains_front} 501w`}
         alt="moutains_front"
         className="moutains_front"
         ref={ref_moutains_front}

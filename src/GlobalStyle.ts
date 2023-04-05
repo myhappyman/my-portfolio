@@ -109,6 +109,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Poppins', 'Pretendard', sans-serif;    
     font-weight: 300;
+    font-display: swap;
+    /* iphone 갑자기 폰트 크게 터지는 현상 방지용 */
+    -webkit-text-size-adjust: 100%;
     color: ${(props) => props.theme.textColor};    
     background-color: ${(props) => props.theme.bgRGBAColor};
   }
