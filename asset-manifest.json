@@ -1,31 +1,29 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.7888881e.css",
-    "main.js": "/my-portfolio/static/js/main.b2a3ac86.js",
+    "main.js": "/my-portfolio/static/js/main.13bb2bfc.js",
     "static/media/PretendardExtraBold.woff2": "/my-portfolio/static/media/PretendardExtraBold.55bef92e8f01b6b6ef2f.woff2",
     "static/media/PretendardBold.woff2": "/my-portfolio/static/media/PretendardBold.0676c8838a37a3b770d8.woff2",
     "static/media/PretendardRegular.woff2": "/my-portfolio/static/media/PretendardRegular.6090e6b5524796768e78.woff2",
     "static/media/PretendardExtraLight.woff2": "/my-portfolio/static/media/PretendardExtraLight.1a26bede4e9bc7d2e9c0.woff2",
     "static/media/mountains_front.png": "/my-portfolio/static/media/mountains_front.13d927eaddab90679516.png",
-    "static/media/planet.png": "/my-portfolio/static/media/planet.43b09161d5fae3d7dfe5.png",
-    "static/media/mountains_behind.png": "/my-portfolio/static/media/mountains_behind.38e14b5c40238f9f4c60.png",
     "static/media/front02.png": "/my-portfolio/static/media/front02.0321692b30ed9166e476.png",
-    "static/media/stars.png": "/my-portfolio/static/media/stars.4e2468dc0e6ab6fb957d.png",
-    "static/media/moon.png": "/my-portfolio/static/media/moon.ab81903c55e2dd21511b.png",
     "static/media/mountains_behind01.png": "/my-portfolio/static/media/mountains_behind01.cedd9ccd4ba9eabd49be.png",
     "static/media/fullImg.png": "/my-portfolio/static/media/fullImg.d68f9bdb35dc8f4839ee.png",
-    "static/media/fire.png": "/my-portfolio/static/media/fire.8b939379ea5e1744f143.png",
+    "static/media/planet.png": "/my-portfolio/static/media/planet.43b09161d5fae3d7dfe5.png",
+    "static/media/mountains_behind.png": "/my-portfolio/static/media/mountains_behind.2da0325fb0aa6aa7fcfd.png",
     "static/media/front01.png": "/my-portfolio/static/media/front01.9f09a113d454da2abd7d.png",
     "static/media/mountains_behind02.png": "/my-portfolio/static/media/mountains_behind02.eda729921a0154abf1df.png",
+    "static/media/moon.png": "/my-portfolio/static/media/moon.f12dae84dc2b41775339.png",
     "static/media/me.png": "/my-portfolio/static/media/me.6f4f424c9c3b47948cb7.png",
     "static/media/cloud.png": "/my-portfolio/static/media/cloud.c5242059d850ab5deefe.png",
     "static/media/astronaut.png": "/my-portfolio/static/media/astronaut.8d16ace4b7cd801257b7.png",
     "index.html": "/my-portfolio/index.html",
     "main.7888881e.css.map": "/my-portfolio/static/css/main.7888881e.css.map",
-    "main.b2a3ac86.js.map": "/my-portfolio/static/js/main.b2a3ac86.js.map"
+    "main.13bb2bfc.js.map": "/my-portfolio/static/js/main.13bb2bfc.js.map"
   },
   "entrypoints": [
     "static/css/main.7888881e.css",
-    "static/js/main.b2a3ac86.js"
+    "static/js/main.13bb2bfc.js"
   ]
 }
