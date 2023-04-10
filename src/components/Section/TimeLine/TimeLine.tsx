@@ -98,7 +98,6 @@ const Incident = styled.li`
   width: calc(100% / 4);
   padding: 17rem 0;
   transition: 0.3s;
-  z-index: 98;
 
   @media (max-width: 1400px) {
     width: 100%;
@@ -138,7 +137,6 @@ const Text = styled.span`
     border-radius: 50%;
     background-color: ${(props) => props.theme.textColor};
     transition: 0.3s;
-    z-index: 98;
   }
 
   &::after {
@@ -152,7 +150,6 @@ const Text = styled.span`
     border-radius: 50%;
     background-color: ${(props) => props.theme.bgColor};
     transition: 0.3s;
-    z-index: 99;
   }
 
   @media (max-width: 1400px) {

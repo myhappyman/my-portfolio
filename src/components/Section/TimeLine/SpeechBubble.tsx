@@ -43,6 +43,7 @@ const SpeechBubble = styled.div<{ thisTheme: string }>`
   border-radius: 0.8rem;
   box-shadow: ${(props) =>
     props.thisTheme === "moon" ? "none" : props.theme.boxShadow};
+  z-index: 1;
 
   &:hover {
     box-shadow: ${(props) =>
@@ -96,10 +97,6 @@ const SBUpType = styled(SpeechBubble)`
     transform: none;
     margin: 2rem 0 1rem 3rem;
 
-    /* top: 65%;
-    left: 3rem; */
-    /* transform: translate(0, 0); */
-
     &::before {
       top: -12px;
       border-left: 5px solid transparent;
@@ -115,14 +112,6 @@ const SBUpType = styled(SpeechBubble)`
       border-top: none;
     }
   }
-
-  /* @media (max-width: 500px) {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin: 2rem 0 1rem 3rem;
-    transform: none;
-  } */
 `;
 
 const SBDownType = styled(SpeechBubble)`
@@ -160,10 +149,6 @@ const SBDownType = styled(SpeechBubble)`
     right: auto;
     margin: 2rem 3rem 1rem;
     transform: none;
-    /* top: 65%;
-    left: 3rem;
-    right: 0;
-    transform: translate(0, 0); */
 
     &::before {
       left: 1rem;
@@ -174,13 +159,4 @@ const SBDownType = styled(SpeechBubble)`
       border-top: none;
     }
   }
-
-  /* @media (max-width: 500px) {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    margin: 2rem 3rem 1rem;
-    transform: none;
-  } */
 `;
