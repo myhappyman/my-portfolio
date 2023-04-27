@@ -1,5 +1,9 @@
 # 박신우 포트폴리오
 
+- 개발자로 경험한 경력, 프론트엔드로 준비과정을 담은 페이지입니다.
+
+
+
 ### 사용한 기술 및 라이브러리
 
 `React`, `typescript`, `framer-motion`, `recoil`, `firebase`, `HTML5`, `CSS3`
